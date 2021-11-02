@@ -21,10 +21,10 @@ admin BOOL NOT NULL);
 --
 -- Structure of `specialty`
 --
-CREATE TABLE specialities (
+CREATE TABLE specialties (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    name VARCHAR(30) NOT NULL;
-)
+    name VARCHAR(30) NOT NULL
+);
 
 
 --
@@ -36,11 +36,11 @@ id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 name VARCHAR(30) NOT NULL,
 material VARCHAR(20) NOT NULL,
 nb_wishes INT NOT NULL,
-speciality_id VARCHAR(20) NOT NULL,
+specialty_id VARCHAR(20) NOT NULL,
 costPerDay INT NOT NULL,
 genie_img VARCHAR(150) NOT NULL,
 lamp_img VARCHAR(150) NOT NULL)
-FOREIGN KEY (speciality_id) REFERENCES specialities(id);
+FOREIGN KEY (specialty_id) REFERENCES specialties(id);
 
 --
 -- Structure of `booking`

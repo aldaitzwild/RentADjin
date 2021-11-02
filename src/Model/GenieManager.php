@@ -13,7 +13,7 @@ class GenieManager extends AbstractManager
      * Get one row from database by ID JOIN with specialties table.
      *
      */
-    public function showAllInfoById(int $id): array
+    public function selectAllInfoById(int $id): array
     {
         //Prepare request
         $query = "SELECT * FROM genies AS g JOIN specialties AS s ON s.id = g.specialties_id WHERE g.id =:id";

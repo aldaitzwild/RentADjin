@@ -7,7 +7,7 @@ CREATE DATABASE aVosSouhaits;
 USE aVosSouhaits;
 
 --
--- Structure de la table `users`
+-- Structure of `users`
 --
 
 CREATE TABLE users (
@@ -19,7 +19,16 @@ email VARCHAR(90) NOT NULL,
 admin BOOL NOT NULL);
 
 --
--- Structure de la table `genies`
+-- Structure of `specialty`
+--
+CREATE TABLE specialities (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(30) NOT NULL;
+)
+
+
+--
+-- Structure of `genies`
 --
 
 CREATE TABLE genies (
@@ -27,13 +36,14 @@ id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 name VARCHAR(30) NOT NULL,
 material VARCHAR(20) NOT NULL,
 nb_wishes INT NOT NULL,
-speciality VARCHAR(20) NOT NULL,
+speciality_id VARCHAR(20) NOT NULL,
 costPerDay INT NOT NULL,
 genie_img VARCHAR(150) NOT NULL,
-lamp_img VARCHAR(150) NOT NULL);
+lamp_img VARCHAR(150) NOT NULL)
+FOREIGN KEY (speciality_id) REFERENCES specialities(id);
 
 --
--- Structure de la table `booking`
+-- Structure of `booking`
 --
 
 CREATE TABLE bookings (

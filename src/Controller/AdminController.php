@@ -43,11 +43,9 @@ class AdminController extends AbstractController
     public function showGenie($id): string
     {
         $genieInfo = $this->genieManager->selectAllInfoById($id);
-        $specialties = $this->specialtyManager->selectAll();
-
         return $this->twig->render(
-            'Admin/adminGenie.html.twig',
-            ['genieInfo' => $genieInfo, 'specialties' => $specialties]
+            'Admin/adminShowGenie.html.twig',
+            ['genieInfo' => $genieInfo]
         );
     }
 }

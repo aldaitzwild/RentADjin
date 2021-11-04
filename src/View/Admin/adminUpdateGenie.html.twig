@@ -1,0 +1,43 @@
+{% extends 'parent.html.twig' %}
+
+{% block title %}Administration
+{% endblock %}
+
+{% block content %}
+
+	<form method="post" accept-charset="UTF-8" enctype="multipart/form-data" class="container">
+		<div class="form-group">
+			<label for="name" class="form-label">Nom</label>
+			<input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder={{genie.name}}>
+		</div>
+		<div class="form-group">
+			<label for="numberOfWishes" class="form-label">Nombre de voeux</label>
+			<input type="number" class="form-control" name="numberOfWishes" id="numberOfWishes" placeholder="{{genie.price}}" min='1'>
+		</div>
+		<div class="form-group">
+			<label for="specialty" class="form-label">Catégorie</label>
+			<select class="form-control" id="specialty">
+				<option value="{{genie.specialty_id}}" selected="true">{{genie.name}}</option>
+				{% for specialty in specialties %}
+					{% if specialty.id != genie.specialty_id %}
+						<option value={{specialty.id}}>{{specialty.name}}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="price" class="form-label">Prix</label>
+			<input type="number" class="form-control" id="price" name="price" placeholder="{{genie.price}}" min='0'>
+		</div>
+		<div class="form-group">
+			<label for="file" class="form-label">Photo du genie</label>
+			<input type="file" class="form-control" id="file" name="file" accept=".jpg,.png,.webp">
+		</div>
+		<div class="form-group">
+			<label for="file" class="form-label">Photo dde la lampe</label>
+			<input type="file" class="form-control" id="file" name="file" accept=".jpg,.png,.webp">
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+{% endblock %}

@@ -20,8 +20,8 @@ class UserController extends AbstractController
             $user = array_map('trim', $_POST);
 
             $this -> userManager->insert($user);
-            header('Location:add'); //A compléter pour redirection vers la page Admin
+            header('Location:admin'); //A compléter pour redirection vers la page Admin
         }
-        return $this->twig->render('Admin/add.html.twig'); //Route déjà ajoutée par Manue
+        return $this->twig->render('Admin/addUser.html.twig'); //Route déjà ajoutée par Manue
     }
 }

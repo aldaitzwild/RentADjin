@@ -4,8 +4,7 @@ namespace App\Model;
 
 class GenieManager extends AbstractManager
 {
-    public const TABLE1 = 'genies';
-    public const TABLE2 = 'specialty';
+    public const TABLE = 'genies';
     public function selectAllInfoById(int $id)
     {
         // prepared request

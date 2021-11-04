@@ -12,6 +12,6 @@ class GenieController extends AbstractController
         $genieManager = new GenieManager();
         $genie = $genieManager->selectAllInfoById($id);
 
-        return $this->twig->render('Genie/show.html.twig', ['genie' => $genie]);
+        return $this->twig->render('Genie/showgenie.html.twig', ['genie' => $genie]);
     }
 }

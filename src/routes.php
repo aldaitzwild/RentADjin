@@ -16,4 +16,5 @@ return [
     'users/add' => ['UserController', 'add'],
     'users' => ['UserController', 'list'],
     'genies/show' => ['GenieController', 'show', ['id']],
+    'admin' => ['AdminController','index'],
 ];

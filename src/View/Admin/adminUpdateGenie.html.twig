@@ -1,40 +1,41 @@
 {% extends 'parent.html.twig' %}
 
-{% block title %}Administration
+{% block title %}Administration - Modifier
+	{{genieInfo.genieName}}
 {% endblock %}
 
 {% block content %}
 
 	<form method="post" accept-charset="UTF-8" enctype="multipart/form-data" class="container">
-		<div class="form-group">
+		<div class="form-group mb-3 ">
 			<label for="name" class="form-label">Nom</label>
-			<input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder={{genie.name}}>
+			<input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" value={{genieInfo.genieName}}>
 		</div>
-		<div class="form-group">
+		<div class="form-group mb-3 ">
 			<label for="numberOfWishes" class="form-label">Nombre de voeux</label>
-			<input type="number" class="form-control" name="numberOfWishes" id="numberOfWishes" placeholder="{{genie.price}}" min='1'>
+			<input type="number" class="form-control" name="numberOfWishes" id="numberOfWishes" value="{{genieInfo.nb_wishes}}" min='1'>
 		</div>
-		<div class="form-group">
+		<div class="form-group mb-3 ">
 			<label for="specialty" class="form-label">Catégorie</label>
 			<select class="form-control" id="specialty">
-				<option value="{{genie.specialty_id}}" selected="true">{{genie.name}}</option>
+				<option value="{{genieInfo.specialty_id}}" selected="true">{{genieInfo.specialtyName}}</option>
 				{% for specialty in specialties %}
-					{% if specialty.id != genie.specialty_id %}
+					{% if specialty.id != genieInfo.specialty_id %}
 						<option value={{specialty.id}}>{{specialty.name}}</option>
 					{% endif %}
 				{% endfor %}
 			</select>
 		</div>
-		<div class="form-group">
+		<div class="form-group mb-3 ">
 			<label for="price" class="form-label">Prix</label>
-			<input type="number" class="form-control" id="price" name="price" placeholder="{{genie.price}}" min='0'>
+			<input type="number" class="form-control" id="price" name="price" value="{{genieInfo.costPerDay}}" min='0'>
 		</div>
-		<div class="form-group">
+		<div class="form-group mb-3 ">
 			<label for="file" class="form-label">Photo du genie</label>
 			<input type="file" class="form-control" id="file" name="file" accept=".jpg,.png,.webp">
 		</div>
-		<div class="form-group">
-			<label for="file" class="form-label">Photo dde la lampe</label>
+		<div class="form-group mb-3 ">
+			<label for="file" class="form-label">Photo de la lampe</label>
 			<input type="file" class="form-control" id="file" name="file" accept=".jpg,.png,.webp">
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>

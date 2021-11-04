@@ -25,7 +25,7 @@ class GenieManager extends AbstractManager
 
         return(int)$this->pdo->lastInsertId();
     }
-  
+
     /**
      * Get one row from database by ID JOIN with specialties table.
      *

@@ -4,20 +4,17 @@ namespace App\Controller;
 
 use App\Model\UserManager;
 use App\Model\GenieManager;
-use App\Model\SpecialtyManager;
 
 class AdminController extends AbstractController
 {
     private UserManager $userManager;
     private GenieManager $genieManager;
-    private SpecialtyManager $specialtyManager;
 
     public function __construct()
     {
         parent::__construct();
         $this->userManager = new UserManager();
         $this->genieManager = new GenieManager();
-        $this->specialtyManager = new SpecialtyManager();
     }
 
     /**

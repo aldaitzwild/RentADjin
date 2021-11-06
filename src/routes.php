@@ -7,7 +7,7 @@
 //          3. (optional) array of query string keys to send as parameter to the method
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
-    '' => ['HomeController', 'index',],
+   // '' => ['HomeController', 'index',],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
@@ -17,5 +17,6 @@ return [
     'users' => ['UserController', 'list'],
     'admin' => ['AdminController','index',],
     'admin/genies/add' => ['GenieController', 'add',],
-    'admin/genies/genie' => ['AdminController', 'showGenie', ['id']]
+    'admin/genies/genie' => ['AdminController', 'showGenie', ['id']],
+    '' => ['WelcomeController', 'index',],
 ];

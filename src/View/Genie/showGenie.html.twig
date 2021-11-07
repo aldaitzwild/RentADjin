@@ -1,0 +1,59 @@
+{% extends 'parent.html.twig' %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/showGenieStyle.css">
+{% endblock %}
+
+{% block title %}Génie -
+	{{genieInfo.genieName}}
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+	<div class="container text-center">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xs-12 col-sm-5">
+				<img src={{genieInfo.genie_img}} class="rounded" alt="Image du génie {{genieInfo.genieName}}">
+				<h1 class="row justify-content-start">{{genieInfo.genieName}}</h1>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-5 col-xs-5 col-sm-2">
+				<div class="imagetile">
+					<img src={{genieInfo.img}} class="tileimg" alt="Image de la lampe de {{genieInfo.genieName}}">
+				</div>
+			</div>
+			<div class="col-5 col-xs-5 col-sm-2">
+				<div class="imagetile">
+					<img src={{genieInfo.lamp_img}} class="tileimg" alt="Image de la lampe de {{genieInfo.genieName}}">
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-5 col-xs-5 col-sm-2">
+				<div class="tile">
+					<h2 class="title">{{genieInfo.nb_wishes}}</h2>
+					<p>voeux</p>
+				</div>
+			</div>
+
+			<div class="col-5 col-xs-5 col-sm-2">
+				<div class="tile">
+					<h2 class="title">{{genieInfo.costPerDay}}€</h2>
+					<p>/jour</p>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12 col-xs-12 col-sm-5">
+				<p class="justify-content-start description">{{genieInfo.description}}</p>
+			</div>
+		</div>
+		<div class="row justify-content-center m-2">
+			<a href="#" class="btn btn-lg col-4 col-sm-4 col-md-3 col-lg-2" role="button">Réserver</a>
+		</div>
+	</div>
+	{% endblock %}
+	{% block footer %}{% endblock %}

@@ -31,8 +31,9 @@ class AdminController extends AbstractController
     public function index(): string
     {
         $users = $this->userManager->selectAll();
+        $genies = $this->genieManager->selectAll();
 
-        return $this->twig->render('Admin/admin.html.twig', ['users' => $users]);
+        return $this->twig->render('Admin/admin.html.twig', ['users' => $users, 'genies' => $genies]);
     }
 
     /**
@@ -49,14 +50,14 @@ class AdminController extends AbstractController
         );
     }
 
-    public function showAllGenies(): string
-    {
-        $genies = $this->genieManager->selectAll();
-        return $this->twig->render(
-            'Admin/adminGenies.html.twig',
-            ['genies' => $genies]
-        );
-    }
+    // public function showAllGenies(): string
+    // {
+    //     $genies = $this->genieManager->selectAll();
+    //     return $this->twig->render(
+    //         'Admin/adminGenies.html.twig',
+    //         ['genies' => $genies]
+    //     );
+    // }
 
     public function showUpdateGenie($id): string
     {

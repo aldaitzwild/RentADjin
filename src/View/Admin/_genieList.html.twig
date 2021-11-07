@@ -1,0 +1,31 @@
+<div class='container'>
+
+	<h1>
+		Liste des Genies</h1>
+	<table class="table table-striped">
+		<tbody>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">id catégorie</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Prix Journalier</th>
+			</tr>
+
+			{% for genie in genies %}
+
+				<tr>
+					<th scope="row">
+						<a href="/admin/genie?id={{genie.id}}">{{genie.id}}</a>
+					</th>
+					<td class="text-center">{{genie.specialty_id}}</td>
+					<td class="text-center">{{genie.name}}</td>
+					<td class="text-center">{{genie.costPerDay}}€</td>
+				</tr>
+
+
+			{% endfor %}
+		</tbody>
+
+
+	</table>
+</div>

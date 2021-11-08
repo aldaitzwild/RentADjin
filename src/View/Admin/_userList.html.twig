@@ -1,20 +1,20 @@
-<div class='container usersContainer'>
+<div class='container adminContainer usersContainer' id="userMenuTitleView">
 
-	<h1>
+	<h1 class="menuTitle text-center">
 		Liste Utilisateurs</h1>
 	<table class="table table-striped usersTable">
 		<tbody>
 			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Nom</th>
-				<th scope="col">Prenom</th>
-				<th scope="col">email</th>
+				<th scope="col" class="text-center">#</th>
+				<th scope="col" class="text-center">Nom</th>
+				<th scope="col" class="text-center">Prenom</th>
+				<th scope="col" class="text-center">email</th>
 			</tr>
 
 			{% for user in users %}
 
 				<tr>
-					<th scope="row">
+					<th scope="row" class="text-center">
 						<a href="/admin/user?id={{user.id}}">{{user.id}}</a>
 					</th>
 					<td class="text-center">{{user.lastname}}</td>

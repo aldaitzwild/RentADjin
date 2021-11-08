@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Dr+Sugiyama&display=swap');
+
 body, html {
     height: 100%;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
   .title-image {
@@ -28,7 +30,9 @@ body, html {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 5px;
+      padding: 10px;
+      font-family: 'Dr Sugiyama', cursive;
+      font-size: 40pt;
   }
   
   .search{
@@ -38,7 +42,6 @@ body, html {
       justify-content: space-around;
       flex-grow: 2;
       margin-top: 20vw;
-
   }
   button {
     border: none;
@@ -48,4 +51,27 @@ body, html {
     background-color: white;
     cursor: pointer;
   }
+
+  .logo {
+    border: solid 2px black;
+    border-radius: 25%;
+    margin: 1vw;
+  }
   
+  .specialties {
+    margin-top: 5vw;
+  }
+  
+  .scrollmenu .row {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: block;
+  }
+
+  .scrollmenu > .row > .col-4 {
+    display: inline-block;
+    float:none;
+  }
+  h3 {
+    font-size: 0.8em;
+  }

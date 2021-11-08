@@ -1,26 +1,23 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: aurelwcs
- * Date: 08/04/19
- * Time: 18:40
- */
-
 namespace App\Controller;
+
+use App\Model\SpecialtyManager;
 
 class WelcomeController extends AbstractController
 {
-    /**
-     * Display home page
-     *
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
+    private SpecialtyManager $specialtyManager;
+
+    public function __construct()
+    {
+        parent:: __construct();
+        $this -> specialtyManager = new SpecialtyManager();
+    }
+
     public function index()
     {
-        return $this->twig->render('Home/welcome.html.twig');
+        $specialties = $this->specialtyManager->selectAll();
+
+        return $this->twig->render('Home/welcome.html.twig', ['specialties' => $specialties]);
     }
 }

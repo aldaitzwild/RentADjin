@@ -42,6 +42,7 @@ body, html {
       justify-content: space-around;
       flex-grow: 2;
       margin-top: 20vw;
+      font-size: 1.2em;
   }
   button {
     border: none;
@@ -58,7 +59,7 @@ body, html {
     margin: 1vw;
   }
   
-  .specialties {
+  h2 {
     margin-top: 5vw;
   }
   

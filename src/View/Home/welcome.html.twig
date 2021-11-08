@@ -21,29 +21,28 @@
 		</div>
   	</div>
 </div>
-<div class="specialties">
+<div>
 
 	<h2>Catégories</h2>
-
 	<div class="container scrollmenu">
 		<div class="row text-center">
+		{% for specialty in specialties %}
 			<div class="col-4">
-			<img class="logo" src= "assets/images/activities.png">
-				<h3>Activités Physiques</h3>
+			<img class="logo" src={{specialty.img}}>
+				<h3>{{specialty.name}}</h3>
 			</div>
-			<div class="col-4">
-			<img class="logo" src= "assets/images/meteo.png">
-				<h3>Météo</h3>
-			</div>
-			<div class="col-4">
-			<img class="logo" src= "assets/images/love.png">
-				<h3>Amour</h3>
-			</div>
-			<div class="col-4">
-			<img class="logo" src= "assets/images/work.png">
-				<h3>Travail</h3>
-			</div>
+		{% endfor %}
 		</div>
 	</div>
+</div>
+<div class="favoris">
+
+	<h2>Les Génies du moments</h2>
+
+		<div class="container scrollmenu">
+			<div class="row text-center">
+				<div class="col-4"></div>
+			</div>
+		</div>
 </div>
 {% endblock %}

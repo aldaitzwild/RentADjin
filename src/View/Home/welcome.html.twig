@@ -14,7 +14,12 @@
   		<div class="title">
 			<img src="assets/images/logo.png">
     		<h1 class="display-1">À Vos Souhaits</h1>
-		</div>
+			<div class="d-flex">
+  				<input type="search" class="form-control rounded" placeholder="Search"/>
+  				<button type="button" class="btn btn-outline-light">search</button>
+			</div>
+			<button type="button" class="btn btn-light btn-rounded"><i class="fas fa-user-alt"></i>Connection</button>
+			</div>
 		<div class="search">
     		<p>Vous ne savez pas quel Génie choisir?</p>
     		<button>Découvrir</button>
@@ -23,7 +28,7 @@
 </div>
 <div>
 
-	<h2>Catégories</h2>
+	<h2>Découvrez nos catégories</h2>
 	<div class="container scrollmenu">
 		<div class="row text-center">
 		{% for specialty in specialties %}

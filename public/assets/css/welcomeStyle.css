@@ -8,7 +8,7 @@ body, html {
   
   .title-image {
     background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/smoke.jpg");
-    height: 50%;
+    height: 75%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,37 +20,59 @@ body, html {
     display: flex;
     flex-direction: column;
     text-align: center;
-    position: absolute;
+    position: relative;
     color: white;
     width: 100%;
     height: 100%;
+  }
+
+  .d-flex{
+    display: none !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   .title{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
+      padding: 2vw;
       font-family: 'Dr Sugiyama', cursive;
       font-size: 40pt;
+  }
+  
+  .connection {
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: white solid 1px;
+    border-radius: 30em;
+    align-items: center;
+  }
+  .btn.btn-rounded { 
+    border-radius: 50px 
+  }
+
+  .btn.btn-rounded {
+    display: none;
+    font-size: 0.3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
   .search{
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
       flex-grow: 2;
-      margin-top: 20vw;
       font-size: 1.2em;
   }
-  button {
+  .search > button {
     border: none;
     border-radius: 30em;
     padding: 10px 25px;
     color: black;
     background-color: white;
     cursor: pointer;
+    margin-top: 2vw;
   }
 
   .logo {
@@ -75,4 +97,19 @@ body, html {
   }
   h3 {
     font-size: 0.8em;
+  }
+
+  @media screen and (min-width: 800px){
+
+    .d-flex{
+      display: inline-flex !important;
+    }
+
+    .title{
+      justify-content: inline;
+    }
+
+    .btn.btn-rounded {
+      display: initial;
+    }
   }

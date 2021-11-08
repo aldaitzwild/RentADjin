@@ -12,9 +12,9 @@ class GenieController extends AbstractController
 
     public function __construct()
     {
-        parent:: __construct();
-        $this -> genieManager = new GenieManager();
-        $this -> specialtyManager = new SpecialtyManager();
+        parent::__construct();
+        $this->genieManager = new GenieManager();
+        $this->specialtyManager = new SpecialtyManager();
     }
 
     public function add(): string
@@ -25,10 +25,10 @@ class GenieController extends AbstractController
             $genie = array_map('trim', $_POST);
             $genie = array_map('htmlentities', $genie);
 
-            $errors = $this-> testInput($genie);
+            $errors = $this->testInput($genie);
 
             $uploadDir = '../public/assets/images';
-            $extensionOk = ['jpg','jpeg','png'];
+            $extensionOk = ['jpg', 'jpeg', 'png'];
             $maxFileSize = 2000000;
 
             if (empty($errors)) {
@@ -75,13 +75,12 @@ class GenieController extends AbstractController
     public function manageFile(array $file, string $uploadDir): string
     {
         $extensionFile = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $name = explode('.', $file['name']);
-        $fileNameNew = uniqid($name[0], true) . '.' . $extensionFile;
+        $fileNameNew = uniqid("", true) . '.' . $extensionFile;
         $fileDestination = $uploadDir . $fileNameNew;
 
         move_uploaded_file($file['tmp_name'], $fileDestination);
 
-         return $fileDestination;
+        return $fileDestination;
     }
 
     public function testFile(array $file, int $maxFileSize, array $extensionOk): array

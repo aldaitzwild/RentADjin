@@ -1,12 +1,31 @@
-<div class='container'>
+<div class='container usersContainer'>
 
-    <h1> Liste des Utilisateurs</h1>
+	<h1>
+		Liste Utilisateurs</h1>
+	<table class="table table-striped usersTable">
+		<tbody>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Prenom</th>
+				<th scope="col">email</th>
+			</tr>
 
-    {% for user in users %}
-        <ul>
-            <li>{{ user.lastname }}.{{ user.firstname }} </li>
-        </ul>
-    {% endfor %}
+			{% for user in users %}
 
+				<tr>
+					<th scope="row">
+						<a href="/admin/user?id={{user.id}}">{{user.id}}</a>
+					</th>
+					<td class="text-center">{{user.lastname}}</td>
+					<td class="text-center">{{user.firstname}}</td>
+					<td class="text-center">{{user.email}}€</td>
+				</tr>
+
+
+			{% endfor %}
+		</tbody>
+
+
+	</table>
 </div>
-

@@ -4,17 +4,21 @@
 {% block title %}Administration
 {% endblock %}
 
+{% block header %}
+	{% include "Admin/_adminHeader.html.twig" %}
+{% endblock %}
 
 {% block content %}
 
-	{% include 'Admin/_userList.html.twig' %}
+	<p class="menu usersMenu">Utilisateurs</p>
+	{% include "Admin/_userList.html.twig" %}
+	<p class="menu productsMenu">Produits</p>
 	{% include "Admin/_genieList.html.twig" %}
-	<div>
-		<a href="/admin/genie/add">Ajouter Genie</a>
-	</div>
-	<div>
-		<a href="/admin/genie?id=1">Voir un genie</a>
-	</div>
+	<p class="menu productsMenu">Ajouter un utilisateur</p>
+	<p class="menu productsMenu">Ajouter un produits</p>
+	<p class="menu productsMenu">Ajouter une spécialité</p>
+
+
 
 
 {% endblock %}

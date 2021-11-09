@@ -1,38 +1,43 @@
-<div class='container adminContainer addUserContainer' id="addUserMenuTitleView">
-	<h1 class="menuTitle text-center">
-		Ajouter un Utilisateur
-	</h1>
-	<main class="container">
-		<form action="/users/add" method="post">
+<section class='container adminContainer addUserContainer d-none d-md-block' id="addUserMenuTitleView">
 
-			<p class="row">
-				<label class="form-label">Nom:</label>
-				<input class="form-control" name="lastname">
-			</p>
+	<h1 class="menuTitle menuViewTitle text-center">Ajouter un utilisateur</h1>
+	{% if errorsUsers.input is defined %}
+		<ul class="errorsList"></ul>
+	{% endif %}
 
-			<p class="row">
-				<label class="form-label">Prénom:</label>
-				<input class="form-control" name="firstname">
-			</p>
+	<form action="/admin/user/add" method="post" enctype="multipart/form-data">
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="lastname" class="col-sm-2 col-form-label align-self-start text-nowrap">Nom</label>
+			<div class="col-sm-12">
+				<input type="text" name="lastname" id="lastname" class="form-control"/>
+			</div>
+		</div>
 
-			<p class="row">
-				<label class="form-label">Email:</label>
-				<input class="form-control" type="email" name="email">
-			</p>
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="firstname" class="col-sm-2 col-form-label align-self-start text-nowrap">Prénom</label>
+			<div class="col-sm-12">
+				<input type="text" name="firstname" id="firstname" class="form-control"/>
+			</div>
+		</div>
 
-			<p class="row">
-				<label class="form-label">Adresse</label>
-				<input class="form-control" name="address">
-			</p>
 
-			<p class="row">
-				<label for="admin">Droits d'administration</label>
-				<input type="checkbox" value="1" name="admin">
-			</p>
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="email" class="col-sm-2 col-form-label align-self-start text-nowrap text-nowrap">Email</label>
+			<div class="col-sm-12">
+				<input type="email" name="email" id="email" class="form-control"/>
+			</div>
+		</div>
 
-			<p class="row">
-				<input class="form-control" type="submit" value="Ajouter">
-			</p>
-		</form>
-	</main>
-</div>
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="address" class="col-sm-2 col-form-label align-self-start text-nowrap ">Adresse</label>
+			<div class="col-sm-12">
+				<input type="text" name="address" id="address" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group text-center">
+			<input class="btn btn-primary col-6 col-md-3 mt-3 mb-3" type="submit" value="Ajouter">
+		</div>
+
+	</form>
+</section>

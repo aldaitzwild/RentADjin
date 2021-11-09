@@ -9,6 +9,8 @@
     width: 73vw;
     top: 5px;
     left: 26vw;
+    max-height: 79vh;
+    overflow-y: scroll;
 }
 
 .adminGlobalContainer {
@@ -62,4 +64,21 @@ button {
 
 .menuTitle {
     font-size: 20pt;
+}
+
+.menuViewTitle {
+    margin-top: 1em;
+}
+
+.errorsList {
+    color: #aa0000;
+    margin: 2em 0 0 0;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
 }

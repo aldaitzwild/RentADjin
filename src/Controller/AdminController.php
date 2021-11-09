@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\UserManager;
 use App\Model\GenieManager;
 use App\Model\SpecialtyManager;
+use App\Controller\GenieController;
 
 class AdminController extends AbstractController
 {
@@ -30,10 +31,27 @@ class AdminController extends AbstractController
      */
     public function index(): string
     {
+        session_start();
         $users = $this->userManager->selectAll();
         $genies = $this->genieManager->selectAll();
+        $specialties = $this->specialtyManager->selectAll();
 
-        return $this->twig->render('Admin/admin.html.twig', ['users' => $users, 'genies' => $genies]);
+        $errorsGenie = "";
+
+        if (isset($_SESSION['errorsGenie'])) {
+            $errorsGenie = $_SESSION['errorsGenie'];
+            unset($_SESSION['errorsGenie']);
+        }
+
+        return $this->twig->render(
+            'Admin/admin.html.twig',
+            [
+                'users' => $users,
+                'genies' => $genies,
+                'specialties' => $specialties,
+                'errorsGenie' => $errorsGenie
+            ]
+        );
     }
 
     /**

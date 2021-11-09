@@ -8,66 +8,64 @@ use App\Model\SpecialtyManager;
 class GenieController extends AbstractController
 {
     private GenieManager $genieManager;
-    private SpecialtyManager $specialtyManager;
 
     public function __construct()
     {
         parent::__construct();
         $this->genieManager = new GenieManager();
-        $this->specialtyManager = new SpecialtyManager();
     }
 
-    public function add(): string
+    public function add(): void
     {
-        $specialties = $this->specialtyManager->selectNameId();
+        session_start();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $genie = array_map('trim', $_POST);
             $genie = array_map('htmlentities', $genie);
 
             $errors = $this->testInput($genie);
+            var_dump($errors);
 
-            $uploadDir = '../public/assets/images';
+            $uploadDir = 'assets/images/';
             $extensionOk = ['jpg', 'jpeg', 'png'];
             $maxFileSize = 2000000;
 
-            if (empty($errors)) {
-                if (file_exists($_FILES['genie_img']['tmp_name']) && file_exists($_FILES['lamp_img']['tmp_name'])) {
-                    $genie['genie_img'] = $this->testFile($_FILES['genie_img'], $maxFileSize, $extensionOk);
-                    $genie['lamp_img'] = $this->testFile($_FILES['lamp_img'], $maxFileSize, $extensionOk);
-
-                    $genie['genie_img'] = $this->manageFile($_FILES['genie_img'], $uploadDir);
-                    $genie['lamp_img'] = $this->manageFile($_FILES['lamp_img'], $uploadDir);
-
-                    $this->genieManager->insert($genie);
-                    header('Location:/genies/add');
-                }
+            if (file_exists($_FILES['genie_img']['tmp_name']) || file_exists($_FILES['lamp_img']['tmp_name'])) {
+                $errors["files"]["genie"] = $this->testFile($_FILES['genie_img'], $maxFileSize, $extensionOk);
+                $errors["files"]["lamp"] = $this->testFile($_FILES['lamp_img'], $maxFileSize, $extensionOk);
             } else {
-                return $this->twig->render(
-                    'Admin/addGenie.html.twig',
-                    ['specialties' => $specialties, 'errors' => $errors]
-                );
+                $errors["files"]["empty"] = "Veuillez renseigner une image pour le genie et sa lampe.";
             }
+
+
+            if (empty($errors['input']) && empty($errors["files"]['genie']) && empty($errors["files"]['genie'])) {
+                $genie['genie_img'] = $this->manageFile($_FILES['genie_img'], $uploadDir);
+                $genie['lamp_img'] = $this->manageFile($_FILES['lamp_img'], $uploadDir);
+
+                $this->genieManager->insert($genie);
+            }
+
+            $_SESSION['errorsGenie'] = $errors;
+            header('Location:/admin');
         }
-        return $this->twig->render('Admin/addGenie.html.twig', ['specialties' => $specialties]);
     }
 
     public function testInput(array $inputs): array
     {
         $errors = [];
+        $errors['input'] = [];
         foreach ($inputs as $input) {
             if (empty($input)) {
-                $errors['empty'] = 'Tous les champs sont requis';
-                return $errors;
+                $errors['input']['empty'] = 'Tous les champs sont requis';
             }
         }
 
         if ($inputs['nb_wishes'] < 1) {
-            $errors['nb_wishes'] = 'Le génie doit avoir au moins un voeux';
+            $errors['input']['nb_wishes'] = 'Le génie doit avoir au moins un voeux';
         }
 
         if ($inputs['costPerDay'] < 1) {
-            $errors['costPerDay'] = 'Le prix doit être supérieur à 1€';
+            $errors['input']['costPerDay'] = 'Le prix doit être supérieur à 1€';
         }
         return $errors;
     }
@@ -80,7 +78,7 @@ class GenieController extends AbstractController
 
         move_uploaded_file($file['tmp_name'], $fileDestination);
 
-        return $fileDestination;
+        return "/" . $fileDestination;
     }
 
     public function testFile(array $file, int $maxFileSize, array $extensionOk): array

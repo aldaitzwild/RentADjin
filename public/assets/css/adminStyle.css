@@ -6,9 +6,9 @@
     position: absolute;
     opacity: 0;
     pointer-events: none;
-    width: 73vw;
+    width: 65vw;
     top: 5px;
-    left: 26vw;
+    left: 27vw;
     max-height: 79vh;
     overflow-y: scroll;
 }
@@ -21,7 +21,7 @@
 .informationView {
     height: 80vh;
     border-radius: 25px;
-    margin-left: 10px;
+    margin-left: 20px;
     background-color: #f3f3f3;
 }
 
@@ -81,4 +81,21 @@ li {
 
 ul {
     padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .active {
+        display: inline-block !important;
+    }
+
+    .adminContainer {
+        position: unset;
+        opacity: 1;
+        width: 90vw;
+        margin-left: 5vw;
+    }
+
+    .adminHeaderTitle {
+        font-size: 24pt;
+    }
 }

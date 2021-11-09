@@ -47,7 +47,7 @@ button {
     color: white !important;
 }
 
-.AdminHeaderTitle {
+.adminHeaderTitle {
     color: var(--primary-color);
     font-size: 40pt;
 }
@@ -90,9 +90,8 @@ ul {
 
     .adminContainer {
         position: unset;
-        opacity: 1;
-        width: 90vw;
-        margin-left: 5vw;
+        max-width: 95vw !important;
+        width: 95vw;
     }
 
     .adminHeaderTitle {

@@ -7,8 +7,7 @@ use App\Model\GenieManager;
 class GenieController extends AbstractController
 {
 
-    private GenieManager $genieManager; 
-    
+    private GenieManager $genieManager;
     public function __construct()
     {
         parent::__construct();

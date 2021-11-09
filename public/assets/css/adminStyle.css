@@ -1,0 +1,65 @@
+:root {
+    --primary-color: #090f44;
+}
+
+.adminContainer {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 73vw;
+    top: 5px;
+    left: 26vw;
+}
+
+.adminGlobalContainer {
+    position: relative;
+    margin-top: 1.5em;
+}
+
+.informationView {
+    height: 80vh;
+    border-radius: 25px;
+    margin-left: 10px;
+    background-color: #f3f3f3;
+}
+
+.usersMenu,
+.usersMenu > button {
+    border-radius: 25px 25px 0 0;
+}
+
+.addSpecialtyMenu,
+.addSpecialtyMenu > button {
+    border-radius: 0 0 25px 25px;
+}
+
+.menu {
+    background-color: var(--primary-color);
+    margin-bottom: 1px;
+    height: 50px;
+    line-height: 50px;
+}
+
+button {
+    width: 100%;
+    color: white !important;
+}
+
+.AdminHeaderTitle {
+    color: var(--primary-color);
+    font-size: 40pt;
+}
+
+.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-control,
+.form-select {
+    height: 38px;
+}
+
+.menuTitle {
+    font-size: 20pt;
+}

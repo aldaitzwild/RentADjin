@@ -15,8 +15,9 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'users/add' => ['UserController', 'add'],
     'users' => ['UserController', 'list'],
-    'admin' => ['AdminController','index',],
-    'admin/genies/add' => ['GenieController', 'add',],
-    'admin/genies/genie' => ['AdminController', 'showGenie', ['id']],
     'welcome' => ['WelcomeController', 'index',],
+    'admin' => ['AdminController', 'index',],
+    'admin/genie/add' => ['GenieController', 'add',],
+    'admin/genie' => ['AdminController', 'showGenie', ['id']],
+    'admin/genie/update' => ['AdminController', 'showUpdateGenie', ['id']]
 ];

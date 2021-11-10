@@ -24,7 +24,6 @@ class GenieController extends AbstractController
             $genie = array_map('htmlentities', $genie);
 
             $errors = $this->testInput($genie);
-            var_dump($errors);
 
             $uploadDir = 'assets/images/';
             $extensionOk = ['jpg', 'jpeg', 'png'];
@@ -46,6 +45,44 @@ class GenieController extends AbstractController
 
             $_SESSION['errorsGenie'] = $errors;
             header('Location:/admin');
+        }
+    }
+
+
+    public function update(int $id): void
+    {
+        session_start();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $genie = array_map('trim', $_POST);
+            $genie = array_map('htmlentities', $genie);
+
+            $errors = $this->testInput($genie);
+
+            $uploadDir = 'assets/images/';
+            $extensionOk = ['jpg', 'jpeg', 'png'];
+            $maxFileSize = 2000000;
+
+            if (empty($errors['input'])) {
+                if (file_exists($_FILES['genie_img']['tmp_name'])) {
+                    $errors["files"]["genie"] = $this->testFile($_FILES['genie_img'], $maxFileSize, $extensionOk);
+                    if (empty($errors["files"]['genie'])) {
+                        $genie['genie_img'] = $this->manageFile($_FILES['genie_img'], $uploadDir);
+                    }
+                }
+
+                if (file_exists($_FILES['lamp_img']['tmp_name'])) {
+                    $errors["files"]["lamp"] = $this->testFile($_FILES['lamp_img'], $maxFileSize, $extensionOk);
+                    if (empty($errors["files"]['lamp'])) {
+                        $genie['lamp_img'] = $this->manageFile($_FILES['lamp_img'], $uploadDir);
+                    }
+                }
+                if (empty($errors["files"]['genie']) && empty($errors["files"]['lamp'])) {
+                    $this->genieManager->update($id, $genie);
+                }
+            }
+            $_SESSION['errorsUpdate'] = $errors;
+            header("Location:/admin/genie/update?id=$id");
         }
     }
 

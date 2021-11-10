@@ -71,12 +71,24 @@ class AdminController extends AbstractController
 
     public function showUpdateGenie($id): string
     {
+
+        session_start();
+
         $genieInfo = $this->genieManager->selectAllInfoById($id);
         $specialties = $this->specialtyManager->selectAll();
 
+        $errorsUpdate = '';
+
+        if (isset($_SESSION['errorsUpdate'])) {
+            $errorsUpdate = $_SESSION['errorsUpdate'];
+            unset($_SESSION['errorsUpdate']);
+        }
+
+
+
         return $this->twig->render(
             'Admin/adminUpdateGenie.html.twig',
-            ['genieInfo' => $genieInfo, 'specialties' => $specialties]
+            ['genieInfo' => $genieInfo, 'specialties' => $specialties, 'errorsUpdate' => $errorsUpdate]
         );
     }
 }

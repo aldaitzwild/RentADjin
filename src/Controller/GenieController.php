@@ -77,7 +77,8 @@ class GenieController extends AbstractController
                         $genie['lamp_img'] = $this->manageFile($_FILES['lamp_img'], $uploadDir);
                     }
                 }
-                if (!isset($errors["files"]['genie']) && !isset($errors["files"]['lamp'])) {
+
+                if (empty($errors["files"]['genie']) && empty($errors["files"]['lamp'])) {
                     $this->genieManager->update($id, $genie);
                     header("Location:/admin/genie?id=$id");
                     return;

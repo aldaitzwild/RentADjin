@@ -108,29 +108,4 @@ class GenieController extends AbstractController
         }
         return $errors;
     }
-
-    public function manageFile(array $file, string $uploadDir): string
-    {
-        $extensionFile = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $fileNameNew = uniqid("", true) . '.' . $extensionFile;
-        $fileDestination = $uploadDir . $fileNameNew;
-
-        move_uploaded_file($file['tmp_name'], $fileDestination);
-
-        return "/" . $fileDestination;
-    }
-
-    public function testFile(array $file, int $maxFileSize, array $extensionOk): array
-    {
-        $extensionFile = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $errors = [];
-
-        if (filesize($file['tmp_name']) > $maxFileSize) {
-            $errors['fileSize'] = 'Votre image doit faire moins de 2MO !';
-        }
-        if (!in_array($extensionFile, $extensionOk)) {
-            $errors['extension'] = 'Veuillez selectionner une image avec une extension valide(jpg, jpeg ou png)';
-        }
-        return $errors;
-    }
 }

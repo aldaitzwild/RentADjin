@@ -1,11 +1,17 @@
 <section class='container adminContainer addUserContainer d-none d-md-block' id="addUserMenuTitleView">
 
 	<h1 class="menuTitle menuViewTitle text-center">Ajouter un utilisateur</h1>
-	{% if errorsUsers.input is defined %}
-		<ul class="errorsList"></ul>
-	{% endif %}
 
 	<form action="/admin/user/add" method="post" enctype="multipart/form-data">
+		{% if errorsUser.input is defined %}
+			<ul class="errorsList">
+				{% if errorsUser.input.empty is defined %}
+					<li>
+						{{errorsUser.input.empty}}
+					</li>
+				{% endif %}
+			</ul>
+		{% endif %}
 		<div class="form-group mb-3 row flex-column align-items-center">
 			<label for="lastname" class="col-sm-2 col-form-label align-self-start text-nowrap">Nom</label>
 			<div class="col-sm-12">

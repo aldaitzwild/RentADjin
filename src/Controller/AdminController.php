@@ -37,10 +37,22 @@ class AdminController extends AbstractController
         $specialties = $this->specialtyManager->selectAll();
 
         $errorsGenie = "";
+        $errorsSpecialty = "";
+        $errorsUser = "";
 
         if (isset($_SESSION['errorsGenie'])) {
             $errorsGenie = $_SESSION['errorsGenie'];
             unset($_SESSION['errorsGenie']);
+        }
+
+        if (isset($_SESSION['errorsSpecialty'])) {
+            $errorsSpecialty = $_SESSION['errorsSpecialty'];
+            unset($_SESSION['errorsSpecialty']);
+        }
+
+        if (isset($_SESSION['errorsUser'])) {
+            $errorsUser = $_SESSION['errorsUser'];
+            unset($_SESSION['errorsUser']);
         }
 
         return $this->twig->render(
@@ -49,7 +61,9 @@ class AdminController extends AbstractController
                 'users' => $users,
                 'genies' => $genies,
                 'specialties' => $specialties,
-                'errorsGenie' => $errorsGenie
+                'errorsGenie' => $errorsGenie,
+                'errorsSpecialty' => $errorsSpecialty,
+                'errorsUser' => $errorsUser
             ]
         );
     }

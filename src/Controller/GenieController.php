@@ -27,7 +27,8 @@ class GenieController extends AbstractController
 
             $errors = $this-> testInput($genie);
 
-            $uploadDir = '../public/assets/images';
+            $uploadDir = '../public/assets/images/';
+            $newDir = '/assets/images/';
             $extensionOk = ['jpg','jpeg','png'];
             $maxFileSize = 2000000;
 
@@ -36,11 +37,11 @@ class GenieController extends AbstractController
                     $genie['genie_img'] = $this->testFile($_FILES['genie_img'], $maxFileSize, $extensionOk);
                     $genie['lamp_img'] = $this->testFile($_FILES['lamp_img'], $maxFileSize, $extensionOk);
 
-                    $genie['genie_img'] = $this->manageFile($_FILES['genie_img'], $uploadDir);
-                    $genie['lamp_img'] = $this->manageFile($_FILES['lamp_img'], $uploadDir);
+                    $genie['genie_img'] = $this->manageFile($_FILES['genie_img'], $uploadDir, $newDir);
+                    $genie['lamp_img'] = $this->manageFile($_FILES['lamp_img'], $uploadDir, $newDir);
 
                     $this->genieManager->insert($genie);
-                    header('Location:/genies/add');
+                    header('Location:/admin/genies/add');
                 }
             } else {
                 return $this->twig->render(
@@ -72,7 +73,7 @@ class GenieController extends AbstractController
         return $errors;
     }
 
-    public function manageFile(array $file, string $uploadDir): string
+    public function manageFile(array $file, string $uploadDir, string $newDir): string
     {
         $extensionFile = pathinfo($file['name'], PATHINFO_EXTENSION);
         $name = explode('.', $file['name']);
@@ -81,7 +82,7 @@ class GenieController extends AbstractController
 
         move_uploaded_file($file['tmp_name'], $fileDestination);
 
-         return $fileDestination;
+         return $newDir . $fileNameNew;
     }
 
     public function testFile(array $file, int $maxFileSize, array $extensionOk): array

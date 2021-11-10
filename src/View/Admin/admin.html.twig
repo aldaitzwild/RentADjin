@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
 
 	<section class="container-fluid adminGlobalContainer d-flex">
 		<div class="menuContainer col-12 col-md-3">
@@ -23,7 +24,7 @@
 					<img src="/public/assets/images/chevron.png" alt="chevron">
 				</button>
 			</div>
-
+		
 			{% include "Admin/_userList.html.twig" %}
 
 			<div class="menu productsMenu d-flex justify-content-around">

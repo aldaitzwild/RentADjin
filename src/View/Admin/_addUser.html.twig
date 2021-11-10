@@ -1,38 +1,35 @@
-<div class='container adminContainer addUserContainer' id="addUserMenuTitleView">
-	<h1 class="menuTitle text-center">
-		Ajouter un Utilisateur
-	</h1>
-	<main class="container">
-		<form action="/users/add" method="post">
 
-			<p class="row">
-				<label class="form-label">Nom:</label>
-				<input class="form-control" name="lastname">
-			</p>
+    <h1> Ajouter un Utilisateur </h1>
+        <main class="container">
+            <form action="/users/add" method="post">
 
-			<p class="row">
-				<label class="form-label">Prénom:</label>
-				<input class="form-control" name="firstname">
-			</p>
+                <p class="row">
+                <label class="form-label">Nom:</label>
+	            <input class="form-control"name="lastname">
+                </p>
 
-			<p class="row">
-				<label class="form-label">Email:</label>
-				<input class="form-control" type="email" name="email">
-			</p>
+                <p class="row">
+                <label class="form-label">Prénom:</label>
+	            <input class="form-control" name="firstname">
+                </p>
 
-			<p class="row">
-				<label class="form-label">Adresse</label>
-				<input class="form-control" name="address">
-			</p>
+                <p class="row">
+                <label class="form-label">Email:</label>
+                <input class="form-control" type="email" name="email">
+                </p>
 
-			<p class="row">
-				<label for="admin">Droits d'administration</label>
-				<input type="checkbox" value="1" name="admin">
-			</p>
+                <p class="row">
+                <label class="form-label">Adresse</label>
+                <input class="form-control" name="address">
+                </p>
 
-			<p class="row">
-				<input class="form-control" type="submit" value="Ajouter">
-			</p>
-		</form>
-	</main>
-</div>
+                <p class ="row">
+                <label for="admin">Droits d'administration</label>
+                <input type="checkbox" value="1" name="admin">
+                </p>
+
+                <p class="row">
+	            <input class="form-control" type="submit" value="Ajouter">
+                </p>
+            </form>
+        </main>

@@ -18,6 +18,10 @@
     margin-top: 1.5em;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .informationView {
     height: 80vh;
     border-radius: 25px;

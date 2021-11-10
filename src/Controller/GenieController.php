@@ -37,7 +37,6 @@ class GenieController extends AbstractController
                 $errors["files"]["empty"] = "Veuillez renseigner une image pour le genie et sa lampe.";
             }
 
-
             if (empty($errors['input']) && empty($errors["files"]['genie']) && empty($errors["files"]['genie'])) {
                 $genie['genie_img'] = $this->manageFile($_FILES['genie_img'], $uploadDir);
                 $genie['lamp_img'] = $this->manageFile($_FILES['lamp_img'], $uploadDir);

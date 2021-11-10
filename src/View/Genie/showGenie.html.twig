@@ -13,35 +13,54 @@
 {% block content %}
 
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-xs-12 col-sm-5 col-md-5 col-lg-5">
+
+<!-- MAIN ROW : Contient photo génie + nom génie + 4 tuiles-->
+		<div class="row justify-content-center"> 
+
+			<!--COLONNE 1 (6): Contient photo génie + nom génie -->
+			<div class="col-12 col-sm-6"> 
 				<img src={{genieInfo.genie_img}} class="rounded" alt="Image du génie {{genieInfo.genieName}}">
 				<h1>{{genieInfo.genieName}}</h1>
 			</div>
-			<div class="col-5 col-xs-5 col-sm-2 imagetile">
-				<img src={{genieInfo.lamp_img}} class="tileimg" alt="Image de la lampe de {{genieInfo.genieName}}">
-				<img src={{genieInfo.img}} class="tileimg" alt="Image de la lampe de {{genieInfo.genieName}}">
+
+			<!--COLONNE 2 (6): Contient 4 tuile spécialité + tuile image lampe + tuile voeux + tuile prix-->
+			<div class="col-12 col-sm-6">
+
+				<!--INNER ROW 1-->
+				<div class="row tilesbloc"> 
+					
+					<!--1-->
+					<div class="col-4 g-0 imgtile ">
+					<img src={{genieInfo.lamp_img}} class="tileimg" alt="Image de la lampe de {{genieInfo.genieName}}">
+					</div>
+					
+					<!--2-->
+					<div class="col-4 g-0 imgtile ">
+					<img src={{genieInfo.img}} class="tileimg righttoptile" alt="Image de la spécialité {{genieInfo.specialtyName}}">
+					</div>
+					
+					<!--3-->
+					<div class="col-4 tile g-0">
+						<h2>{{genieInfo.nb_wishes}}</h2>
+						<p>voeux</p>
+					</div>
+					
+					<!--4-->
+					<div class="col-4 tile g-0 rightbottomtile">
+						<h2>{{genieInfo.costPerDay}}€</h2>
+						<p>/jour</p>
+					</div>
+
+				</div><!--FIN INNER ROW1-->
 			</div>
-			<div class="col-5 col-xs-5 col-sm-2 imagetile">
-				<div class="tile">
-					<h2>{{genieInfo.nb_wishes}}</h2>
-					<p>voeux</p>
-				</div>
-				<div class="tile">
-					<h2>{{genieInfo.costPerDay}}€</h2>
-					<p>/jour</p>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-12 col-xs-12 col-sm-5 col-md-5 col-lg-5">
-					<p>{{genieInfo.description}}</p>
-				</div>
-				<div class="col-5 col-xs-5 col-sm-2">
-				</div>
-				<div class="col-5 col-xs-5 col-sm-2">
-				</div>
+
+<!--Contient description génie -->
+		<div class="row justify-content-start description">
+			<div class="col-12 col-sm-6 g-0"> 
+				<p>{{genieInfo.description}}</p>
 			</div>
 		</div>
+
 	</div>
 {% endblock %}
 {% block footer %}{% endblock %}

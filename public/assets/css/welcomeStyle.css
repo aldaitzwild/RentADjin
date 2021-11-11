@@ -1,55 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Dr+Sugiyama&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=Roboto&display=swap');
 
 body, html {
     height: 100%;
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
-  
+
+  .find{
+    border-radius: 30em;
+
+  }
   .title-image {
     background-image: url("../images/smoke.jpg");
-    height: 75%;
+    width: 100%;
+    height: 55%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    display: flex;
-  }
-  
-  .accueil {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-    color: white;
-    width: 100%;
-    height: 100%;
-  }
-  .container-fluid{
-    padding: 2vw;
-  }
-  .d-flex{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 2vw;
   }
 
-  .title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Dr Sugiyama', cursive;
-      text-align: center;
-  }
-
-
-  .search > button {
-    border: none;
-    border-radius: 30em;
-    padding: 10px 25px;
-    color: black;
-    background-color: white;
-    cursor: pointer;
-    margin-top: 2vw;
+  .title{
+    font-family: 'Dr Sugiyama', cursive;
+    text-align: right;
   }
 
   .logo {
@@ -58,11 +31,7 @@ body, html {
     margin: 1vw;
   }
   
-  h2 {
-    margin-top: 3vw;
-  }
-  
-  .scrollmenu .row {
+  .scrollmenu > .row {
     overflow-x: auto;
     white-space: nowrap;
     display: block;
@@ -71,7 +40,43 @@ body, html {
   .scrollmenu > .row > .col-4 {
     display: inline-block;
     float:none;
+  
   }
+
+  h1{
+  text-shadow: 0 0 2px black;
+  } 
+
   h3 {
-    font-size: 0.8em;
+    font-size: 1em;
+    margin-bottom: 0 !important;
+    text-align: center;
+  }
+
+  .mt-5{
+    margin-top: 25vw !important;
+  }
+
+  .connect {
+    height: 1vw;
+  }
+
+  @media screen and (min-width: 800px){
+  
+    .title{
+      text-align: left;
+    }
+
+    .title-image{
+       height: 75%;
+    }
+
+    .img {
+      width: 90px;
+      height: 60px;
+    }
+
+    .mt-5{
+      margin-top: 10vw !important;
+    }
   }

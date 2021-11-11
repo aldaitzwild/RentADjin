@@ -10,51 +10,46 @@
 
 {% block content %}
 
-<div class="title-image">
+<div class="container-fluid title-image">
 
-  	<div class="accueil">
+			<div class="row p-1 d-flex justify-content-between">
 
-	    <div class="container-fluid">
+					<img class="img col-2" src="assets/images/iconlamp.png">
 
-			<div class="row ">
-				<div class="title col-12 col-md-4">
-					<img src="assets/images/logo.png">
-					<h1 class="display-5 ml-3">À Vos Souhaits</h1>
-				</div>
+					<h1 class="title text-light col-10 col-md-2 display-5">À Vos Souhaits</h1>
+	
 
-				<div class="d-flex col-10 col-md-7">
-					<input type="search" class="form-control rounded" placeholder="Search"/>
-					<button type="button" class="btn btn-outline-light">search</button>
-				</div>
-				<button type="button" class="btn btn-light btn-sm btn-rounded col-md-1 d-none">Connection</button>
+					<div class="col-10 mx-auto col-md-6 align-self-center">
+						<input type="search" class="find form-control" placeholder="🔍 Search" aria-label="Search"/>
+					</div>
+
+					<a class="find btn m-auto btn-light col-md-1 offset-md-1 d-none d-md-flex justify-content-around">
+					<img class="connect" src="assets/images/user.png"><h3>Connection</h3></a>
+			</div>
+
+			<div class="row mt-5 p-4">
+
+    		<h1 class="text-light text-center">Vous ne savez pas quel<br> Génie choisir?</h1>
+		
+    		<button class="find btn btn-light col-5 col-md-1 mx-auto mt-4">Découvrir</button>
 
 			</div>
-		</div>
-
-		<div class="search">
-    		<p>Vous ne savez pas quel Génie choisir?</p>
-    		<button>Découvrir</button>
-		</div>
-
-  	</div>
-
 </div>
-
-
-<div>
 
 	<h2>Découvrez nos catégories</h2>
+
 	<div class="container scrollmenu">
-		<div class="row text-center">
-		{% for specialty in specialties %}
-			<div class="col-4">
-			<img class="logo" src={{specialty.img}}>
-				<h3>{{specialty.name}}</h3>
+			<div class="row text-center">
+			{% for specialty in specialties %}
+				<div class="col-4 col-md-2">
+				<img class="logo" src={{specialty.img}}>
+					<p>{{specialty.name}}</p>
+				</div>
+			{% endfor %}
 			</div>
-		{% endfor %}
-		</div>
 	</div>
-</div>
+
+
 <div class="favoris">
 
 	<h2>Les Génies du moments</h2>

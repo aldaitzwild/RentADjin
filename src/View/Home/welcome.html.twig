@@ -12,26 +12,26 @@
 
 <div class="container-fluid title-image">
 
-			<div class="row p-1 d-flex justify-content-between">
+			<div class="row h-25 p-1 d-flex justify-content-between">
 
-					<img class="img col-2" src="assets/images/iconlamp.png">
+					<img class="lamp m-auto col-2 col-sm-1 m-1" src="assets/images/iconlamp.png">
 
-					<h1 class="title text-light col-10 col-md-2 display-5">À Vos Souhaits</h1>
+					<h1 class="title text-light col-10 col-sm-6 col-lg-4 col-xl-3 align-self-center">À Vos Souhaits</h1>
 	
 
-					<div class="col-10 mx-auto col-md-6 align-self-center">
+					<div class="col-10 col-sm-5 col-lg-4 col-xl-6 m-auto  align-self-center">
 						<input type="search" class="find form-control" placeholder="🔍 Search" aria-label="Search"/>
 					</div>
 
-					<a class="find btn m-auto btn-light col-md-1 offset-md-1 d-none d-md-flex justify-content-around">
+					<a class="find btn m-auto btn-light col-2 col-xl-1 offset-lg-1 d-none d-lg-flex justify-content-around">
 					<img class="connect" src="assets/images/user.png"><h3>Connection</h3></a>
 			</div>
 
-			<div class="row mt-5 p-4">
+			<div class="row d-flex flex-column justify-content-center align-items-center h-75">
 
-    		<h1 class="text-light text-center">Vous ne savez pas quel<br> Génie choisir?</h1>
+    		<h1 class="you text-light col-12 text-center">Vous ne savez pas quel<br> Génie choisir?</h1>
 		
-    		<button class="find btn btn-light col-5 col-md-1 mx-auto mt-4">Découvrir</button>
+    		<button class="find btn btn-light col-4 col-sm-3 col-md-2 col-lg-1 mt-4">Découvrir</button>
 
 			</div>
 </div>
@@ -39,9 +39,9 @@
 	<h2>Découvrez nos catégories</h2>
 
 	<div class="container scrollmenu">
-			<div class="row text-center">
+			<div class="row ">
 			{% for specialty in specialties %}
-				<div class="col-4 col-md-2">
+				<div class="col-4 col-md-2 text-center">
 				<img class="logo" src={{specialty.img}}>
 					<p>{{specialty.name}}</p>
 				</div>

@@ -1,0 +1,60 @@
+{% extends 'parent.html.twig' %}
+{% block stylesheet %}
+
+<link href="assets/css/welcomeStyle.css" rel="stylesheet">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row p-3 d-flex justify-content-around">
+        <a class="lamp d-none d-sm-block col-1 text-center" href='welcome'>
+		<img src="assets/images/iconlampblack.png"></a>
+
+		<h2 class="title text-dark d-none d-sm-block col-6 col-md-4 col-lg-3 col-xl-3">À Vos Souhaits</h2>
+
+
+		<div class="col-10 col-sm-5 col-md-6 my-3">
+			<input type="search" class="find form-control" placeholder="Plus de filtres ≔ " aria-label="Search"/>
+		</div>
+
+		<a class="find btn m-auto btn-light col-2 col-xl-1 offset-xl-1 d-none d-lg-flex justify-content-around">
+		<img class="connect img-fluid" src="assets/images/user.png"><h3>Connection</h3></a>
+</div>
+
+<div class="container scrollmenu ">
+		<div class="row">
+		{% for genie in genies %}
+				<p class="col-4 col-md-2 text-center mb-0">{{genie.speName}}</p>
+		{% endfor %}
+		</div>
+</div><hr>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+    {% for genie in genies %}
+        <div class="col">
+        <div class="card mx-auto h-100" style="width: 18rem;">
+            <img src={{genie.genie_img}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title">{{genie.name}}</h5>
+                    <h5>{{genie.costPerDay}}€/J</h5>
+                </div>
+                <h6>{{genie.speName}}</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block footer %}{% include "Home/_footer.html.twig" %}{% endblock %}

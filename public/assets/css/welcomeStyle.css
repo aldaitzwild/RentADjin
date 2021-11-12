@@ -23,13 +23,13 @@ body, html {
   .lamp{
     padding: 0 !important;
     max-width: 60px;
-    max-height: auto;
   }
 
   .title{
     font-family: 'Dr Sugiyama', cursive;
     text-align: right;
-    font-size: 2.5em;
+    font-size: 2.3em;
+    margin-bottom: 0!important;
   }
 
   .logo {
@@ -57,7 +57,7 @@ body, html {
   }
 
   h3 {
-    font-size: 1em;
+    font-size: 0.9em;
     margin-bottom: 0 !important;
     text-align: center;
   }
@@ -68,7 +68,7 @@ body, html {
 
 
   .connect {
-    height: 1.2em;
+    height: 1.1em;
   }
 
   @media screen and (min-width: 576px){
@@ -79,7 +79,7 @@ body, html {
 
     .title{
       text-align: left;
-      font-size: 3.2em;
+      font-size: 2.7em;
     }
 
     .logo{

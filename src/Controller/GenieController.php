@@ -98,4 +98,10 @@ class GenieController extends AbstractController
         }
         return $errors;
     }
+
+    public function showAllGenies()
+    {
+        $genies = $this->genieManager->selectAllGenies();
+        return $this->twig->render('Genies/showAllGenies.html.twig', ['genies' => $genies]);
+    }
 }

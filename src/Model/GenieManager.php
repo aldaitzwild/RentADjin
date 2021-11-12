@@ -53,4 +53,15 @@ class GenieManager extends AbstractManager
 
         return $statement->fetch();
     }
+
+    public function selectAllGenies(): array
+    {
+        $query = 'SELECT genies.name, genies.genie_img,
+        genies.costPerDay,
+        specialties.name AS speName
+        FROM genies JOIN specialties ON specialties.id = genies.specialty_id';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }

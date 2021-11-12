@@ -16,7 +16,6 @@ class UserController extends AbstractController
 
     public function add(): void
     {
-        session_start();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data

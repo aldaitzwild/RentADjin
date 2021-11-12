@@ -31,7 +31,6 @@ class AdminController extends AbstractController
      */
     public function index(): string
     {
-        session_start();
         $users = $this->userManager->selectAll();
         $genies = $this->genieManager->selectAll();
         $specialties = $this->specialtyManager->selectAll();
@@ -86,7 +85,6 @@ class AdminController extends AbstractController
     public function showUpdateGenie($id): string
     {
 
-        session_start();
 
         $genieInfo = $this->genieManager->selectAllInfoById($id);
         $specialties = $this->specialtyManager->selectAll();

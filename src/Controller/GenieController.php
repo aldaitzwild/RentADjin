@@ -17,7 +17,6 @@ class GenieController extends AbstractController
 
     public function add(): void
     {
-        session_start();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $genie = array_map('trim', $_POST);
@@ -51,7 +50,6 @@ class GenieController extends AbstractController
 
     public function update(int $id): void
     {
-        session_start();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $genie = array_map('trim', $_POST);

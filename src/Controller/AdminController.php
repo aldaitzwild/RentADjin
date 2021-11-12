@@ -44,10 +44,12 @@ class AdminController extends AbstractController
             unset($_SESSION['errorsGenie']);
         }
 
+
         if (isset($_SESSION['errorsSpecialty'])) {
             $errorsSpecialty = $_SESSION['errorsSpecialty'];
             unset($_SESSION['errorsSpecialty']);
         }
+
 
         if (isset($_SESSION['errorsUser'])) {
             $errorsUser = $_SESSION['errorsUser'];

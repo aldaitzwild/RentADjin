@@ -1,0 +1,74 @@
+{% extends 'parent.html.twig' %}
+
+{% block stylesheet %}
+
+<link href="assets/css/welcomeStyle.css" rel="stylesheet">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="title-image">
+
+  	<div class="accueil">
+
+	    <div class="container-fluid">
+
+			<div class="row ">
+				<div class="title col-12 col-md-4">
+					<img src="assets/images/logo.png">
+					<h1 class="display-5 ml-3">À Vos Souhaits</h1>
+				</div>
+
+				<div class="d-flex col-10 col-md-7">
+					<input type="search" class="form-control rounded" placeholder="Search"/>
+					<button type="button" class="btn btn-outline-light">search</button>
+				</div>
+				<button type="button" class="btn btn-light btn-sm btn-rounded col-md-1 d-none">Connection</button>
+
+			</div>
+		</div>
+
+		<div class="search">
+    		<p>Vous ne savez pas quel Génie choisir?</p>
+    		<button>Découvrir</button>
+		</div>
+
+  	</div>
+
+</div>
+
+
+<div>
+
+	<h2>Découvrez nos catégories</h2>
+	<div class="container scrollmenu">
+		<div class="row text-center">
+		{% for specialty in specialties %}
+			<div class="col-4">
+			<img class="logo" src={{specialty.img}}>
+				<h3>{{specialty.name}}</h3>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+</div>
+<div class="favoris">
+
+	<h2>Les Génies du moments</h2>
+
+		<div class="container scrollmenu">
+			<div class="row text-center">
+				<div class="col-4"></div>
+			</div>
+		</div>
+</div>
+{% endblock %}
+
+{% block footer %}
+
+{% include "Home/_footer.html.twig" %}
+
+{% endblock %}

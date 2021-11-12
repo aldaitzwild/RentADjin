@@ -1,13 +1,71 @@
 {% extends 'parent.html.twig' %}
 
 
-{% block title %}Administration{% endblock %}
+{% block title %}
+	Administration
+{% endblock %}
 
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/adminStyle.css">
+{% endblock %}
+
+{% block header %}
+	{% include "Admin/_adminHeader.html.twig" %}
+{% endblock %}
 
 {% block content %}
+<div class="container">
 
-{% include 'Admin/userlist.html.twig' %}
-{% include 'Admin/add.html.twig' %}
+	<section class="container-fluid adminGlobalContainer d-flex">
+		<div class="menuContainer col-12 col-md-3">
+			<div class="menu usersMenu d-flex justify-content-around">
+				<button type="button" class="btn menuTitle" id="userMenuTitle" view-menu-button>
+					Utilisateurs
+					<img src="/public/assets/images/chevron.png" alt="chevron">
+				</button>
+			</div>
+		
+			{% include "Admin/_userList.html.twig" %}
+
+			<div class="menu productsMenu d-flex justify-content-around">
+				<button type="button" class="btn menuTitle" id="productMenuTitle" view-menu-button>
+					Produits
+					<img src="/public/assets/images/chevron.png" alt="chevron">
+				</button>
+			</div>
+
+			{% include "Admin/_genieList.html.twig" %}
+
+			<div class="menu addUserMenu d-flex justify-content-around">
+				<button type="button" class="btn menuTitle" id="addUserMenuTitle" view-menu-button>
+					Ajouter un utilisateur
+					<img src="/public/assets/images/plus.png" alt="plus">
+				</button>
+			</div>
+
+			{% include "Admin/_addUser.html.twig" %}
+
+			<div class="menu addProductMenu d-flex justify-content-around">
+				<button type="button" class="btn menuTitle" id="addProductMenuTitle" view-menu-button>
+					Ajouter un produit
+					<img src="/public/assets/images/plus.png" alt="plus">
+				</button>
+			</div>
+
+			{% include "Admin/_addGenie.html.twig" %}
+
+			<div class="menu addSpecialtyMenu d-flex justify-content-around">
+				<button type="button" class="btn menuTitle " id="addSpecialtyMenuTitle" view-menu-button>
+					Ajouter une spécialité
+					<img src="/public/assets/images/plus.png" alt="plus">
+				</button>
+			</div>
+		</div>
+
+		<div class="informationView col-9"></div>
+	</section>
 
 {% endblock %}
-  
+{% block javascript %}
+	<script src="/assets/scripts/script.js"></script>
+{% endblock %}

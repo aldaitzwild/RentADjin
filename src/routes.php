@@ -16,6 +16,9 @@ return [
     'users/add' => ['UserController', 'add'],
     'users' => ['UserController', 'list'],
     'genies/show' => ['GenieController', 'showGenie', ['id']],
-    'admin' => ['AdminController','index',],
-    'admin/genie' => ['AdminController', 'showGenie', ['id']]
+    'welcome' => ['WelcomeController', 'index',],
+    'admin' => ['AdminController', 'index',],
+    'admin/genie/add' => ['GenieController', 'add',],
+    'admin/genie' => ['AdminController', 'showGenie', ['id']],
+    'admin/genie/update' => ['AdminController', 'showUpdateGenie', ['id']]
 ];

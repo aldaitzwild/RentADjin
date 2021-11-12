@@ -27,31 +27,37 @@
 			<div class="col-12 col-sm-6">
 
 				<!--INNER ROW 1-->
-				<div class="row tilesbloc"> 
+				<div class="row tilesblock justify-content-center"> 
 					
 					<!--1-->
-					<div class="col-4 g-0 imgtile ">
-					<img src={{genieInfo.lamp_img}} class="tileimg" alt="Image de la lampe de {{genieInfo.genieName}}">
+					<div class="col-5 g-0 lamptile ">
+					<img src={{genieInfo.lamp_img}} class="lampimg" alt="Image de la lampe de {{genieInfo.genieName}}">
 					</div>
 					
 					<!--2-->
-					<div class="col-4 g-0 imgtile ">
-					<img src={{genieInfo.img}} class="tileimg righttoptile" alt="Image de la spécialité {{genieInfo.specialtyName}}">
+					<div class="col-5 g-0 specialtytile ">
+					<img src={{genieInfo.img}} class="specialtyimg" alt="Image de la spécialité {{genieInfo.specialtyName}}">
 					</div>
 					
 					<!--3-->
-					<div class="col-4 tile g-0">
+					<div class="col-5 wishtile">
 						<h2>{{genieInfo.nb_wishes}}</h2>
 						<p>voeux</p>
 					</div>
 					
 					<!--4-->
-					<div class="col-4 tile g-0 rightbottomtile">
+					<div class="col-5 costtile">
 						<h2>{{genieInfo.costPerDay}}€</h2>
 						<p>/jour</p>
 					</div>
 
 				</div><!--FIN INNER ROW1-->
+				<!--INNER ROW 2 / will display booking block-->
+				<div class="row booking"> 
+					<div class="col-12">
+						<p></p>
+					</div>
+				</div>
 			</div>
 
 <!--Contient description génie -->

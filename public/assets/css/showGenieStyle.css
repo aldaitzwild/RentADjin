@@ -1,27 +1,32 @@
 .container{
     margin-top: 10px;
-    max-width: 1200px;
+    max-width: 1100px;
+}
+
+.tilesblock{
+    max-width: ;
 }
 img{
     width:100%;
-    /* margin-bottom: 10px; */
 }
 
-.tile{  
-    height: 85px;
+.costtile, .wishtile, .lamptile, .specialtytile{  
+    height:90px;
     text-align: center;
-	background:#c8cbd3;	
-    margin-top:0px;
-    margin-right:10px;
-    margin-bottom: 10px;
-    padding: -12px 0px;
+    align-items: center;
+    margin:5px;
+    border-radius: 10px;
 }
 
-.tileimg{
-    height: 85px;
+.costtile, .wishtile{
+    background:#c8cbd3;
+}
+
+.lampimg, .specialtyimg{
+    max-width: 100%;
+    height: 90px;
     object-fit:cover;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    border-radius: 10px;
 }
 
 h2{
@@ -32,25 +37,35 @@ h2{
 
 h1{
     font-weight: bold;
+    font-size: 36px;
+    margin-top: 10px;
 }
 
-.righttoptile{
-    border-radius: 0px 15px 0px 0px;
-    margin-left: 10px;
+.description{
+    margin-top: 10px;
 }
-.rightbottomtile{
+
+.description p{
+    font-size: 16px;
+}
+
+@media screen and (min-width:768px){
+.tilesblock{
+    justify-content:flex-start !important;
+}
+
+.specialtytile{
+    border-radius: 0px 15px 0px 0px;
+}
+
+.costtile{
     border-radius: 0px 0px 15px 0px;
 }
-
-
-@media screen and (max-width:768px){
-.tilesblock{
-    justify-content:center !important;
+.lampimg, .wishtile{
+    border-radius: 0px;
+}
+.specialtyimg{
+    border-radius: 0px 10px 0px 0px;
+}
 }
 
-/* @media screen and (min-width:768px){
-    .tilesblock{
-        justify-content:flex-start;
-} */
-
-}

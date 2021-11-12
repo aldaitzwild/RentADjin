@@ -101,7 +101,11 @@ class GenieController extends AbstractController
 
     public function showAllGenies()
     {
+        $specialties = $this->specialtyManager->selectAll();
         $genies = $this->genieManager->selectAllGenies();
-        return $this->twig->render('Genies/showAllGenies.html.twig', ['genies' => $genies]);
+        return $this->twig->render(
+            'Genies/showAllGenies.html.twig',
+            ['genies' => $genies,'specialties' => $specialties]
+        );
     }
 }

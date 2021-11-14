@@ -20,6 +20,10 @@ body, html {
     position: relative;
   }
 
+  .arrow {
+    padding: 0 !important;
+  }
+
   .lamp{
     padding: 0 !important;
     max-width: 60px;

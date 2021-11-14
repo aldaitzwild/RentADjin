@@ -102,3 +102,10 @@ body, html {
       font-size: 1.5em;
     }
   }
+
+  @media screen and (min-width: 992px){
+
+    .navbar{
+      display: none;
+    }
+  }

@@ -54,7 +54,6 @@ class GenieManager extends AbstractManager
         return $statement->fetch();
     }
 
-
     public function selectAllGenies(): array
     {
         $query = 'SELECT genies.name, genies.genie_img,

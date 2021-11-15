@@ -11,7 +11,7 @@ class BookingManager extends AbstractManager
         parent::__construct();
     }
 
-    public function selectBookingFromOneUser(int $id)
+    public function selectAllFromOneUser(int $id)
     {
         $statement = $this->pdo->prepare("SELECT * FROM bookings WHERE user_id = :user_id;");
 
@@ -22,7 +22,7 @@ class BookingManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-    public function selectBookingForOneGenie(int $id)
+    public function selectAllForOneGenie(int $id)
     {
         $statement = $this->pdo->prepare("SELECT * FROM bookings WHERE genie_id = :genie_id;");
 
@@ -46,5 +46,19 @@ class BookingManager extends AbstractManager
         $statement->bindValue("checkout", $booking["checkout"], \PDO::PARAM_STR);
 
         $statement->execute();
+    }
+
+    public function selectOneByUserAndGenie(int $userId, int $genieId)
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT * FROM bookings WHERE user_id = :user_id AND genie_id = :genie_id;"
+        );
+
+        $statement->bindValue("user_id", $userId, \PDO::PARAM_INT);
+        $statement->bindValue("genie_id", $genieId, \PDO::PARAM_INT);
+
+        $statement->execute();
+
+        return $statement->fetch();
     }
 }

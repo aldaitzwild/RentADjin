@@ -21,6 +21,7 @@ return [
     'admin/genie/add' => ['GenieController', 'add',],
     'admin/genie' => ['AdminController', 'showGenie', ['id']],
     'admin/genie/update' => ['AdminController', 'showUpdateGenie', ['id']],
+    'genies' => ['GenieController', 'showAllGenies'],
     'admin/genie/update/process' => ['GenieController', 'update', ['id']],
     'admin/specialty/add' => ['SpecialtyController', 'add',],
     'admin/user/add' => ['UserController', 'add',],

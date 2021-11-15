@@ -8,11 +8,13 @@ use App\Model\SpecialtyManager;
 class GenieController extends AbstractController
 {
     private GenieManager $genieManager;
+    private SpecialtyManager $specialtyManager;
 
     public function __construct()
     {
         parent::__construct();
         $this->genieManager = new GenieManager();
+        $this->specialtyManager = new SpecialtyManager();
     }
 
     public function add(): void
@@ -105,5 +107,15 @@ class GenieController extends AbstractController
             $errors['input']['costPerDay'] = 'Le prix doit être supérieur à 1€';
         }
         return $errors;
+    }
+
+    public function showAllGenies()
+    {
+        $specialties = $this->specialtyManager->selectAll();
+        $genies = $this->genieManager->selectAllGenies();
+        return $this->twig->render(
+            'Genies/showAllGenies.html.twig',
+            ['genies' => $genies,'specialties' => $specialties]
+        );
     }
 }

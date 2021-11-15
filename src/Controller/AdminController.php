@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Model\UserManager;
 use App\Model\GenieManager;
 use App\Model\SpecialtyManager;
-use App\Controller\GenieController;
 
 class AdminController extends AbstractController
 {

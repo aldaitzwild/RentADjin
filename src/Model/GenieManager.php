@@ -64,6 +64,7 @@ class GenieManager extends AbstractManager
         $statement = $this->pdo->prepare($query);
         $statement->execute();
         return $statement->fetchAll();
+    }
 
     public function update(int $id, array $genieInfo): void
     {
@@ -109,6 +110,5 @@ class GenieManager extends AbstractManager
         }
 
         $statement->execute();
-
     }
 }

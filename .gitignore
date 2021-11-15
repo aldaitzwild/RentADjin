@@ -4,4 +4,4 @@
 *.cache
 db.php
 .idea
-
+assets/

@@ -16,9 +16,10 @@ class BookingController extends AbstractController
         $this->bookingManager = new BookingManager();
     }
 
-    public function add()
+    public function add(int $geniePageId)
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: /genie?=' . $geniePageId);
             return;
         }
 
@@ -28,6 +29,7 @@ class BookingController extends AbstractController
 
         if (!empty($errors['input'])) {
             $_SESSION['errorsBooking'] = $errors;
+            header('Location: /genie?=' . $geniePageId);
             return;
         }
 
@@ -38,7 +40,7 @@ class BookingController extends AbstractController
 
         $this->bookingManager->insert($booking);
 
-        header('Location: ' . $_SERVER['PHP_SELF']);
+        header('Location: /genie?=' . $geniePageId);
     }
 
     public function isAvailable(int $id, string $checkin, string $checkout): bool

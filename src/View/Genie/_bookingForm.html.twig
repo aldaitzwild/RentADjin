@@ -1,0 +1,28 @@
+<form action="/genie/booking?={{genie.id}}" method="POST">
+	{% if errorsBooking.input is defined %}
+		<ul class="errorsList">
+			{% if errorsBooking.input.empty is defined %}
+				<li>
+					{{errorsBooking.input.empty}}
+				</li>
+			{% endif %}
+			{% if errorsBooking.available is defined %}
+				<li>
+					{{errorsBooking.available}}
+				</li>
+			{% endif %}
+		</ul>
+	{% endif %}
+	<div class="mb-3">
+		<label for="checkin" class="form-label">Date de début</label>
+		<input type="date" class="form-control" id="checkin" placeholder="31/12/1999" min="{{date}}">
+	</div>
+	<div class="mb-3">
+		<label for="checkout" class="form-label">Date de fin</label>
+		<input type="date" class="form-control" id="checkout" placeholder="31/12/1999">
+	</div>
+	<div class="col-12">
+		<button class="btn btn-primary" {% if session.name is defined %} type="submit" {% else %} onclick="#" {% endif %}>
+			Reserver</button>
+	</div>
+</form>

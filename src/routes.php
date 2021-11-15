@@ -24,5 +24,5 @@ return [
     'admin/genie/update/process' => ['GenieController', 'update', ['id']],
     'admin/specialty/add' => ['SpecialtyController', 'add',],
     'admin/user/add' => ['UserController', 'add',],
-
+    'genie/booking/' => ['BookingController', 'add', ['id']],
 ];

@@ -6,6 +6,7 @@
 //          2. method name
 //          3. (optional) array of query string keys to send as parameter to the method
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
+
 return [
     '' => ['HomeController', 'index',],
     'items' => ['ItemController', 'index',],
@@ -13,11 +14,15 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
-    'users/add' => ['UserController', 'add'],
-    'users' => ['UserController', 'list'],
+    'user/add' => ['UserController', 'add'],
+    'user' => ['UserController', 'list'],
     'welcome' => ['WelcomeController', 'index',],
     'admin' => ['AdminController', 'index',],
     'admin/genie/add' => ['GenieController', 'add',],
     'admin/genie' => ['AdminController', 'showGenie', ['id']],
-    'admin/genie/update' => ['AdminController', 'showUpdateGenie', ['id']]
+    'admin/genie/update' => ['AdminController', 'showUpdateGenie', ['id']],
+    'admin/genie/update/process' => ['GenieController', 'update', ['id']],
+    'admin/specialty/add' => ['SpecialtyController', 'add',],
+    'admin/user/add' => ['UserController', 'add',],
+
 ];

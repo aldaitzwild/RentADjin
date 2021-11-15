@@ -32,8 +32,40 @@ class AdminController extends AbstractController
     {
         $users = $this->userManager->selectAll();
         $genies = $this->genieManager->selectAll();
+        $specialties = $this->specialtyManager->selectAll();
 
-        return $this->twig->render('Admin/admin.html.twig', ['users' => $users, 'genies' => $genies]);
+        $errorsGenie = "";
+        $errorsSpecialty = "";
+        $errorsUser = "";
+
+        if (isset($_SESSION['errorsGenie'])) {
+            $errorsGenie = $_SESSION['errorsGenie'];
+            unset($_SESSION['errorsGenie']);
+        }
+
+
+        if (isset($_SESSION['errorsSpecialty'])) {
+            $errorsSpecialty = $_SESSION['errorsSpecialty'];
+            unset($_SESSION['errorsSpecialty']);
+        }
+
+
+        if (isset($_SESSION['errorsUser'])) {
+            $errorsUser = $_SESSION['errorsUser'];
+            unset($_SESSION['errorsUser']);
+        }
+
+        return $this->twig->render(
+            'Admin/admin.html.twig',
+            [
+                'users' => $users,
+                'genies' => $genies,
+                'specialties' => $specialties,
+                'errorsGenie' => $errorsGenie,
+                'errorsSpecialty' => $errorsSpecialty,
+                'errorsUser' => $errorsUser
+            ]
+        );
     }
 
     /**
@@ -53,12 +85,23 @@ class AdminController extends AbstractController
 
     public function showUpdateGenie($id): string
     {
+
+
         $genieInfo = $this->genieManager->selectAllInfoById($id);
         $specialties = $this->specialtyManager->selectAll();
 
+        $errorsUpdate = '';
+
+        if (isset($_SESSION['errorsUpdate'])) {
+            $errorsUpdate = $_SESSION['errorsUpdate'];
+            unset($_SESSION['errorsUpdate']);
+        }
+
+
+
         return $this->twig->render(
             'Admin/adminUpdateGenie.html.twig',
-            ['genieInfo' => $genieInfo, 'specialties' => $specialties]
+            ['genieInfo' => $genieInfo, 'specialties' => $specialties, 'errorsUpdate' => $errorsUpdate]
         );
     }
 }

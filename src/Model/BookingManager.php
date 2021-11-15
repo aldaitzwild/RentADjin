@@ -61,4 +61,23 @@ class BookingManager extends AbstractManager
 
         return $statement->fetch();
     }
+
+    public function overlaps(int $genieId, string $checkin, string $checkout): int
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT COUNT(*)
+            FROM bookings
+            WHERE genie_id = :genie_id
+            AND check_in <= :checkout
+            AND checkout >= :checkin;"
+        );
+
+        $statement->bindValue("genie_id", $genieId, \PDO::PARAM_INT);
+        $statement->bindValue("checkout", $checkout, \PDO::PARAM_INT);
+        $statement->bindValue("checkin", $checkin, \PDO::PARAM_INT);
+
+        $statement->execute();
+
+        return $statement->fetch();
+    }
 }

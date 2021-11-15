@@ -1,11 +1,8 @@
 .container{
     margin-top: 10px;
-    max-width: 900px;
+    max-width: 98vw;
 }
 
-.tilesblock{
-    max-width: ;
-}
 img{
     width:100%;
 }
@@ -33,10 +30,6 @@ img{
     padding:2px;
 }
 
-.specialtyimg{
-
-}
-
 h2{
     font-size: 2em;
     padding-top: 10px;
@@ -58,8 +51,12 @@ h1{
 }
 
 .genie{
-    height: 70vh;
-    width:auto;
+    height: auto;
+    width:100%;
+}
+.booking{
+    background-color: #c8cbd3;
+    height : 280px;
 }
 
 @media screen and (min-width:768px){
@@ -80,5 +77,16 @@ h1{
 .specialtyimg{
     border-radius: 0px 10px 0px 0px;
 }
+
+.container{
+    margin-top: 10px;
+    max-width: 800px;
+}
+
+.genie{
+    height: 80vh;
+    width:auto;
+}
+
 }
 

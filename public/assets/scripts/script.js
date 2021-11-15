@@ -1,3 +1,8 @@
+if ("active" in localStorage) {
+    let active = localStorage.getItem("active");
+    document.getElementById(active).classList.toggle("active");
+}
+
 document.addEventListener("click", (e) => {
     const isViewMenu = e.target.matches("[view-menu-button]");
     if (!isViewMenu) return;
@@ -5,10 +10,9 @@ document.addEventListener("click", (e) => {
     let currentView;
     if (isViewMenu) {
         currentView = document.getElementById(e.target.id + "View");
-        console.log(currentView);
         if (!currentView.classList.contains("active")) {
             currentView.classList.toggle("active");
-            console.log(currentView);
+            localStorage.setItem("active", e.target.id + "View");
         }
     }
 

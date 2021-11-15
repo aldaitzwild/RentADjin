@@ -64,7 +64,7 @@ class GenieManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
-  
+
     public function update(int $id, array $genieInfo): void
     {
 

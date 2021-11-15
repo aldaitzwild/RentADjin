@@ -8,11 +8,13 @@ use App\Model\SpecialtyManager;
 class GenieController extends AbstractController
 {
     private GenieManager $genieManager;
+    private SpecialtyManager $specialtyManager;
 
     public function __construct()
     {
         parent::__construct();
         $this->genieManager = new GenieManager();
+        $this->specialtyManager = new SpecialtyManager();
     }
 
     public function add(): void

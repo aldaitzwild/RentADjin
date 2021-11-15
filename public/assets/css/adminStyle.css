@@ -6,9 +6,11 @@
     position: absolute;
     opacity: 0;
     pointer-events: none;
-    width: 73vw;
+    width: 65vw;
     top: 5px;
-    left: 26vw;
+    left: 27vw;
+    max-height: 79vh;
+    overflow-y: scroll;
 }
 
 .adminGlobalContainer {
@@ -16,10 +18,14 @@
     margin-top: 1.5em;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .informationView {
     height: 80vh;
     border-radius: 25px;
-    margin-left: 10px;
+    margin-left: 20px;
     background-color: #f3f3f3;
 }
 
@@ -45,7 +51,7 @@ button {
     color: white !important;
 }
 
-.AdminHeaderTitle {
+.adminHeaderTitle {
     color: var(--primary-color);
     font-size: 40pt;
 }
@@ -62,4 +68,45 @@ button {
 
 .menuTitle {
     font-size: 20pt;
+}
+
+.menuViewTitle {
+    margin-top: 1em;
+}
+
+.errorsList {
+    color: #aa0000;
+    margin: 2em 0 0 0;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .active {
+        display: inline-block !important;
+    }
+
+    .adminContainer {
+        position: unset;
+        max-width: 95vw !important;
+        width: 95vw;
+    }
+
+    .adminHeaderTitle {
+        font-size: 24pt;
+    }
+
+    .menuViewTitle {
+        font-size: 28pt;
+    }
+
+    .menuTitle {
+        font-size: 16pt;
+    }
 }

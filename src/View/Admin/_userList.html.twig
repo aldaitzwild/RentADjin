@@ -1,7 +1,6 @@
-<div class='container adminContainer usersContainer' id="userMenuTitleView">
+<section class='container adminContainer usersContainer d-none d-md-block' id="userMenuTitleView">
 
-	<h1 class="menuTitle text-center">
-		Liste Utilisateurs</h1>
+	<h1 class="menuTitle text-center menuViewTitle">Liste Utilisateurs</h1>
 	<table class="table table-striped usersTable">
 		<tbody>
 			<tr>
@@ -15,11 +14,11 @@
 
 				<tr>
 					<th scope="row" class="text-center">
-						<a href="/admin/user?id={{user.id}}">{{user.id}}</a>
+						{{user.id}}
 					</th>
 					<td class="text-center">{{user.lastname}}</td>
 					<td class="text-center">{{user.firstname}}</td>
-					<td class="text-center">{{user.email}}€</td>
+					<td class="text-center">{{user.email}}</td>
 				</tr>
 
 
@@ -28,4 +27,4 @@
 
 
 	</table>
-</div>
+</section>

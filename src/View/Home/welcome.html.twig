@@ -7,23 +7,23 @@
 
 {% endblock %}
 
+{% block header %}{% include "Home/_header.html.twig" %}{% endblock %}
 
 {% block content %}
 
 <div class="container-fluid title-image">
 
-			<div class="row h-25 p-1 d-flex justify-content-between">
+			<div class="row h-25 p-3 d-flex justify-content-between align-items-start">
 
-					<img class="lamp m-auto col-2 col-sm-1 m-1" src="assets/images/iconlamp.png">
+					<img class="lamp col-2 col-sm-1" src="assets/images/iconlamp.png">
 
-					<h1 class="title text-light col-10 col-sm-6 col-lg-4 col-xl-3 align-self-center">À Vos Souhaits</h1>
+					<h1 class="title text-light col-10 col-sm-6 col-lg-4 col-xl-3">À Vos Souhaits</h1>
 	
-
-					<div class="col-10 col-sm-5 col-lg-4 col-xl-6 m-auto  align-self-center">
+					<div class="col-10 col-sm-5 col-lg-4 col-xl-6 my-2 mx-auto">
 						<input type="search" class="find form-control" placeholder="🔍 Search" aria-label="Search"/>
 					</div>
 
-					<a class="find btn m-auto btn-light col-2 col-xl-1 offset-lg-1 d-none d-lg-flex justify-content-around">
+					<a class="find my-2 btn btn-light col-2 col-xl-1 offset-xl-1 d-none d-lg-flex justify-content-around">
 					<img class="connect" src="assets/images/user.png"><h3>Connection</h3></a>
 			</div>
 
@@ -31,7 +31,7 @@
 
     		<h1 class="you text-light col-12 text-center">Vous ne savez pas quel<br> Génie choisir?</h1>
 		
-    		<button class="find btn btn-light col-4 col-sm-3 col-md-2 col-lg-1 mt-4">Découvrir</button>
+    		<a href="genies" class="find btn btn-light col-4 col-sm-3 col-md-2 col-lg-1 mt-4">Découvrir</a>
 
 			</div>
 </div>
@@ -67,3 +67,5 @@
 {% include "Home/_footer.html.twig" %}
 
 {% endblock %}
+
+{% block javascript %} <script src="/assets/scripts/navScript.js"></script> {% endblock %}

@@ -1,5 +1,7 @@
 DROP DATABASE aVosSouhaits;
 
+DROP DATABASE aVosSouhaits;
+
 CREATE DATABASE aVosSouhaits;
 
 USE aVosSouhaits;
@@ -61,8 +63,16 @@ FOREIGN KEY (genie_id) REFERENCES genies(id)
 
 
 --
--- Sample Data
+-- Sample data
 --
+
+INSERT INTO specialties (name,img)
+VALUES ('activités physiques','/assets/images/activities.png'),
+('activités manuelles','/assets/images/crafts.png'),
+('arts','/assets/images/arts.png'),
+('météo','/assets/images/meteo.png'),
+('amour','/assets/images/love.png'),
+('travail','/assets/images/business.png');
 
 INSERT INTO genies (name,material,nb_wishes,costPerDay,genie_img,lamp_img,specialty_id,description)
 VALUES ('Billie Djinn','laiton',5,30,'/assets/images/billie.jpg','/assets/images/laitonlamp.jpg',1,'Vous voulez danser comme un dieu? Enflammer le dancefloor avec le déhanché d’un roi de la pop ? Ne cherchez plus, Billie sera votre meilleur allié!'),

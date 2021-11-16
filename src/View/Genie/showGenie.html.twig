@@ -1,29 +1,21 @@
 {% extends 'parent.html.twig' %}
 
 {% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/welcomeStyle.css">
 	<link rel="stylesheet" href="/assets/css/showGenieStyle.css">
-	{# <link rel="stylesheet" href="/assets/css/welcomeStyle.css"> #}
 {% endblock %}
 
 {% block title %}Génie -
 	{{genieInfo.genieName}}
 {% endblock %}
 
-{# {% block header %}{% include "Home/_header.html.twig" %}{% endblock %} #}
+{% block header %}{% include "Home/_header.html.twig" %}{% endblock %}
 
 {% block content %}
 
-	<div class="row d-flex justify-content-left">
-			<a class="lamp d-none d-sm-block col-1 text-center" href='/welcome'>
-			<img src="/assets/images/iconlampblack.png"></a>
-
-			<h2 class="title text-dark d-none d-sm-block col-6 col-md-4 col-lg-3 col-xl-3">À Vos Souhaits</h2>
-
-			<a class="arrow col-1 d-sm-none" href='/welcome'>
-			<img src="/assets/images/arrowleft.png"></a>
-
-			<a class="find btn m-auto btn-light col-2 col-xl-1 offset-xl-1 d-none d-lg-flex justify-content-around">
-			<img class="connect img-fluid" src="/assets/images/user.png"><h3>Connection</h3></a>
+	<div>
+		<a class="arrow col-1 d-sm-none" href='/genies?category={{genieInfo.specialty_id}}'>
+		<img class "arrowleft" src="/assets/images/arrowleft.png"></a>
 	</div>
 
 	<div class="container">
@@ -32,9 +24,10 @@
 		<div class="row justify-content-center"> 
 
 			<!--COLONNE 1 (6): Contient photo génie + nom génie -->
-			<div class="col-12 col-sm-6 justify-content-end"> 
+			<div class="col-12 col-sm-6 presentation"> 
 				<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
 				<h1>{{genieInfo.genieName}}</h1>
+				<p>Spécialiste {{genieInfo.specialtyName}}</p>
 			</div>
 
 			<!--COLONNE 2 (6): Contient 4 tuile spécialité + tuile image lampe + tuile voeux + tuile prix-->

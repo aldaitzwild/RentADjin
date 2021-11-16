@@ -3,10 +3,6 @@
     max-width: 98vw;
 }
 
-img{
-    width:100%;
-}
-
 .costtile, .wishtile, .lamptile, .specialtytile{  
     height:100px;
     text-align: center;
@@ -22,6 +18,7 @@ img{
 
 .lampimg, .specialtyimg{
     height: 100px;
+    width:100%;
     object-fit:contain;
     border-radius: 10px;
     background:#c8cbd388;
@@ -30,23 +27,28 @@ img{
 
 h2{
     font-size: 2em;
-    padding-top: 10px;
+    font-weight: bold;
+    padding-top: 20px;
     margin-bottom:-6px;
 }
 
 h1{
-    font-weight: bold;
-    font-size: 30px;
+    font-weight: medium;
+    font-size: 28px;
     margin-top: 10px;
+    margin-bottom: 0px !important;
 }
 
 .description{
-    margin-top: 10px;
     padding: 10px;
 }
 
 .description p{
     font-size: 16px;
+}
+
+.description p, .presentation p{
+    font-size: 14px;
 }
 
 .genie{
@@ -58,9 +60,12 @@ h1{
     position:absolute;
     top:45px;
     left:30px;
-    height:25px;
-    width:25px;
-    padding:2px;
+}
+
+.arrow img{
+    height:35px;
+    padding:5px;
+    width:auto;
 }
 
 @media screen and (min-width:768px){
@@ -84,7 +89,7 @@ h1{
 
 .container{
     margin-top: 10px;
-    max-width: 70vw;
+    max-width: 60vw;
 }
 
 .genie{

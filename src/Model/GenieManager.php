@@ -42,7 +42,8 @@ class GenieManager extends AbstractManager
         g.specialty_id,
         g.costPerDay,
         g.genie_img,
-        g.lamp_img
+        g.lamp_img,
+        g.description
         FROM genies AS g
         JOIN specialties AS s ON s.id = g.specialty_id
         WHERE g.id =:id";

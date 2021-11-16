@@ -14,4 +14,15 @@ class SpecialtyManager extends AbstractManager
 
         return $this->pdo->query($query)->fetchAll();
     }
+
+    public function insert(array $specialtyInfo): void
+    {
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
+            " (name, img) VALUES (:name, :img);");
+
+        $statement->bindValue(':name', $specialtyInfo['name'], \PDO::PARAM_STR);
+        $statement->bindValue(':img', $specialtyInfo['specialty_img'], \PDO::PARAM_STR);
+
+        $statement->execute();
+    }
 }

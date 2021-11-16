@@ -7,54 +7,49 @@
 
 {% endblock %}
 
+{% block header %}{% include "Home/_header.html.twig" %}{% endblock %}
 
 {% block content %}
 
-<div class="title-image">
+<div class="container-fluid title-image">
 
-  	<div class="accueil">
+			<div class="row h-25 p-3 d-flex justify-content-between align-items-start">
 
-	    <div class="container-fluid">
+					<img class="lamp col-2 col-sm-1" src="assets/images/iconlamp.png">
 
-			<div class="row ">
-				<div class="title col-12 col-md-4">
-					<img src="assets/images/logo.png">
-					<h1 class="display-5 ml-3">À Vos Souhaits</h1>
-				</div>
+					<h1 class="title text-light col-10 col-sm-6 col-lg-4 col-xl-3">À Vos Souhaits</h1>
+	
+					<div class="col-10 col-sm-5 col-lg-4 col-xl-6 my-2 mx-auto">
+						<input type="search" class="find form-control" placeholder="🔍 Search" aria-label="Search"/>
+					</div>
 
-				<div class="d-flex col-10 col-md-7">
-					<input type="search" class="form-control rounded" placeholder="Search"/>
-					<button type="button" class="btn btn-outline-light">search</button>
-				</div>
-				<button type="button" class="btn btn-light btn-sm btn-rounded col-md-1 d-none">Connection</button>
+					<a class="find my-2 btn btn-light col-2 col-xl-1 offset-xl-1 d-none d-lg-flex justify-content-around">
+					<img class="connect" src="assets/images/user.png"><h3>Connection</h3></a>
+			</div>
+
+			<div class="row d-flex flex-column justify-content-center align-items-center h-75">
+
+    		<h1 class="you text-light col-12 text-center">Vous ne savez pas quel<br> Génie choisir?</h1>
+		
+    		<a href="genies" class="find btn btn-light col-4 col-sm-3 col-md-2 col-lg-1 mt-4">Découvrir</a>
 
 			</div>
-		</div>
-
-		<div class="search">
-    		<p>Vous ne savez pas quel Génie choisir?</p>
-    		<button>Découvrir</button>
-		</div>
-
-  	</div>
-
 </div>
-
-
-<div>
 
 	<h2>Découvrez nos catégories</h2>
+
 	<div class="container scrollmenu">
-		<div class="row text-center">
-		{% for specialty in specialties %}
-			<div class="col-4">
-			<img class="logo" src={{specialty.img}}>
-				<h3>{{specialty.name}}</h3>
+			<div class="row ">
+			{% for specialty in specialties %}
+				<div class="col-4 col-md-2 text-center">
+				<img class="logo" src={{specialty.img}}>
+					<p>{{specialty.name}}</p>
+				</div>
+			{% endfor %}
 			</div>
-		{% endfor %}
-		</div>
 	</div>
-</div>
+
+
 <div class="favoris">
 
 	<h2>Les Génies du moments</h2>
@@ -72,3 +67,5 @@
 {% include "Home/_footer.html.twig" %}
 
 {% endblock %}
+
+{% block javascript %} <script src="/assets/scripts/navScript.js"></script> {% endblock %}

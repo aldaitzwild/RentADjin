@@ -21,11 +21,11 @@
 		{% endif %}
 		<div class="mb-3 col-12 col-md-6">
 			<label for="checkin" class="form-label">Date de début</label>
-			<input type="date" class="form-control" id="checkin" placeholder="31/12/1999" min="{{date}}">
+			<input type="date" name="checkin" class="form-control" id="checkin" placeholder="31/12/1999" min="{{date}}">
 		</div>
 		<div class="mb-3 col-12 col-md-6">
 			<label for="checkout" class="form-label">Date de fin</label>
-			<input type="date" class="form-control" id="checkout" placeholder="31/12/1999">
+			<input type="date" class="form-control" name="checkout" id="checkout" placeholder="31/12/1999">
 		</div>
 		<div class="col-12 text-center">
 			<button class="btn btn-primary" {% if session.name is defined %} type="submit" {% else %} onclick="#" {% endif %}>

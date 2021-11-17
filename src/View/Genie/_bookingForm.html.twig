@@ -36,11 +36,12 @@
 			<input type="date" class="form-control" name="checkout" id="checkout" placeholder="31/12/1999">
 		</div>
 		<div class="col-12 text-center">
-			<a {% if session.name is not defined %} data-bs-toggle="modal" data-bs-target="#exempleModal" {% endif %}>
-				<button class="btn btn-primary" {% if session.name is defined %} type="submit" {% endif %}>
+			{% if userInfo.id is not defined %}
+				<a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Reserver</a>
+			{% else %}
+				<button class="btn btn-primary" {% if userInfo.id is defined %} type="submit" {% endif %}>
 					Reserver</button>
-			</a>
-
+			{% endif %}
 		</div>
 	</form>
 </section>

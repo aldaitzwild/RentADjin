@@ -64,4 +64,15 @@ class UserController extends AbstractController
         $_SESSION['errorsMessage'] = $errorsMessage;
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
+
+    public function logout()
+    {
+        $_SESSION = array();
+
+        session_destroy();
+
+        unset($_SESSION);
+
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 }

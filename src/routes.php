@@ -28,5 +28,6 @@ return [
     'genies/booking' => ['BookingController', 'add', ['id']],
     'connection' => ['UserController', 'selectUser'],
     'genies/show' => ['GenieController', 'showGenie', ['id']],
-    'genies/review' => ['GenieController', 'addReview']
+    'genies/review' => ['GenieController', 'addReview'],
+    'logout' => ['UserController', 'logout']
 ];

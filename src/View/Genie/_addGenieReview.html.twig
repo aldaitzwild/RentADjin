@@ -3,10 +3,18 @@
 
   <p>Qu'avez vous pensé de {{genieInfo.genieName}} ?</p>
 
-{% if errorsReview is not empty %} {% endif %}
+{% if errorsReview is not empty %} 
+      <ul class="errorsList">
+				{% if errorsReview.input is defined %}
+					<li>
+						{{errorsReview.input}}
+					</li>
+				{% endif %}
+			</ul>
+{% endif %}
 
 
-  <form action="/genies/show" method="post">
+  <form action="/genies/review" method="post">
     {# <div class="form-group"> #}
       
       <input type="hidden" id="genie" name="genie" value={{genieInfo.genieId}} class="form-control">

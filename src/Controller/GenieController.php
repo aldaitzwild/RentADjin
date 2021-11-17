@@ -180,14 +180,19 @@ class GenieController extends AbstractController
      */
     public function addReview(): void
     {
-        $errors = '';
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $review = array_map('trim', $_POST);
             $review = array_map('htmlentities', $review);
 
             // TODO validations (length, format...)
-            $errors = $this->testInput($review);
+            $errors['input'] = '';
+            foreach ($review as $input) {
+                if (empty($input)) {
+                    $errors['input'] = 'Tous les champs sont requis';
+                }
+            }
 
             if ($review['rating'] < 0 || $review['rating'] > 5) {
                 $errors['rating'] = "La note doit être comprise entre 0 & 5";

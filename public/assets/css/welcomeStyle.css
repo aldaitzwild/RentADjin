@@ -12,7 +12,7 @@ html {
 }
 
 .sectionTitle {
-    margin: 1em 3em !important;
+    margin: 1em !important;
 }
 
 .marginTop {
@@ -125,4 +125,13 @@ h3 {
     .navbar {
         display: none;
     }
+
+    .scrollmenu > .row {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+}
+
 }

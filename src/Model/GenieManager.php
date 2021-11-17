@@ -57,7 +57,7 @@ class GenieManager extends AbstractManager
 
     public function selectAllGenies(): array
     {
-        $query = 'SELECT genies.name, genies.genie_img,
+        $query = 'SELECT genies.description, genies.id, genies.name, genies.genie_img,
         genies.costPerDay,
         specialties.name AS speName
         FROM genies JOIN specialties ON specialties.id = genies.specialty_id';

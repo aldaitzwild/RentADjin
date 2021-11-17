@@ -52,12 +52,12 @@
 
 	<h2 class="sectionTitle">Découvrez nos catégories</h2>
 
-	<div class="container d-flex justify-content-around scrollmenu mx-auto">
+	<div class="container  justify-content-around scrollmenu mx-auto">
 		<div class="row mb-3 col-12">
 			{% for specialty in specialties %}
-				<div class="col-4 col-md-2 mx-3 text-center">
+				<div class="col-4 col-md-2 col-lg-4 mx-3 mx-lg-0 text-center">
 					<img class="logo" src={{specialty.img}}>
-					<p class="mb-0">{{specialty.name}}</p>
+					<p>{{specialty.name}}</p>
 				</div>
 			{% endfor %}
 		</div>

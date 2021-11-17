@@ -124,7 +124,7 @@ class GenieController extends AbstractController
         $specialties = $this->specialtyManager->selectAll();
         $genies = $this->genieManager->selectAllGenies();
         $errorsMessage = '';
-
+        
         if (isset($_SESSION['errorsMessage'])) {
             $errorsMessage = $_SESSION['errorsMessage'];
             unset($_SESSION['errorsMessage']);

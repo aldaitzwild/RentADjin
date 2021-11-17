@@ -80,7 +80,7 @@ h4{
 
 .arrow {
     position: absolute;
-    top: 45px;
+    top: 150px;
     left: 30px;
 }
 
@@ -106,13 +106,17 @@ h4{
     width: auto;
 }
 
+.genie {
+    border-radius: 25px 0 25px 25px;
+}
+
 @media screen and (min-width: 768px) {
     .tilesblock {
         justify-content: flex-start !important;
     }
 
     .costtile > div {
-        border-radius: 0px 0px 15px 0px;
+        border-radius: 0px 0px 25px 0px;
     }
 
     .lampimg,
@@ -120,7 +124,7 @@ h4{
         border-radius: 0px;
     }
     .specialtyimg {
-        border-radius: 0px 10px 0px 0px;
+        border-radius: 0px 25px 0px 0px;
     }
 
     .container {

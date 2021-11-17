@@ -12,7 +12,7 @@ html {
 }
 
 .sectionTitle {
-    margin: 1em 3em !important;
+    margin: 1em !important;
 }
 
 .marginTop {
@@ -37,6 +37,10 @@ html {
     padding: 0 !important;
     max-width: 60px;
     max-height: 60px;
+}
+
+.specialtyMenuTile {
+    width: 150px;
 }
 
 .title {
@@ -117,8 +121,17 @@ h3 {
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
     .navbar {
         display: none;
     }
+
+    .scrollmenu > .row {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+}
+
 }

@@ -39,6 +39,10 @@ html {
     max-height: 60px;
 }
 
+.specialtyMenuTile {
+    width: 150px;
+}
+
 .title {
     font-family: "Dr Sugiyama", cursive;
     text-align: right;

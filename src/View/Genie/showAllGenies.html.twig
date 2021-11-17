@@ -14,41 +14,35 @@
 
 {% block content %}
 
-	{% if errorsMessage is not empty %}
-		<div class="alert alert-danger text-center" role="alert">
-			{{errorsMessage}}
-		</div>
-	{% endif %}
-
 
 	<div class="container scrollmenu ">
-		<div class="row">
+		<div class="row d-flex flex-nowrap justify-content-between">
 			{% for specialty in specialties %}
-				<p class="col-4 col-md-2 text-center">{{specialty.name}}</p>
+				<p class="text-center specialtyMenuTile">{{specialty.name}}</p>
 			{% endfor %}
 		</div>
-</div><hr>
+	</div><hr>
 
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-    {% for genie in genies %}
-        <div class="col">
-        <div class="card mx-auto h-100" style="width: 18rem;">
-            <img src={{genie.genie_img}} class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <h5 class="card-title">{{genie.name}}</h5>
-                    <h5>{{genie.costPerDay}}€/J</h5>
-                </div>
-                <h6>{{genie.speName}}</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="/genies/show?id={{genie.genieId}}" class="stretched-link"></a>
-            </div>
-        </div>
-        </div>
-    {% endfor %}
-    </div>
-</div>
+	<div class="container">
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+			{% for genie in genies %}
+				<div class="col">
+					<div class="card mx-auto h-100" style="width: 18rem;">
+						<img src={{genie.genie_img}} class="card-img-top" alt="...">
+						<div class="card-body">
+							<div class="d-flex justify-content-between">
+								<h5 class="card-title">{{genie.name}}</h5>
+								<h5>{{genie.costPerDay}}€/J</h5>
+							</div>
+							<h6>{{genie.speName}}</h6>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<a href="/genies/show?id={{genie.genieId}}" class="stretched-link"></a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 
 
 {% endblock %}

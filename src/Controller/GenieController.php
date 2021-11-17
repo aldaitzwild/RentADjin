@@ -21,9 +21,34 @@ class GenieController extends AbstractController
     public function showGenie($id): string
     {
         $genieInfo = $this->genieManager->selectAllInfoById($id);
+
+        $userInfo = '';
+        $errorsBooking = '';
+        $errorsMessage = '';
+
+        if (isset($_SESSION['user'])) {
+            $userInfo = $_SESSION['user'];
+        }
+
+        if (isset($_SESSION['errorsBooking'])) {
+            $errorsBooking = $_SESSION['errorsBooking'];
+            unset($_SESSION['errorsBooking']);
+        }
+
+        if (isset($_SESSION['errorsMessage'])) {
+            $errorsMessage = $_SESSION['errorsMessage'];
+            unset($_SESSION['errorsMessage']);
+        }
+
+
         return $this->twig->render(
             'Genie/showGenie.html.twig',
-            ['genieInfo' => $genieInfo]
+            [
+                'genieInfo' => $genieInfo,
+                'userInfo' => $userInfo,
+                'errorsBooking' => $errorsBooking,
+                'errorsMessage' => $errorsMessage
+            ]
         );
     }
 
@@ -131,7 +156,7 @@ class GenieController extends AbstractController
         }
 
         return $this->twig->render(
-            'Genies/showAllGenies.html.twig',
+            'Genie/showAllGenies.html.twig',
             [
                 'genies' => $genies,
                 'specialties' => $specialties,

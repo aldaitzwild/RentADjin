@@ -14,6 +14,11 @@
 	</head>
 
 	<body>
+		{% if errorsMessage is not empty %}
+			<div class="alert alert-danger text-center" role="alert">
+				{{errorsMessage}}
+			</div>
+		{% endif %}
 
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
@@ -23,7 +28,7 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<form method='POST' action="connection">
+						<form method='POST' action="/connection">
 							<div class="form-group">
 								<label for="firstname">Nom</label>
 								<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Nom">

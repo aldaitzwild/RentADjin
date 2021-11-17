@@ -28,7 +28,7 @@
 			class="row justify-content-center">
 
 			<!--COLONNE 1 (6): Contient photo génie + nom génie -->
-			<div class="col-12 col-sm-6 presentation">
+			<div class="col-12 col-sm-6 presentation p-0 p-md-1">
 				<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
 				<h1>{{genieInfo.genieName}}</h1>
 				<p>Spécialiste
@@ -44,25 +44,33 @@
 					class="row tilesblock justify-content-center">
 
 					<!--1-->
-					<div class="col-5 g-0 lamptile ">
+					<div class="col-6 g-0 lamptile ">
 						<img src={{genieInfo.lamp_img}} class="lampimg" alt="Image de la lampe de {{genieInfo.genieName}}">
 					</div>
 
 					<!--2-->
-					<div class="col-5 g-0 specialtytile ">
+					<div class="col-6 g-0 specialtytile ">
 						<img src={{genieInfo.img}} class="specialtyimg" alt="Image de la spécialité {{genieInfo.specialtyName}}">
 					</div>
 
 					<!--3-->
-					<div class="col-5 wishtile">
-						<h2>{{genieInfo.nb_wishes}}</h2>
-						<p>voeux</p>
+					<div class="col-6 wishtile">
+						<div class="tileContainer">
+							<h2>{{genieInfo.nb_wishes}}</h2>
+							<p>voeux</p>
+						</div>
 					</div>
 
 					<!--4-->
-					<div class="col-5 costtile">
-						<h2>{{genieInfo.costPerDay}}€</h2>
-						<p>/jour</p>
+					<div class="col-6 costtile">
+						<div class="tileContainer">
+							<h2>{{genieInfo.costPerDay}}€</h2>
+							<p>/jour</p>
+						</div>
+					</div>
+
+					<div class="col-12">
+						{% include "Genie/_bookingForm.html.twig" %}
 					</div>
 
 				</div>

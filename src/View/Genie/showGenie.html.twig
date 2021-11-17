@@ -26,7 +26,7 @@
 			<!--COLONNE 1 (6): Contient photo génie + nom génie -->
 			<div class="col-12 col-sm-6 presentation"> 
 				<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
-				<h1>{{genieInfo.genieName}}</h1>
+				<h4>{{genieInfo.genieName}}</h1>
 				<p>Spécialiste {{genieInfo.specialtyName}}</p>
 			</div>
 
@@ -72,8 +72,14 @@
 			</div>
 		</div>
 		
+		<div class="addReview">
+
+		{% include "Genie/_addGenieReview.html.twig" %}
+
+		</div>
 
 	</div>
+	
 {% endblock %}
 {% block footer %}{% endblock %}
 {% block javascript %} <script src="/assets/scripts/navScript.js"></script> {% endblock %}

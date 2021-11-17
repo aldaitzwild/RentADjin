@@ -61,6 +61,18 @@ FOREIGN KEY (user_id) REFERENCES users(id),
 FOREIGN KEY (genie_id) REFERENCES genies(id)
 );
 
+--
+-- Structure of reviews
+--
+
+CREATE TABLE reviews (
+user_id INT NOT NULL,
+genie_id INT NOT NULL,
+rating	INT NOT NULL,
+review TEXT, 
+FOREIGN KEY (user_id) REFERENCES users(id),
+FOREIGN KEY (genie_id) REFERENCES genies(id)
+);
 
 --
 -- Sample data

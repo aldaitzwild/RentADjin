@@ -4,26 +4,46 @@ namespace App\Controller;
 
 use App\Model\GenieManager;
 use App\Model\SpecialtyManager;
+use App\Model\ReviewManager;
 
 class GenieController extends AbstractController
 {
     private GenieManager $genieManager;
     private SpecialtyManager $specialtyManager;
+    private ReviewManager $reviewManager;
 
     public function __construct()
     {
         parent::__construct();
         $this->genieManager = new GenieManager();
         $this->specialtyManager = new SpecialtyManager();
+        $this->reviewManager = new ReviewManager();
     }
 
-    // Returns all informations for a specific Genie
+    // Returns all informations for a specific Genie and Info of logged in user
     public function showGenie($id): string
     {
         $genieInfo = $this->genieManager->selectAllInfoById($id);
+        $userInfo = '';
+        $errorsReview = '';
+
+
+        if (isset($_SESSION['user'])) {
+            $userInfo = $_SESSION['user'];
+        }
+
+        if (isset($_SESSION['errorsReview'])) {
+            $errorsReview = $_SESSION['errorsReview'];
+            unset($_SESSION['errorsReview']);
+        }
+
         return $this->twig->render(
             'Genie/showGenie.html.twig',
-            ['genieInfo' => $genieInfo]
+            [
+                'genieInfo' => $genieInfo,
+                'userInfo' => $userInfo,
+                'errorsReview' => $errorsReview
+            ]
         );
     }
 
@@ -127,5 +147,33 @@ class GenieController extends AbstractController
             'Genies/showAllGenies.html.twig',
             ['genies' => $genies,'specialties' => $specialties]
         );
+    }
+
+/**
+     * Add a customer review
+     */
+    public function addReview(): void
+    {
+        $errors = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $review = array_map('trim', $_POST);
+            $review = array_map('htmlentities', $review);
+
+            // TODO validations (length, format...)
+            $errors = $this->testInput($review);
+
+            if ($review['rating'] < 0 || $review['rating'] > 5) {
+                $errors['rating'] = "La note doit être comprise entre 0 & 5";
+            }
+
+            if (empty($errors['input']) && empty($errors['rating'])) {
+                $this->reviewManager->insert($review);
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                return;
+            }
+        }
+            $_SESSION['errorsReview'] = $errors;
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }

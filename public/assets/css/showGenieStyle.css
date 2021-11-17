@@ -58,8 +58,17 @@ h2 {
     margin-bottom: -6px;
 }
 
-h4{
-    font-weight:bolder;
+.noReview {
+    font-size: 1em;
+}
+
+.reviewUserName {
+    font-size: 1.125em;
+    padding-top: 0 !important;
+}
+
+h4 {
+    font-weight: bolder;
     font-size: 28px;
     margin-top: 10px;
     margin-bottom: 0px !important;
@@ -69,8 +78,9 @@ h4{
     padding: 10px;
 }
 
-.description p, .presentation p{
-    font-size: 14px;
+.description p,
+.presentation p {
+    font-size: 1em;
 }
 
 .genie {
@@ -84,19 +94,19 @@ h4{
     left: 30px;
 }
 
-.addReview{
+.addReview {
     border-radius: 10px;
     padding: 10px;
-    background:#c8cbd388;
+    background: #c8cbd388;
     margin-bottom: 10px;
 }
 
-.addReview p{
-    font-size:18px;
+.addReview p {
+    font-size: 18px;
     font-weight: bold;
 }
 
-.sendReview{
+.sendReview {
     background-color: rgb(178, 178, 189);
 }
 
@@ -106,13 +116,13 @@ h4{
     width: auto;
 }
 
-.genie {
-    border-radius: 25px 0 25px 25px;
-}
-
 @media screen and (min-width: 768px) {
     .tilesblock {
         justify-content: flex-start !important;
+    }
+
+    .genie {
+        border-radius: 25px 0 25px 25px;
     }
 
     .costtile > div {

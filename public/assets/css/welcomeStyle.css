@@ -7,6 +7,10 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
+.headerContainer {
+    width: 100%;
+}
+
 .find {
     border-radius: 30em;
 }
@@ -127,11 +131,10 @@ h3 {
     }
 
     .scrollmenu > .row {
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 100%;
-}
-
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 100%;
+    }
 }

@@ -8,7 +8,7 @@
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 
 return [
-    '' => ['HomeController', 'index',],
+    'index' => ['HomeController', 'index',],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
@@ -16,13 +16,15 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'user/add' => ['UserController', 'add'],
     'user' => ['UserController', 'list'],
-    'welcome' => ['WelcomeController', 'index',],
+    '' => ['WelcomeController', 'index',],
     'admin' => ['AdminController', 'index',],
     'admin/genie/add' => ['GenieController', 'add',],
     'admin/genie' => ['AdminController', 'showGenie', ['id']],
     'admin/genie/update' => ['AdminController', 'showUpdateGenie', ['id']],
+    'genies' => ['GenieController', 'showAllGenies'],
     'admin/genie/update/process' => ['GenieController', 'update', ['id']],
     'admin/specialty/add' => ['SpecialtyController', 'add',],
     'admin/user/add' => ['UserController', 'add',],
     'genie/booking/' => ['BookingController', 'add', ['id']],
+    'genies/show' => ['GenieController', 'showGenie', ['id']]
 ];

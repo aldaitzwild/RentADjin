@@ -3,6 +3,11 @@
     max-width: 98vw;
 }
 
+.errorsList {
+    color: #aa0000;
+    margin-bottom: 1em;
+}
+
 .costtile,
 .wishtile,
 .lamptile,
@@ -10,14 +15,30 @@
     height: 100px;
     text-align: center;
     align-items: center;
-    margin: 5px;
+    padding: 5px;
     border-radius: 10px;
+}
+
+.bookingTitle {
+    margin-bottom: 1em;
+}
+
+.tileContainer {
+    background: #c8cbd388;
+    height: 100px;
+}
+
+.formContainer {
+    border: 1px solid #a8a8a8;
+    border-radius: 25px;
+    height: fit-content;
+    margin-top: 3em !important;
+    padding: 1em;
 }
 
 .costtile,
 .wishtile {
-    background: #c8cbd388;
-    padding-top: 2px;
+    margin-top: 15px;
 }
 
 .lampimg,
@@ -79,13 +100,10 @@ h1 {
         justify-content: flex-start !important;
     }
 
-    .specialtytile {
-        border-radius: 0px 15px 0px 0px;
-    }
-
-    .costtile {
+    .costtile > div {
         border-radius: 0px 0px 15px 0px;
     }
+
     .lampimg,
     .wishtile {
         border-radius: 0px;
@@ -97,11 +115,6 @@ h1 {
     .container {
         margin-top: 10px;
         max-width: 60vw;
-    }
-
-    .genie {
-        height: 70vh;
-        width: auto;
     }
 
     .description p {

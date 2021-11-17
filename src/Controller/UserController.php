@@ -50,7 +50,6 @@ class UserController extends AbstractController
     {
         $errorsMessage = 'Vos identifiants sont incorrects !';
 
-
         if (!empty($_POST)) {
             $firstname = $_POST['firstname'];
             $email = $_POST['email'];

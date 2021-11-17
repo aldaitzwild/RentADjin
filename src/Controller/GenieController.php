@@ -123,9 +123,20 @@ class GenieController extends AbstractController
     {
         $specialties = $this->specialtyManager->selectAll();
         $genies = $this->genieManager->selectAllGenies();
+        $errorsMessage = '';
+
+        if (isset($_SESSION['errorsMessage'])) {
+            $errorsMessage = $_SESSION['errorsMessage'];
+            unset($_SESSION['errorsMessage']);
+        }
+
         return $this->twig->render(
             'Genies/showAllGenies.html.twig',
-            ['genies' => $genies,'specialties' => $specialties]
+            [
+                'genies' => $genies,
+                'specialties' => $specialties,
+                'errorsMessage' => $errorsMessage
+            ]
         );
     }
 }

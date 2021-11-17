@@ -33,13 +33,14 @@ class GenieController extends AbstractController
             $errorsBooking = $_SESSION['errorsBooking'];
             unset($_SESSION['errorsBooking']);
         }
+        var_dump($userInfo);
 
         return $this->twig->render(
             'Genie/showGenie.html.twig',
             [
                 'genieInfo' => $genieInfo,
                 'userInfo' => $userInfo,
-                'errrosBooking' => $errorsBooking
+                'errorsBooking' => $errorsBooking
             ]
         );
     }

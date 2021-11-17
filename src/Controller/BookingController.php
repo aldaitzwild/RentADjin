@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Controller\AbstractController;
 use App\Model\BookingManager;
+use DateTime;
 
 class BookingController extends AbstractController
 {
@@ -35,6 +36,12 @@ class BookingController extends AbstractController
             return;
         }
 
+        $checkin = new DateTime($booking['checkin']);
+        $booking['checkin'] = date_format($checkin, 'Y-m-d');
+
+        $checkout = new DateTime($booking['checkout']);
+        $booking['checkout'] = date_format($checkout, 'Y-m-d');
+
         if ($booking['checkin'] > $booking['checkout']) {
             $_SESSION['errorsBooking']["invalid"] = "La date de fin ne peut être antérieur à la date de début";
             header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -43,16 +50,16 @@ class BookingController extends AbstractController
 
         if (!$this->isAvailable($booking["genieId"], $booking["checkin"], $booking["checkout"])) {
             $_SESSION['errorsBooking']["notAvailable"] = "Créneau indisponible";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             return;
         }
 
         $this->bookingManager->insert($booking);
-
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
     public function isAvailable(int $id, string $checkin, string $checkout): bool
     {
-        return ($this->bookingManager->overlaps($id, $checkin, $checkout) <= 0);
+        return ($this->bookingManager->overlaps($id, $checkin, $checkout) === 0);
     }
 }

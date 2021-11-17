@@ -1,24 +1,32 @@
-<section class="formContainer container">
+<section class="formContainer container d-flex flex-column  justify-content-center">
 	<div class="row">
 		<h2 class="text-center bookingTitle">Réserver ce Génie
 		</h2>
 	</div>
 
+	{% if errorsBooking is not empty %}
+		<ul class="errorsList">
+			{% if errorsBooking.input.empty is defined %}
+				<li>
+					{{errorsBooking.input.empty}}
+				</li>
+			{% endif %}
+			{% if errorsBooking.notAvailable is defined %}
+				<li>
+					{{errorsBooking.notAvailable}}
+				</li>
+			{% endif %}
+			{% if errorsBooking.invalid is defined %}
+				<li>
+					{{errorsBooking.invalid}}
+				</li>
+			{% endif %}
+		</ul>
+	{% endif %}
+
 	<form action="/genies/booking?id={{genieInfo.genieId}}" method="POST" class="row">
-		{% if errorsBooking.input is defined %}
-			<ul class="errorsList">
-				{% if errorsBooking.input.empty is defined %}
-					<li>
-						{{errorsBooking.input.empty}}
-					</li>
-				{% endif %}
-				{% if errorsBooking.available is defined %}
-					<li>
-						{{errorsBooking.available}}
-					</li>
-				{% endif %}
-			</ul>
-		{% endif %}
+
+		<input type="hidden" name="user_id" value="1">
 		<div class="mb-3 col-12 col-lg-6">
 			<label for="checkin" class="form-label text-nowrap">Date de début</label>
 			<input type="date" name="checkin" class="form-control" id="checkin" placeholder="31/12/1999" min="{{date}}">
@@ -28,8 +36,11 @@
 			<input type="date" class="form-control" name="checkout" id="checkout" placeholder="31/12/1999">
 		</div>
 		<div class="col-12 text-center">
-			<button class="btn btn-primary" {% if session.name is defined %} type="submit" {% else %} onclick="#" {% endif %}>
-				Reserver</button>
+			<a {% if session.name is not defined %} data-bs-toggle="modal" data-bs-target="#exempleModal" {% endif %}>
+				<button class="btn btn-primary" {% if session.name is defined %} type="submit" {% endif %}>
+					Reserver</button>
+			</a>
+
 		</div>
 	</form>
 </section>

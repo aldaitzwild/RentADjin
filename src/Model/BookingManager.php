@@ -40,9 +40,9 @@ class BookingManager extends AbstractManager
 
         $statement = $this->pdo->prepare($query);
 
-        $statement->bindValue("user_id", $booking["user_id"], \PDO::PARAM_INT);
-        $statement->bindValue("genie_id", $booking["genie_id"], \PDO::PARAM_INT);
-        $statement->bindValue("check_in", $booking["check_in"], \PDO::PARAM_STR);
+        $statement->bindValue("user_id", 1, \PDO::PARAM_INT);
+        $statement->bindValue("genie_id", $booking["genieId"], \PDO::PARAM_INT);
+        $statement->bindValue("check_in", $booking["checkin"], \PDO::PARAM_STR);
         $statement->bindValue("checkout", $booking["checkout"], \PDO::PARAM_STR);
 
         $statement->execute();
@@ -65,19 +65,19 @@ class BookingManager extends AbstractManager
     public function overlaps(int $genieId, string $checkin, string $checkout): int
     {
         $statement = $this->pdo->prepare(
-            "SELECT COUNT(*)
+            "SELECT COUNT(*) as nbOfOverlaps
             FROM bookings
             WHERE genie_id = :genie_id
-            AND check_in <= :checkout
-            AND checkout >= :checkin;"
+            AND DATE(check_in) <= :checkout
+            AND DATE(checkout) >= :checkin;"
         );
 
         $statement->bindValue("genie_id", $genieId, \PDO::PARAM_INT);
-        $statement->bindValue("checkout", $checkout, \PDO::PARAM_INT);
-        $statement->bindValue("checkin", $checkin, \PDO::PARAM_INT);
+        $statement->bindValue("checkout", $checkout, \PDO::PARAM_STR);
+        $statement->bindValue("checkin", $checkin, \PDO::PARAM_STR);
 
         $statement->execute();
 
-        return $statement->fetch();
+        return $statement->fetch()['nbOfOverlaps'];
     }
 }

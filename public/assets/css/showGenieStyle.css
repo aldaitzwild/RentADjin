@@ -1,105 +1,111 @@
-.container{
+.container {
     margin-top: 10px;
     max-width: 98vw;
 }
 
-.costtile, .wishtile, .lamptile, .specialtytile{  
-    height:100px;
+.costtile,
+.wishtile,
+.lamptile,
+.specialtytile {
+    height: 100px;
     text-align: center;
     align-items: center;
-    margin:5px;
+    margin: 5px;
     border-radius: 10px;
 }
 
-.costtile, .wishtile{
-    background:#c8cbd388;
+.costtile,
+.wishtile {
+    background: #c8cbd388;
     padding-top: 2px;
 }
 
-.lampimg, .specialtyimg{
+.lampimg,
+.specialtyimg {
     height: 100px;
-    width:100%;
-    object-fit:contain;
+    width: 100%;
+    object-fit: contain;
     border-radius: 10px;
-    background:#c8cbd388;
-    padding:4px;
+    background: #c8cbd388;
+    padding: 4px;
 }
 
-h2{
+h2 {
     font-size: 2em;
     font-weight: bold;
     padding-top: 20px;
-    margin-bottom:-6px;
+    margin-bottom: -6px;
 }
 
-h1{
+h1 {
     font-weight: medium;
     font-size: 28px;
     margin-top: 10px;
     margin-bottom: 0px !important;
 }
 
-.description{
+.description {
     padding: 10px;
 }
 
-.description p{
+.description p {
     font-size: 16px;
 }
 
-.description p, .presentation p{
+.description p,
+.presentation p {
     font-size: 14px;
 }
 
-.genie{
+.genie {
     height: auto;
-    width:100%;
+    width: 100%;
 }
 
-.arrow{
-    position:absolute;
-    top:45px;
-    left:30px;
+.arrow {
+    position: absolute;
+    top: 150px;
+    left: 30px;
 }
 
-.arrow img{
-    height:35px;
-    padding:5px;
-    width:auto;
-}
-
-@media screen and (min-width:768px){
-.tilesblock{
-    justify-content:flex-start !important;
-}
-
-.specialtytile{
-    border-radius: 0px 15px 0px 0px;
-}
-
-.costtile{
-    border-radius: 0px 0px 15px 0px;
-}
-.lampimg, .wishtile{
-    border-radius: 0px;
-}
-.specialtyimg{
-    border-radius: 0px 10px 0px 0px;
-}
-
-.container{
-    margin-top: 10px;
-    max-width: 60vw;
-}
-
-.genie{
-    height: 70vh;
-    width:auto;
-}
-
-.description p{
-    max-width: 90%;
+.arrow img {
+    height: 35px;
     padding: 5px;
-}
+    width: auto;
 }
 
+@media screen and (min-width: 768px) {
+    .tilesblock {
+        justify-content: flex-start !important;
+    }
+
+    .specialtytile {
+        border-radius: 0px 15px 0px 0px;
+    }
+
+    .costtile {
+        border-radius: 0px 0px 15px 0px;
+    }
+    .lampimg,
+    .wishtile {
+        border-radius: 0px;
+    }
+    .specialtyimg {
+        border-radius: 0px 10px 0px 0px;
+    }
+
+    .container {
+        margin-top: 10px;
+        max-width: 60vw;
+    }
+
+    .genie {
+        height: 70vh;
+        width: auto;
+    }
+
+    .description p {
+        max-width: 90%;
+        padding: 5px;
+    }
+}

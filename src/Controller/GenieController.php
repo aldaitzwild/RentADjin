@@ -33,7 +33,6 @@ class GenieController extends AbstractController
             $errorsBooking = $_SESSION['errorsBooking'];
             unset($_SESSION['errorsBooking']);
         }
-        var_dump($userInfo);
 
         return $this->twig->render(
             'Genie/showGenie.html.twig',
@@ -141,9 +140,20 @@ class GenieController extends AbstractController
     {
         $specialties = $this->specialtyManager->selectAll();
         $genies = $this->genieManager->selectAllGenies();
+        $errorsMessage = '';
+
+        if (isset($_SESSION['errorsMessage'])) {
+            $errorsMessage = $_SESSION['errorsMessage'];
+            unset($_SESSION['errorsMessage']);
+        }
+
         return $this->twig->render(
             'Genies/showAllGenies.html.twig',
-            ['genies' => $genies, 'specialties' => $specialties]
+            [
+                'genies' => $genies,
+                'specialties' => $specialties,
+                'errorsMessage' => $errorsMessage
+            ]
         );
     }
 }

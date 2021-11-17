@@ -26,5 +26,6 @@ return [
     'admin/specialty/add' => ['SpecialtyController', 'add',],
     'admin/user/add' => ['UserController', 'add',],
     'genies/booking' => ['BookingController', 'add', ['id']],
+    'connection' => ['UserController', 'selectUser'],
     'genies/show' => ['GenieController', 'showGenie', ['id']]
 ];

@@ -12,9 +12,16 @@
 {% endblock %}
 
 {% block content %}
-	<div class="container-fluid title-image">
 
-		<div class="row h-25 p-3 d-flex justify-content-between align-items-start">
+{% if errorsMessage is not empty %}
+<div class="alert alert-danger text-center" role="alert">
+  {{errorsMessage}}
+</div>
+{% endif %}
+
+<div class="container-fluid title-image">
+
+			<div class="row h-25 p-3 d-flex justify-content-between align-items-start">
 
 			<div class="d-flex col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 justify-content-between justify-content-lg-start text-nowrap">
 				<img class="lamp col-4" src="assets/images/iconlamp.png">
@@ -26,7 +33,7 @@
 			</div>
 
 			<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
-				<a class="marginTop find btn btn-light text-nowrap py-2 d-flex ">
+				<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" data-bs-toggle="modal" data-bs-target="#exampleModal">
 					<img class="connect" src="assets/images/user.png"><h3 class="ms-1">Connection</h3>
 				</a>
 			</div>

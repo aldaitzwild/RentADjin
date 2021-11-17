@@ -10,20 +10,26 @@
 
 {% block content %}
 
+{% if errorsMessage is not empty %}
+<div class="alert alert-danger text-center" role="alert">
+  {{errorsMessage}}
+</div>
+{% endif %}
+
 <div class="row p-3 d-flex justify-content-around">
-        <a class="lamp d-none d-sm-block col-1 text-center" href='welcome'>
+        <a class="lamp d-none d-sm-block col-1 text-center" href='/'>
 		<img src="assets/images/iconlampblack.png"></a>
 
 		<h2 class="title text-dark d-none d-sm-block col-6 col-md-4 col-lg-3 col-xl-3">À Vos Souhaits</h2>
 
-        <a class="arrow col-1 d-sm-none m-auto" href='welcome'>
+        <a class="arrow col-1 d-sm-none m-auto" href='/'>
         <img src="assets/images/arrowleft.png"></a>
 
 		<div class="col-10 col-sm-5 col-md-6 my-3">
 			<input type="search" class="find form-control" placeholder="Plus de filtres ≔ " aria-label="Search"/>
 		</div>
 
-		<a class="find btn m-auto btn-light col-2 col-xl-1 offset-xl-1 d-none d-lg-flex justify-content-around">
+		<a class="find btn m-auto btn-light col-2 col-xl-1 offset-xl-1 d-none d-lg-flex justify-content-around" data-bs-toggle="modal" data-bs-target="#exampleModal">
 		<img class="connect img-fluid" src="assets/images/user.png"><h3>Connection</h3></a>
 </div>
 
@@ -48,7 +54,7 @@
                 </div>
                 <h6>{{genie.speName}}</h6>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="stretched-link"></a>
+                <a href="/genies/show?id={{genie.genieId}}" class="stretched-link"></a>
             </div>
         </div>
         </div>

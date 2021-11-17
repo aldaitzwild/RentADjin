@@ -24,9 +24,11 @@ class GenieController extends AbstractController
     public function showGenie($id): string
     {
         $genieInfo = $this->genieManager->selectAllInfoById($id);
-        $userInfo = '';
-        $errorsReview = '';
 
+        $userInfo = '';
+        $errorsBooking = '';
+        $errorsMessage = '';
+        $errorsReview = '';
 
         if (isset($_SESSION['user'])) {
             $userInfo = $_SESSION['user'];
@@ -37,12 +39,25 @@ class GenieController extends AbstractController
             unset($_SESSION['errorsReview']);
         }
 
+        if (isset($_SESSION['errorsBooking'])) {
+            $errorsBooking = $_SESSION['errorsBooking'];
+            unset($_SESSION['errorsBooking']);
+        }
+
+        if (isset($_SESSION['errorsMessage'])) {
+            $errorsMessage = $_SESSION['errorsMessage'];
+            unset($_SESSION['errorsMessage']);
+        }
+
+
         return $this->twig->render(
             'Genie/showGenie.html.twig',
             [
                 'genieInfo' => $genieInfo,
                 'userInfo' => $userInfo,
-                'errorsReview' => $errorsReview
+                'errorsReview' => $errorsReview,
+                'errorsBooking' => $errorsBooking,
+                'errorsMessage' => $errorsMessage
             ]
         );
     }
@@ -143,9 +158,20 @@ class GenieController extends AbstractController
     {
         $specialties = $this->specialtyManager->selectAll();
         $genies = $this->genieManager->selectAllGenies();
+        $errorsMessage = '';
+
+        if (isset($_SESSION['errorsMessage'])) {
+            $errorsMessage = $_SESSION['errorsMessage'];
+            unset($_SESSION['errorsMessage']);
+        }
+
         return $this->twig->render(
-            'Genies/showAllGenies.html.twig',
-            ['genies' => $genies,'specialties' => $specialties]
+            'Genie/showAllGenies.html.twig',
+            [
+                'genies' => $genies,
+                'specialties' => $specialties,
+                'errorsMessage' => $errorsMessage
+            ]
         );
     }
 

@@ -9,65 +9,80 @@
 	{{genieInfo.genieName}}
 {% endblock %}
 
-{% block header %}{% include "Home/_header.html.twig" %}{% endblock %}
+{% block header %}
+	{% include "Home/_header.html.twig" %}
+{% endblock %}
 
 {% block content %}
 
 	<div>
 		<a class="arrow col-1 d-sm-none" href='/genies?category={{genieInfo.specialty_id}}'>
-		<img class "arrowleft" src="/assets/images/arrowleft.png"></a>
+			<img class "arrowleft" src="/assets/images/arrowleft.png"></a>
 	</div>
 
-	<div class="container">
+	<div
+		class="container">
 
-<!-- MAIN ROW : Contient photo génie + nom génie + 4 tuiles-->
-		<div class="row justify-content-center"> 
+		<!-- MAIN ROW : Contient photo génie + nom génie + 4 tuiles-->
+		<div
+			class="row justify-content-center">
 
 			<!--COLONNE 1 (6): Contient photo génie + nom génie -->
-			<div class="col-12 col-sm-6 presentation"> 
+			<div class="col-12 col-sm-6 presentation p-0 p-md-1">
 				<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
 				<h4>{{genieInfo.genieName}}</h1>
 				<p>Spécialiste {{genieInfo.specialtyName}}</p>
 			</div>
 
 			<!--COLONNE 2 (6): Contient 4 tuile spécialité + tuile image lampe + tuile voeux + tuile prix-->
-			<div class="col-12 col-sm-6">
+			<div
+				class="col-12 col-sm-6">
 
 				<!--INNER ROW 1-->
-				<div class="row tilesblock justify-content-center"> 
-					
+				<div
+					class="row tilesblock justify-content-center">
+
 					<!--1-->
-					<div class="col-5 g-0 lamptile ">
-					<img src={{genieInfo.lamp_img}} class="lampimg" alt="Image de la lampe de {{genieInfo.genieName}}">
-					</div>
-					
-					<!--2-->
-					<div class="col-5 g-0 specialtytile ">
-					<img src={{genieInfo.img}} class="specialtyimg" alt="Image de la spécialité {{genieInfo.specialtyName}}">
-					</div>
-					
-					<!--3-->
-					<div class="col-5 wishtile">
-						<h2>{{genieInfo.nb_wishes}}</h2>
-						<p>voeux</p>
-					</div>
-					
-					<!--4-->
-					<div class="col-5 costtile">
-						<h2>{{genieInfo.costPerDay}}€</h2>
-						<p>/jour</p>
+					<div class="col-6 g-0 lamptile ">
+						<img src={{genieInfo.lamp_img}} class="lampimg" alt="Image de la lampe de {{genieInfo.genieName}}">
 					</div>
 
-				</div><!--FIN INNER ROW1-->
+					<!--2-->
+					<div class="col-6 g-0 specialtytile ">
+						<img src={{genieInfo.img}} class="specialtyimg" alt="Image de la spécialité {{genieInfo.specialtyName}}">
+					</div>
+
+					<!--3-->
+					<div class="col-6 wishtile">
+						<div class="tileContainer">
+							<h2>{{genieInfo.nb_wishes}}</h2>
+							<p>voeux</p>
+						</div>
+					</div>
+
+					<!--4-->
+					<div class="col-6 costtile">
+						<div class="tileContainer">
+							<h2>{{genieInfo.costPerDay}}€</h2>
+							<p>/jour</p>
+						</div>
+					</div>
+
+					<div class="col-12">
+						{% include "Genie/_bookingForm.html.twig" %}
+					</div>
+
+				</div>
+				<!--FIN INNER ROW1-->
 				<!--INNER ROW 2 / will display booking block-->
-				<div class="row booking col-12 col-sm-11"> 
+				<div class="row booking col-12 col-sm-11">
 					<p></p>
 				</div>
 			</div>
 		</div>
-<!--Contient description génie -->
+		<!--Contient description génie -->
 		<div class="row justify-content-start description">
-			<div class="col-12 col-sm-6 g-0"> 
+			<div class="col-12 col-sm-6 g-0">
 				<p>{{genieInfo.description}}</p>
 			</div>
 		</div>
@@ -82,4 +97,6 @@
 	
 {% endblock %}
 {% block footer %}{% endblock %}
-{% block javascript %} <script src="/assets/scripts/navScript.js"></script> {% endblock %}
+{% block javascript %}
+	<script src="/assets/scripts/navScript.js"></script>
+{% endblock %}

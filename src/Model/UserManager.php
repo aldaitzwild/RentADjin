@@ -23,4 +23,16 @@ class UserManager extends AbstractManager
 
         return (int)$this->pdo->lastInsertId();
     }
+
+    public function selectUserData(string $firstname, string $email)
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT * FROM " . static::TABLE . " WHERE firstname=:firstname AND email=:email"
+        );
+        $statement->bindValue(':firstname', $firstname, \PDO::PARAM_STR);
+        $statement->bindValue(':email', $email, \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
 }

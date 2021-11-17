@@ -45,4 +45,23 @@ class UserController extends AbstractController
 
         return $errors;
     }
+
+    public function selectUser()
+    {
+        $errorsMessage = 'Vos identifiants sont incorrects !';
+
+        if (!empty($_POST)) {
+            $firstname = $_POST['firstname'];
+            $email = $_POST['email'];
+            $data = $this->userManager->selectUserData($firstname, $email);
+            if ($data != false) {
+                $_SESSION['user'] = $data;
+
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                return;
+            }
+        }
+        $_SESSION['errorsMessage'] = $errorsMessage;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
 }

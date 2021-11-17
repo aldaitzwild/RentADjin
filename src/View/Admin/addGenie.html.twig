@@ -1,0 +1,73 @@
+{% extends 'parent.html.twig' %}
+
+{% block title %}Ajouter un Génie
+{% endblock %}
+
+{% block content %}
+	<section class='container justify-content-center'>
+		<h1>Ajouter un nouveau génie</h1>
+
+		<form action="" method="post" enctype="multipart/form-data">
+			<div class="form-group mb-3">
+				<label for="name" class="col-sm-2 col-form-label">Nom</label>
+				<div class="col-sm-10">
+					<input type="text" name="name" id="name" class="form-control"/>
+				</div>
+			</div>
+
+			<div class="form-group mb-3">
+				<label for="material" class="col-sm-2 col-form-label">Matière de la lampe</label>
+				<div class="col-sm-10">
+					<input type="text" name="material" id="material" class="form-control"/>
+				</div>
+			</div>
+
+			<div class="form-group mb-3">
+				<label for="nb_wishes" class="col-sm-2 col-form-label text-nowrap">Nombre de voeux</label>
+				<div class="col-sm-10">
+					<input type="number" name="nb_wishes" id="nb_wishes" class="form-control"/>
+				</div>
+			</div>
+
+			<div class="form-group mb-3">
+				<label for="specialty_id" class="col-sm-2 col-form-label ">Spécialité</label>
+				<div class="col-sm-10">
+					<select class="form-select" name="specialty_id" id="specialty_id">
+						{% for specialty in specialties %}
+							<option value={{specialty.id}}>{{ specialty.name }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group mb-3">
+				<label for="costPerDay" class="col-sm-2 col-form-label text-nowrap">Prix (€/jour)</label>
+				<div class="col-sm-10">
+					<input type="number" name="costPerDay" id="costPerDay" class="form-control"/>
+				</div>
+			</div>
+
+			<div class="form-group mb-3">
+				<label for="lamp_img" class="form-label">Ajouter l'image de la lampe</label>
+				<div class="col-sm-10">
+					<input type="file" name="lamp_img" id="lamp_img" class="form-control"/>
+				</div>
+			</div>
+
+			<div class="form-group mb-3">
+				<label for="genie_img" class="form-label">Ajouter la photo du génie</label>
+				<div class="col-sm-10">
+					<input type="file" name="genie_img" id="genie_img" class="form-control"/>
+				</div>
+			</div>
+
+			<button class="btn btn-primary">Ajouter</button>
+
+		</form>
+	</section>
+	<p>
+		{% for error in errors %}
+			{{ error }}
+		{% endfor %}
+	</p>
+{% endblock %}

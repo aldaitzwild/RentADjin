@@ -79,6 +79,25 @@ button {
     margin: 2em 0 0 0;
 }
 
+.filter-white {
+    filter: invert(97%) sepia(4%) saturate(274%) hue-rotate(280deg)
+        brightness(116%) contrast(100%);
+    width: 40px;
+    height: auto;
+    transform: rotate(90deg);
+}
+
+.iconeContainer > img {
+    width: 80px;
+    height: 80px;
+}
+
+.iconeUserContainer > img {
+    width: 60px;
+    height: 60px;
+    margin-top: 15px;
+}
+
 li {
     list-style: none;
 }

@@ -17,6 +17,16 @@ class GenieController extends AbstractController
         $this->specialtyManager = new SpecialtyManager();
     }
 
+    // Returns all informations for a specific Genie
+    public function showGenie($id): string
+    {
+        $genieInfo = $this->genieManager->selectAllInfoById($id);
+        return $this->twig->render(
+            'Genie/showGenie.html.twig',
+            ['genieInfo' => $genieInfo]
+        );
+    }
+
     public function add(): void
     {
 

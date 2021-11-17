@@ -2,74 +2,79 @@
 
 {% block stylesheet %}
 
-<link href="assets/css/welcomeStyle.css" rel="stylesheet">
+	<link href="assets/css/welcomeStyle.css" rel="stylesheet">
 
 
 {% endblock %}
 
-{% block header %}{% include "Home/_header.html.twig" %}{% endblock %}
+{% block header %}
+	{% include "Home/_header.html.twig" %}
+{% endblock %}
 
 {% block content %}
+
 {% if errorsMessage is not empty %}
 <div class="alert alert-danger text-center" role="alert">
   {{errorsMessage}}
 </div>
 {% endif %}
+
 <div class="container-fluid title-image">
 
 			<div class="row h-25 p-3 d-flex justify-content-between align-items-start">
 
-					<img class="lamp col-2 col-sm-1" src="assets/images/iconlamp.png">
-
-					<h1 class="title text-light col-10 col-sm-6 col-lg-4 col-xl-3">À Vos Souhaits</h1>
-	
-					<div class="col-10 col-sm-5 col-lg-4 col-xl-6 my-2 mx-auto">
-						<input type="search" class="find form-control" placeholder="🔍 Search" aria-label="Search"/>
-					</div>
-
-					<a class="find my-2 btn btn-light col-2 col-xl-1 offset-xl-1 d-none d-lg-flex justify-content-around" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					<img class="connect" src="assets/images/user.png"><h3>Connection</h3></a>
+			<div class="d-flex col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 justify-content-between justify-content-lg-start text-nowrap">
+				<img class="lamp col-4" src="assets/images/iconlamp.png">
+				<h1 class="marginTop title text-light col-8 text-end text-md-start align-self-end">À Vos Souhaits</h1>
 			</div>
 
-			<div class="row d-flex flex-column justify-content-center align-items-center h-75">
-
-    		<h1 class="you text-light col-12 text-center">Vous ne savez pas quel<br> Génie choisir?</h1>
-		
-    		<a href="genies" class="find btn btn-light col-4 col-sm-3 col-md-2 col-lg-1 mt-4">Découvrir</a>
-
+			<div class="col-10 col-sm-10 col-md-6 col-lg-4 col-xl-6 my-2 mx-auto">
+				<input type="search" class="marginTop find form-control" placeholder="🔍 Search" aria-label="Search"/>
 			</div>
-</div>
 
-	<h2>Découvrez nos catégories</h2>
+			<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
+				<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					<img class="connect" src="assets/images/user.png"><h3 class="ms-1">Connection</h3>
+				</a>
+			</div>
 
-	<div class="container scrollmenu">
-			<div class="row ">
+		</div>
+
+		<div class="row d-flex flex-column justify-content-center align-items-center h-75">
+
+			<h1 class="you text-light col-12 text-center">Vous ne savez pas quel<br>
+				Génie choisir?</h1>
+
+			<a href="genies" class="sectionTitle find btn btn-light col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 mt-4">Découvrir</a>
+
+		</div>
+	</div>
+
+	<h2 class="sectionTitle">Découvrez nos catégories</h2>
+
+	<div class="container d-flex justify-content-around scrollmenu mx-auto">
+		<div class="row mb-3 col-12">
 			{% for specialty in specialties %}
-				<div class="col-4 col-md-2 text-center">
-				<img class="logo" src={{specialty.img}}>
-					<p>{{specialty.name}}</p>
+				<div class="col-4 col-md-2 mx-3 text-center">
+					<img class="logo" src={{specialty.img}}>
+					<p class="mb-0">{{specialty.name}}</p>
 				</div>
 			{% endfor %}
-			</div>
+		</div>
 	</div>
 
 
-<div class="favoris">
+	<div class=" favoris">
 
-	<h2>Les Génies du moments</h2>
+		<h2 class="sectionTitle">Les Génies du moments</h2>
 
 		<div class="container scrollmenu">
 			<div class="row text-center">
 				<div class="col-4"></div>
 			</div>
 		</div>
-</div>
-{% endblock %}
+	</p>
+</div>{% endblock %}{% block footer %}
 
-{% block footer %}
-
-{% include "Home/_footer.html.twig" %}
-
-{% endblock %}
-
-{% block javascript %} <script src="/assets/scripts/navScript.js"></script> {% endblock %}
+{% include "Home/_footer.html.twig" %}{% endblock %}{% block javascript %}
+<script src="/assets/scripts/navScript.js"></script>{% endblock %}

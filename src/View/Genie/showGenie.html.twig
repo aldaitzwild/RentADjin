@@ -34,9 +34,8 @@
 			<!--COLONNE 1 (6): Contient photo génie + nom génie -->
 			<div class="col-12 col-sm-6 presentation p-0 p-md-1">
 				<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
-				<h1>{{genieInfo.genieName}}</h1>
-				<p>Spécialiste
-					{{genieInfo.specialtyName}}</p>
+				<h4>{{genieInfo.genieName}}</h1>
+				<p>Spécialiste {{genieInfo.specialtyName}}</p>
 			</div>
 
 			<!--COLONNE 2 (6): Contient 4 tuile spécialité + tuile image lampe + tuile voeux + tuile prix-->
@@ -91,9 +90,15 @@
 				<p>{{genieInfo.description}}</p>
 			</div>
 		</div>
+		
+		<div class="addReview">
 
+		{% include "Genie/_addGenieReview.html.twig" %}
+
+		</div>
 
 	</div>
+	
 {% endblock %}
 {% block footer %}
 	{% include "Home/_footer.html.twig" %}

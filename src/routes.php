@@ -27,5 +27,6 @@ return [
     'admin/user/add' => ['UserController', 'add',],
     'genies/booking' => ['BookingController', 'add', ['id']],
     'connection' => ['UserController', 'selectUser'],
-    'genies/show' => ['GenieController', 'showGenie', ['id']]
+    'genies/show' => ['GenieController', 'showGenie', ['id']],
+    'genies/review' => ['GenieController', 'addReview']
 ];

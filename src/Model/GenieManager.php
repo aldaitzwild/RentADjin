@@ -8,7 +8,7 @@ class GenieManager extends AbstractManager
 {
     public const TABLE = 'genies';
 
-    public function insert(array $genies): int
+    public function insert(array $genies): void
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
             "(name, material, nb_wishes, specialty_id, costPerDay, genie_img, lamp_img) 
@@ -22,8 +22,6 @@ class GenieManager extends AbstractManager
         $statement->bindValue('lamp_img', $genies['lamp_img'], \PDO::PARAM_STR);
 
         $statement->execute();
-
-        return (int)$this->pdo->lastInsertId();
     }
 
     /**

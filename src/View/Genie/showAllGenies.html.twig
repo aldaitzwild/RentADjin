@@ -14,17 +14,11 @@
 
 {% block content %}
 
-	{% if errorsMessage is not empty %}
-		<div class="alert alert-danger text-center" role="alert">
-			{{errorsMessage}}
-		</div>
-	{% endif %}
-
 
 	<div class="container scrollmenu ">
-		<div class="row">
+		<div class="row d-flex flex-nowrap justify-content-between">
 			{% for specialty in specialties %}
-				<a href="/genies?specialty={{specialty.name}}" class="col-4 col-md-2 text-center text-decoration-none link-dark">{{specialty.name}}</a>
+				<a href="/genies?specialty={{specialty.name}}" class="specialtyMenuTile text-center text-decoration-none link-dark">{{specialty.name}}</a>
 			{% endfor %}
 		</div>
 	</div><hr>
@@ -68,12 +62,12 @@
 			{% endfor %}
 		</div>
 
-{% endblock %}
+	{% endblock %}
 
-{% block footer %}
-	{% include "Home/_footer.html.twig" %}
-{% endblock %}
+	{% block footer %}
+		{% include "Home/_footer.html.twig" %}
+	{% endblock %}
 
-{% block javascript %}
-	<script src="/assets/scripts/navScript.js"></script>
-{% endblock %}
+	{% block javascript %}
+		<script src="/assets/scripts/navScript.js"></script>
+	{% endblock %}

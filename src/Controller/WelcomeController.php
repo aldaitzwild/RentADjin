@@ -17,7 +17,18 @@ class WelcomeController extends AbstractController
     public function index()
     {
         $specialties = $this->specialtyManager->selectAll();
+        $errorsMessage = '';
 
-        return $this->twig->render('Home/welcome.html.twig', ['specialties' => $specialties]);
+        if (isset($_SESSION['errorsMessage'])) {
+            $errorsMessage = $_SESSION['errorsMessage'];
+            unset($_SESSION['errorsMessage']);
+        }
+        return $this->twig->render(
+            'Home/welcome.html.twig',
+            [
+                'specialties' => $specialties,
+                'errorsMessage' => $errorsMessage
+            ]
+        );
     }
 }

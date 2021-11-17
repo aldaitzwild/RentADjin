@@ -10,6 +10,12 @@
 
 {% block content %}
 
+{% if errorsMessage is not empty %}
+<div class="alert alert-danger text-center" role="alert">
+  {{errorsMessage}}
+</div>
+{% endif %}
+
 <div class="row p-3 d-flex justify-content-around">
         <a class="lamp d-none d-sm-block col-1 text-center" href='welcome'>
 		<img src="assets/images/iconlampblack.png"></a>

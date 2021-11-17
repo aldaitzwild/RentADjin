@@ -144,12 +144,12 @@ class GenieController extends AbstractController
         return $errors;
     }
 
-    public function showAllGenies($parameter)
+    public function showAllGenies($specialty)
     {
         $specialties = $this->specialtyManager->selectAll();
         $genies = $this->genieManager->selectAllGenies();
         $errorsMessage = '';
-        $getParameter = empty($parameter) ? '' : $parameter;
+        $getParameter = empty($specialty) ? '' : $specialty;
 
         if (isset($_SESSION['errorsMessage'])) {
             $errorsMessage = $_SESSION['errorsMessage'];

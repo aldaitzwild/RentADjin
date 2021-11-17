@@ -24,32 +24,49 @@
 	<div class="container scrollmenu ">
 		<div class="row">
 			{% for specialty in specialties %}
-				<p class="col-4 col-md-2 text-center">{{specialty.name}}</p>
+				<a href="/genies?specialty={{specialty.name}}" class="col-4 col-md-2 text-center text-decoration-none link-dark">{{specialty.name}}</a>
 			{% endfor %}
 		</div>
-</div><hr>
+	</div><hr>
 
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-    {% for genie in genies %}
-        <div class="col">
-        <div class="card mx-auto h-100" style="width: 18rem;">
-            <img src={{genie.genie_img}} class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <h5 class="card-title">{{genie.name}}</h5>
-                    <h5>{{genie.costPerDay}}€/J</h5>
-                </div>
-                <h6>{{genie.speName}}</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="/genies/show?id={{genie.genieId}}" class="stretched-link"></a>
-            </div>
-        </div>
-        </div>
-    {% endfor %}
-    </div>
-</div>
-
+	<div class="container">
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+			{% for genie in genies %}
+				{% if getParameter is empty %}
+					<div class="col">
+						<div class="card mx-auto h-100" style="width: 18rem;">
+							<img src={{genie.genie_img}} class="card-img-top" alt="...">
+							<div class="card-body">
+								<div class="d-flex justify-content-between">
+									<h5 class="card-title fw-bold">{{genie.name}}</h5>
+									<h5>{{genie.costPerDay}}€/J</h5>
+								</div>
+								<h6 class="fst-italic">{{genie.speName}}</h6>
+								<p class="card-text">{{genie.description}}</p>
+								<a href="/genies/show?id={{genie.id}}" class="stretched-link"></a>
+							</div>
+						</div>
+					</div>
+				{% else %}
+					{% if genie.speName == getParameter %}
+						<div class="col">
+							<div class="card mx-auto h-100" style="width: 18rem;">
+								<img src={{genie.genie_img}} class="card-img-top" alt="...">
+								<div class="card-body">
+									<div class="d-flex justify-content-between">
+										<h5 class="card-title fw-bold">{{genie.name}}</h5>
+										<h5>{{genie.costPerDay}}€/J</h5>
+									</div>
+									<h6 class="fst-italic">{{genie.speName}}</h6>
+									<p class="card-text">{{genie.description}}</p>
+									<a href="/genies/show?id={{genie.id}}" class="stretched-link"></a>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		</div>
 
 {% endblock %}
 

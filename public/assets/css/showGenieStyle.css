@@ -10,14 +10,29 @@
     height: 100px;
     text-align: center;
     align-items: center;
-    margin: 5px;
+    padding: 5px;
     border-radius: 10px;
+}
+
+.tileContainer {
+    background: #c8cbd388;
+    height: 100px;
+}
+
+.formContainer {
+    border: 1px solid #a8a8a8a8;
+    border-radius: 25px;
+    height: 350px;
+    margin-top: 3em !important;
+}
+
+.bookingTitle {
+    margin-bottom: 2em;
 }
 
 .costtile,
 .wishtile {
-    background: #c8cbd388;
-    padding-top: 2px;
+    margin-top: 15px;
 }
 
 .lampimg,
@@ -79,13 +94,10 @@ h1 {
         justify-content: flex-start !important;
     }
 
-    .specialtytile {
-        border-radius: 0px 15px 0px 0px;
-    }
-
-    .costtile {
+    .costtile > div {
         border-radius: 0px 0px 15px 0px;
     }
+
     .lampimg,
     .wishtile {
         border-radius: 0px;

@@ -23,16 +23,23 @@ class GenieController extends AbstractController
         $genieInfo = $this->genieManager->selectAllInfoById($id);
 
         $userInfo = '';
+        $errorsBooking = '';
 
         if (isset($_SESSION['user'])) {
             $userInfo = $_SESSION['user'];
+        }
+
+        if (isset($_SESSION['errorsBooking'])) {
+            $errorsBooking = $_SESSION['errorsBooking'];
+            unset($_SESSION['errorsBooking']);
         }
 
         return $this->twig->render(
             'Genie/showGenie.html.twig',
             [
                 'genieInfo' => $genieInfo,
-                'userInfo' => $userInfo
+                'userInfo' => $userInfo,
+                'errrosBooking' => $errorsBooking
             ]
         );
     }

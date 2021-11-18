@@ -10,6 +10,11 @@
 			<img class="connect" src="/assets/images/user.png"><h3 class="ms-1">Connection</h3>
 		</a>
 	</div>
-
 </div>
+
+{% if userInfo.id is defined %}
+	<div class="text-end me-3">
+		<a href="/logout" class="link-dark">Logout</a>
+	</div>
+{% endif %}
 <hr>

@@ -3,8 +3,13 @@
 	<h1 class="menuTitle menuViewTitle text-center">Ajouter une spécialité</h1>
 
 	<form action="/admin/specialty/add" method="post" enctype="multipart/form-data">
-		{% if errorsSpecialty.input is defined %}
+		{% if errorsSpecialty is not empty %}
 			<ul class="errorsList">
+				{% if errorsSpecialty.max is defined %}
+					<li>
+						{{errorsSpecialty.max}}
+					</li>
+				{% endif %}
 				{% if errorsSpecialty.input.empty is defined %}
 					<li>
 						{{errorsSpecialty.input.empty}}

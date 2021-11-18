@@ -17,7 +17,7 @@
 	<div class="container scrollmenu ">
 		<div class="row d-flex flex-nowrap justify-content-between">
 			{% for specialty in specialties %}
-				<a href="/genies?specialty={{specialty.name}}" class="specialtyMenuTile text-center text-decoration-none link-dark">{{specialty.name}}</a>
+				<a href="/genies?specialty={{specialty.name}}" class="specialtyMenuTile text-center text-decoration-none link-dark mb-3">{{specialty.name}}</a>
 			{% endfor %}
 		</div>
 	</div><hr>
@@ -68,7 +68,7 @@
 {% endblock %}
 
 {% block footer %}
-	{% include "Home/_footer.html.twig" %}
+	{% include "/Home/_footer.html.twig" %}
 {% endblock %}
 
 {% block javascript %}

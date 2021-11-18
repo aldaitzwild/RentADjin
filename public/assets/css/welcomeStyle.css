@@ -54,12 +54,20 @@ html {
     margin-bottom: 0 !important;
 }
 
+.cardImgContainer {
+    height: 405px !important;
+}
+
+.card-img-top {
+    height: 405px !important;
+}
+
 .logo {
     border: solid 2px black;
     border-radius: 25%;
     margin: 1vw;
     width: 100px;
-    height: auto;
+    height: 100px;
 }
 
 .scrollmenu > .row {

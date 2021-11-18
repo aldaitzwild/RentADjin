@@ -84,8 +84,8 @@ h4 {
 }
 
 .genie {
-    height: auto;
     width: 100%;
+    height: 141vw;
 }
 
 .arrow {
@@ -116,6 +116,12 @@ h4 {
     width: auto;
 }
 
+@media screen and (min-width: 576px) {
+    .genie {
+        height: 60vw;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .tilesblock {
         justify-content: flex-start !important;
@@ -123,6 +129,7 @@ h4 {
 
     .genie {
         border-radius: 25px 0 25px 25px;
+        height: 40vw;
     }
 
     .costtile > div {

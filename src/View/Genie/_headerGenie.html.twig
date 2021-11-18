@@ -5,16 +5,18 @@
 		<h1 class="marginTop title text-dark col-8 text-end text-md-start align-self-end">À Vos Souhaits</h1>
 	</a>
 
-	<div class="col-2 col-lg-4 col-xl-3 d-none d-md-flex my-2 justify-content-end text-nowrap">
-		<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" data-bs-toggle="modal" data-bs-target="#exampleModal">
-			<img class="connect" src="/assets/images/user.png" alt="icône connexion"><h3 class="ms-1">Connection</h3>
-		</a>
+	{% if userInfo.id is defined %}
+		<div class="col-2 col-lg-4 col-xl-3 d-none d-md-flex my-2 justify-content-end text-nowrap">
+			<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" href="/logout">
+				<img class="connect" src="/assets/images/user.png" alt="icône déconnexion"><h3 class="ms-1">Déconnexion</h3>
+			</a>
+		</div>
+	{% else %}
+		<div class="col-2 col-lg-4 col-xl-3 d-none d-md-flex my-2 justify-content-end text-nowrap">
+			<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" data-bs-toggle="modal" data-bs-target="#exampleModal">
+				<img class="connect" src="/assets/images/user.png" alt="icône connexion"><h3 class="ms-1">Connexion</h3>
+			</a>
+		</div>
 	</div>
-</div>
-
-{% if userInfo.id is defined %}
-	<div class="text-end me-3">
-		<a href="/logout" class="link-dark">Logout</a>
-	</div>
-{% endif %}
+	{% endif %}
 <hr>

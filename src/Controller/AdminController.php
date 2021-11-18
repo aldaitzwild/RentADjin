@@ -49,7 +49,6 @@ class AdminController extends AbstractController
             unset($_SESSION['errorsSpecialty']);
         }
 
-
         if (isset($_SESSION['errorsUser'])) {
             $errorsUser = $_SESSION['errorsUser'];
             unset($_SESSION['errorsUser']);
@@ -103,5 +102,11 @@ class AdminController extends AbstractController
             'Admin/adminUpdateGenie.html.twig',
             ['genieInfo' => $genieInfo, 'specialties' => $specialties, 'errorsUpdate' => $errorsUpdate]
         );
+    }
+
+    public function deleteGenie(int $id): void
+    {
+        $this->genieManager->delete($id);
+        header('Location:/admin');
     }
 }

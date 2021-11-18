@@ -17,8 +17,14 @@ class SpecialtyController extends AbstractController
 
     public function add(): void
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($this->specialtyManager->nbOfSpecialties() >= 10) {
+                $errors["max"] = "Nombre de specialités maximum atteind";
+                $_SESSION['errorsSpecialty'] = $errors;
+                header('Location:/admin');
+                return;
+            }
+
             $specialty = array_map('trim', $_POST);
 
             $errors = $this->testInput($specialty);

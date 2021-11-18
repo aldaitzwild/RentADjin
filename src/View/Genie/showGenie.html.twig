@@ -33,7 +33,10 @@
 
 			<!--COLONNE 1 (6): Contient photo génie + nom génie -->
 			<div class="col-12 col-sm-6 presentation p-0 p-md-1">
-				<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
+				<div class="genieContainer">
+					<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
+				</div>
+
 				<h4>{{genieInfo.genieName}}</h1>
 				<p class="ms-3">Spécialiste
 					{{genieInfo.specialtyName}}</p>

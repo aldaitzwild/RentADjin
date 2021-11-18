@@ -104,4 +104,10 @@ class AdminController extends AbstractController
             ['genieInfo' => $genieInfo, 'specialties' => $specialties, 'errorsUpdate' => $errorsUpdate]
         );
     }
+
+    public function deleteGenie(int $id): void
+    {
+        $this->genieManager->delete($id);
+        header('Location:/admin');
+    }
 }

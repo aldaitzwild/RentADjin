@@ -19,6 +19,15 @@
     border-radius: 10px;
 }
 
+.starIcone:first-of-type {
+    margin-left: 0 !important;
+}
+
+.starGenie {
+    width: 30px;
+    height: auto;
+}
+
 .bookingTitle {
     margin-bottom: 1em;
 }

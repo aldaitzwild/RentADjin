@@ -26,53 +26,56 @@
 				<input type="search" class="marginTop find form-control" placeholder="🔍 Search" aria-label="Search"/>
 			</div>
 
-		{% if userInfo.id is defined %}
-			<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
-				<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" href="/logout">
-					<img class="connect" src="/assets/images/user.png"><h3 class="ms-1">Déconnexion</h3>
-				</a>
-			</div>
-		{% else %}
-			<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
-				<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					<img class="connect" src="/assets/images/user.png"><h3 class="ms-1">Connexion</h3>
-				</a>
-			</div>
-		{% endif %}
+			{% if userInfo.id is defined %}
+				<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
+					<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" href="/logout">
+						<img class="connect" src="/assets/images/user.png"><h3 class="ms-1">Déconnexion</h3>
+					</a>
+				</div>
+			{% else %}
+				<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
+					<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						<img class="connect" src="/assets/images/user.png"><h3 class="ms-1">Connexion</h3>
+					</a>
+				</div>
+			{% endif %}
 
-	</div>
+		</div>
 
-	<div class="row d-flex flex-column justify-content-center align-items-center h-75">
+		<div class="row d-flex flex-column justify-content-center align-items-center h-75">
 
-		<h1 class="you text-light col-12 text-center">Vous ne savez pas quel<br>
-			Génie choisir?</h1>
+			<h1 class="you text-light col-12 text-center">Vous ne savez pas quel<br>
+				Génie choisir?</h1>
 
-		<a href="/genies" class="sectionTitle find btn btn-light col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 mt-4">Découvrir</a>
+			<a href="/genies" class="sectionTitle find btn btn-light col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 mt-4">Découvrir</a>
 
-	</div>
-</div>
-
-<h2 class="sectionTitle">Découvrez nos catégories</h2>
-
-<div class="container  justify-content-around scrollmenu mx-auto">
-	<div class="row mb-3 col-12">
-		{% for specialty in specialties %}
-			<a href="/genies?specialty={{specialty.name}}" class="col-4 col-md-2 col-lg-4 mx-3 mx-lg-0 text-center text-decoration-none link-dark">
-				<img class="logo" src={{specialty.img}}>
-				<p>{{specialty.name}}</p>
-			</a>
-		{% endfor %}
-	</div>
-</div>
-
-
-<div class=" favoris">
-
-	<h2 class="sectionTitle">Les Génies du moments</h2>
-
-	<div class="container scrollmenu">
-		<div class="row text-center">
-			<div class="col-4"></div>
 		</div>
 	</div>
-</p></div>{% endblock %}{% block footer %}{% include "Home/_footer.html.twig" %}{% endblock %}{% block javascript %}<script src="/assets/scripts/navScript.js"></script>{% endblock %}
+
+	<h2 class="sectionTitle">Découvrez nos Spécialités</h2>
+
+	<div class="container  justify-content-around scrollmenu mx-auto">
+		<div class="row mb-3 col-12">
+			{% for specialty in specialties %}
+				<a href="/genies?specialty={{specialty.name}}" class="col-4 col-md-2 col-lg-4 mx-3 mx-lg-0 text-center text-decoration-none link-dark">
+					<img class="logo" src={{specialty.img}}>
+					<p>{{specialty.name}}</p>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+
+
+	<div class=" favoris">
+
+		<h2 class="sectionTitle">Les Génies du moments</h2>
+
+		<div class="container scrollmenu">
+			<div class="row text-center">
+				<div class="col-4"></div>
+			</div>
+		</div>
+	</p>
+</div>{% endblock %}{% block footer %}
+{% include "Home/_footer.html.twig" %}{% endblock %}{% block javascript %}
+<script src="/assets/scripts/navScript.js"></script>{% endblock %}

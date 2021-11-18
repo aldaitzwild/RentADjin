@@ -25,6 +25,9 @@ class GenieController extends AbstractController
     {
         $genieInfo = $this->genieManager->selectAllInfoById($id);
         $opinions = $this->reviewManager->selectAllReviewByGenie($id);
+        $avgRating = $this->reviewManager->avgRatingForOneGenie($id);
+
+        $avgRating = $avgRating == 0 ? '' : $avgRating;
 
         $userInfo = '';
         $errorsBooking = '';
@@ -58,7 +61,8 @@ class GenieController extends AbstractController
                 'errorsReview' => $errorsReview,
                 'errorsBooking' => $errorsBooking,
                 'errorsMessage' => $errorsMessage,
-                'opinions' => $opinions
+                'opinions' => $opinions,
+                'avgRating' => $avgRating
             ]
         );
     }
@@ -203,8 +207,8 @@ class GenieController extends AbstractController
                 }
             }
 
-            if ($review['rating'] < 0 || $review['rating'] > 5) {
-                $errors['rating'] = "La note doit être comprise entre 0 & 5";
+            if ($review['rating'] < 1 || $review['rating'] > 5) {
+                $errors['rating'] = "La note doit être comprise entre 1 & 5";
             }
 
             if (empty($errors['input']) && empty($errors['rating'])) {

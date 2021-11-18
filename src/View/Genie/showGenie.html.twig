@@ -35,7 +35,8 @@
 			<div class="col-12 col-sm-6 presentation p-0 p-md-1">
 				<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
 				<h4>{{genieInfo.genieName}}</h1>
-				<p>Spécialiste {{genieInfo.specialtyName}}</p>
+				<p class="ms-3">Spécialiste
+					{{genieInfo.specialtyName}}</p>
 			</div>
 
 			<!--COLONNE 2 (6): Contient 4 tuile spécialité + tuile image lampe + tuile voeux + tuile prix-->
@@ -73,7 +74,11 @@
 					</div>
 
 					<div class="col-12">
-						{% include "Genie/_bookingForm.html.twig" %}
+
+						{% if userInfo.name is defined %}
+							{% include "Genie/_bookingForm.html.twig" %}
+						{% endif %}
+
 					</div>
 
 				</div>
@@ -90,15 +95,31 @@
 				<p>{{genieInfo.description}}</p>
 			</div>
 		</div>
-		
-		<div class="addReview">
-
-		{% include "Genie/_addGenieReview.html.twig" %}
-
+		<hr>
+		<div class="reviews">
+			<h4 class="mb-5">Commentaires :
+			</h4>
+			{% if opinions is not empty %}
+				{% for opinion in opinions %}
+					{% if opinion.review is not empty %}
+						{% include "Genie/_reviews.html.twig" %}
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<div class="noReview mb-5">
+					Encore aucun avis sur ce genie !</div>
+			{% endif %}
+			<hr>
 		</div>
+		{% if userInfo.id is not empty %}
+			<div class="addReview">
 
+				{% include "Genie/_addGenieReview.html.twig" %}
+
+			</div>
+		{% endif %}
 	</div>
-	
+
 {% endblock %}
 {% block footer %}
 	{% include "Home/_footer.html.twig" %}

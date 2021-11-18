@@ -24,6 +24,7 @@ class GenieController extends AbstractController
     public function showGenie($id): string
     {
         $genieInfo = $this->genieManager->selectAllInfoById($id);
+        $opinions = $this->reviewManager->selectAllReviewByGenie($id);
 
         $userInfo = '';
         $errorsBooking = '';
@@ -49,7 +50,6 @@ class GenieController extends AbstractController
             unset($_SESSION['errorsMessage']);
         }
 
-
         return $this->twig->render(
             'Genie/showGenie.html.twig',
             [
@@ -57,7 +57,8 @@ class GenieController extends AbstractController
                 'userInfo' => $userInfo,
                 'errorsReview' => $errorsReview,
                 'errorsBooking' => $errorsBooking,
-                'errorsMessage' => $errorsMessage
+                'errorsMessage' => $errorsMessage,
+                'opinions' => $opinions
             ]
         );
     }
@@ -177,7 +178,7 @@ class GenieController extends AbstractController
         );
     }
 
-/**
+    /**
      * Add a customer review
      */
     public function addReview(): void
@@ -206,7 +207,7 @@ class GenieController extends AbstractController
                 return;
             }
         }
-            $_SESSION['errorsReview'] = $errors;
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        $_SESSION['errorsReview'] = $errors;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }

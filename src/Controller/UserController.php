@@ -20,7 +20,6 @@ class UserController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $user = array_map('trim', $_POST);
-            $user = array_map('htmlentities', $user);
 
             $errors = $this->testInput($user);
 

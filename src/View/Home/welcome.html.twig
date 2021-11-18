@@ -18,7 +18,7 @@
 		<div class="row h-25 p-3 d-flex justify-content-between align-items-start">
 
 			<div class="d-flex col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 justify-content-between justify-content-lg-start text-nowrap">
-				<img class="lamp col-4" src="/assets/images/iconlamp.png">
+				<img class="lamp col-4" src="/assets/images/iconlamp.png" alt="icône lampe magique">
 				<h1 class="marginTop title text-light col-8 text-end text-md-start align-self-end">À Vos Souhaits</h1>
 			</div>
 
@@ -26,19 +26,19 @@
 				<input type="search" class="marginTop find form-control" placeholder="🔍 Search" aria-label="Search"/>
 			</div>
 
-			{% if userInfo.id is defined %}
-				<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
-					<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" href="/logout">
-						<img class="connect" src="/assets/images/user.png"><h3 class="ms-1">Déconnexion</h3>
-					</a>
-				</div>
-			{% else %}
-				<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
-					<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						<img class="connect" src="/assets/images/user.png"><h3 class="ms-1">Connexion</h3>
-					</a>
-				</div>
-			{% endif %}
+		{% if userInfo.id is defined %}
+			<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
+				<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" href="/logout">
+					<img class="connect" src="/assets/images/user.png"><h3 class="ms-1">Déconnexion</h3>
+				</a>
+			</div>
+		{% else %}
+			<div class="col-2 col-lg-4 col-xl-3 d-none d-lg-flex my-2 justify-content-end text-nowrap">
+				<a class="marginTop find btn btn-light text-nowrap py-2 d-flex" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					<img class="connect" src="/assets/images/user.png" alt="se connecter"><h3 class="ms-1">Connexion</h3>
+				</a>
+			</div>
+		{% endif %}
 
 		</div>
 
@@ -52,16 +52,16 @@
 		</div>
 	</div>
 
-	<h2 class="sectionTitle">Découvrez nos Spécialités</h2>
+<h2 class="sectionTitle">Découvrez nos catégories</h2>
 
-	<div class="container  justify-content-around scrollmenu mx-auto">
-		<div class="row mb-3 col-12">
-			{% for specialty in specialties %}
-				<a href="/genies?specialty={{specialty.name}}" class="col-4 col-md-2 col-lg-4 mx-3 mx-lg-0 text-center text-decoration-none link-dark">
-					<img class="logo" src={{specialty.img}}>
-					<p>{{specialty.name}}</p>
-				</a>
-			{% endfor %}
+<div class="container  justify-content-around scrollmenu mx-auto">
+	<div class="row mb-3 col-12">
+		{% for specialty in specialties %}
+			<a href="/genies?specialty={{specialty.name}}" class="col-4 col-md-2 col-lg-4 mx-3 mx-lg-0 text-center text-decoration-none link-dark">
+				<img class="logo" src={{specialty.img}} alt="catégorie {{specialty.name}}">
+				<p>{{specialty.name}}</p>
+			</a>
+		{% endfor %}
 		</div>
 	</div>
 

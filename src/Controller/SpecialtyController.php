@@ -20,7 +20,6 @@ class SpecialtyController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $specialty = array_map('trim', $_POST);
-            $specialty = array_map('htmlentities', $specialty);
 
             $errors = $this->testInput($specialty);
 

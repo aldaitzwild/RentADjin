@@ -66,7 +66,7 @@ FOREIGN KEY (genie_id) REFERENCES genies(id)
 CREATE TABLE reviews (
 user_id INT NOT NULL,
 genie_id INT NOT NULL,
-rating	INT NOT NULL,
+rating INT NOT NULL,
 review TEXT, 
 FOREIGN KEY (user_id) REFERENCES users(id),
 FOREIGN KEY (genie_id) REFERENCES genies(id)
@@ -86,13 +86,13 @@ VALUES ('activités physiques','/assets/images/activities.png'),
 
 INSERT INTO genies (name,material,nb_wishes,costPerDay,genie_img,lamp_img,specialty_id,description)
 VALUES ('Billie Djinn','laiton',5,30,'/assets/images/billie.jpg','/assets/images/laitonlamp.jpg',1,'Vous voulez danser comme un dieu? Enflammer le dancefloor avec le déhanché d’un roi de la pop ? Ne cherchez plus, Billie sera votre meilleur allié!'),
-('Chuppee Don','laiton',1,100,'/assets/images/chuppee.jpg','/assets/images/redlamp.jpg',5,'Ne vous fiez pas à son apparente jeunesse, Chuppee Don en connait un rayon et saura vous accompagner sur le chemin de l\'amour'),
-('Miss Daisy','argile',3,10,'/assets/images/daisy.jpg','/assets/images/claylamp2.jpg',2,'Vous adorez les plantes et elles ne vous le rendent pas du tout? Même vos cactus ont tous rendu l\âme les uns après les autres? Faites appel à notre experte en jardinage!'),
+('Chuppee Don','laiton',1,100,'/assets/images/chuppee.jpg','/assets/images/redlamp.jpg',5,'Ne vous fiez pas à son apparente jeunesse, Chuppee Don en connait un rayon et saura vous accompagner sur le chemin de l\'amour.'),
+('Miss Daisy','argile',3,10,'/assets/images/daisy.jpg','/assets/images/claylamp2.jpg',2,'Vous adorez les plantes et elles ne vous le rendent pas du tout? Même vos cactus ont tous rendu l\'âme les uns après les autres? Faites appel à notre experte en jardinage!'),
 ('Franz Kyss','laiton',5,50,'/assets/images/franz.jpg','/assets/images/goldenlamp1.jpg',5,'Vous voulez connaître les vertiges de l\'amour? Sans parler d\'enchainer les conquêtes à la pelle, reprenez simplement le contrôle...Grâce à Franz, ne laissez plus faire le hasard!'),
 ('Ginny Weather','argent',3,25,'/assets/images/ginny.jpg','/assets/images/bluegoldenlamp1.jpg',4,'Faire la pluie et le beau temps, souffler le chaud et le froid, semer la tempête, offrir un arc en ciel, à vous de jouer!'),
 ('Guy Thubiro','argent',5,50,'/assets/images/guy.jpg','/assets/images/silverlamp2.jpg',6,'Avec ce dieu du code, rentrez dans la matrice et venez à bout des projets les plus ambitieux...'),
-('Joe Cooker','argile',5,15,'/assets/images/joe.jpg','/assets/images/claylamp1.jpg',2,'Notre spécialiste des fourneaux vous mettra dans la peau d\'un chef étoilé. Fusce et pharetra nunc, fringilla consectetur nulla. Nunc eu lectus vitae quam fringilla sollicitudin.'),
-('Led Zibeline','argent',3,20,'/assets/images/led.jpg','/assets/images/silverlamp1.jpg',3,'Vous en avez assez du air guitar? de l\'air dubitatif voire compatissant de vos amis quand vous tenter l\'intro de Smells Like Teen Spirit? Led saura révéler le guitar hero qui sommeille en vous!'),
+('Joe Cooker','argile',5,15,'/assets/images/joe.jpg','/assets/images/claylamp1.jpg',2,'Notre spécialiste des fourneaux vous mettra dans la peau d\'un chef étoilé.'),
+('Led Zibeline','argent',3,20,'/assets/images/led.jpg','/assets/images/silverlamp1.jpg',3,'Vous en avez assez du air guitar? de l\'air dubitatif voire compatissant de vos amis quand vous tentez l\'intro de Smells Like Teen Spirit? Led saura révéler le guitar hero qui sommeille en vous!'),
 ('Olly Wayzontime','bronze',5,5,'/assets/images/olly.jpg','/assets/images/bronzelamp.jpg',6,'Dans la catégorie travail/business, demandez notre spécialiste de la ponctualité: pannes de réveil, retards à répétition, terminé tout ça, soyez ponctuel comme un coucou suisse!'),
 ('Yvan Naigé','argent',5,20,'/assets/images/yvan.jpg','/assets/images/bluesilverlamp.jpg',4,'En expert de la météo hivernale, Yvan peut vous garantir une chose : il va neiger! De la poudreuse, de la fraiche partout où vos skis passeront!'),
 ('Surfer Rosa','laiton',5,20,'/assets/images/rosa.jpg','/assets/images/bluegoldenlamp2.jpg',1,'Grâce à Rosa, à Houlgate comme à Honolulu vous allez adorer être dans le creux de la vague'),

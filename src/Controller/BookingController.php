@@ -25,7 +25,6 @@ class BookingController extends AbstractController
         }
 
         $booking = array_map('trim', $_POST);
-        $booking = array_map('htmlentities', $booking);
         $booking['genieId'] = $geniePageId;
 
         $errors = $this->testInput($booking);

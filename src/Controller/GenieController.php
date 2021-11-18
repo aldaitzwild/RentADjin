@@ -72,7 +72,6 @@ class GenieController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $genie = array_map('trim', $_POST);
-            $genie = array_map('htmlentities', $genie);
 
             $errors = $this->testInput($genie);
 

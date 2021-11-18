@@ -28,8 +28,8 @@ class SpecialtyManager extends AbstractManager
 
     public function nbOfSpecialties(): int
     {
-        $statement = $this->pdo->query("SELECT COUNT(*) as nbOfSpceialties FROM " . self::TABLE);
+        $statement = $this->pdo->query("SELECT COUNT(*) as nbOfSpecialties FROM " . self::TABLE);
 
-        return $statement->fetch()["nbOfSpceialties"];
+        return $statement->fetch()["nbOfSpecialties"];
     }
 }

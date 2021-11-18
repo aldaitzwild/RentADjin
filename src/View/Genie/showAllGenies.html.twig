@@ -27,9 +27,11 @@
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
 			{% for genie in genies %}
 				{% if getParameter is empty %}
-					<div class="col">
+					<div class="col mb-3">
 						<div class="card mx-auto h-100" style="width: 18rem;">
-							<img src={{genie.genie_img}} class="card-img-top" alt="...">
+							<div class="cardImgContainer d-flex align-items-center">
+								<img src={{genie.genie_img}} class="card-img-top" alt="...">
+							</div>
 							<div class="card-body">
 								<div class="d-flex justify-content-between">
 									<h5 class="card-title fw-bold">{{genie.name}}</h5>
@@ -43,9 +45,11 @@
 					</div>
 				{% else %}
 					{% if genie.speName == getParameter %}
-						<div class="col">
+						<div class="col mb-3">
 							<div class="card mx-auto h-100" style="width: 18rem;">
-								<img src={{genie.genie_img}} class="card-img-top" alt="...">
+								<div class="cardImgContainer">
+									<img src={{genie.genie_img}} class="card-img-top" alt="...">
+								</div>
 								<div class="card-body">
 									<div class="d-flex justify-content-between">
 										<h5 class="card-title fw-bold">{{genie.name}}</h5>

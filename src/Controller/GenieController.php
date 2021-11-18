@@ -150,7 +150,7 @@ class GenieController extends AbstractController
         }
 
         if ($inputs['costPerDay'] < 1) {
-            $errors['input']['costPerDay'] = 'Le prix doit être supérieur à 1€';
+            $errors['input']['costPerDay'] = 'Le prix doit valoir au minimum 1€';
         }
         return $errors;
     }

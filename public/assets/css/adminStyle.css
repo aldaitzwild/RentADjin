@@ -67,7 +67,7 @@ button {
 }
 
 .menuTitle {
-    font-size: 20pt;
+    font-size: 16pt;
 }
 
 .menuViewTitle {
@@ -91,6 +91,7 @@ button {
     width: 40px;
     height: auto;
     transform: rotate(90deg);
+    float: right;
 }
 
 .iconeContainer > img {
@@ -112,9 +113,25 @@ ul {
     padding: 0;
 }
 
+@media screen and (max-width: 1368px) {
+    .menuTitle {
+        font-size: 10pt;
+    }
+
+    .filter-white {
+        width: 20px;
+        height: auto;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .active {
         display: inline-block !important;
+    }
+
+    .filter-white {
+        width: 30px;
+        height: auto;
     }
 
     .adminContainer {

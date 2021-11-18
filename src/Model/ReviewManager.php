@@ -33,4 +33,17 @@ class ReviewManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
+
+    public function avgRatingForOneGenie(int $id): int
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT AVG(rating) as average FROM reviews WHERE genie_id = :genie_id;"
+        );
+        $statement->bindValue('genie_id', $id, \PDO::PARAM_INT);
+
+        $statement->execute();
+        $average = $statement->fetch()['average'];
+
+        return $average === null ? 0 : ceil($average);
+    }
 }

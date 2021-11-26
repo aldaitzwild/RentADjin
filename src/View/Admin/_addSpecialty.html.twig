@@ -1,0 +1,52 @@
+<section class='container adminContainer addSpecialtyContainer d-none d-md-block' id="addSpecialtyMenuTitleView">
+
+	<h1 class="menuTitle menuViewTitle text-center">Ajouter une spécialité</h1>
+
+	<form action="/admin/specialty/add" method="post" enctype="multipart/form-data">
+		{% if errorsSpecialty is not empty %}
+			<ul class="errorsList">
+				{% if errorsSpecialty.max is defined %}
+					<li>
+						{{errorsSpecialty.max}}
+					</li>
+				{% endif %}
+				{% if errorsSpecialty.input.empty is defined %}
+					<li>
+						{{errorsSpecialty.input.empty}}
+					</li>
+				{% endif %}
+				{% if errorsSpecialty.files.empty is defined %}
+					<li>
+						{{errorsSpecialty.files.empty}}
+					</li>
+				{% endif %}
+				{% if errorsSpecialty.files.specialty is defined %}
+					{% for error in errorsSpecialty.files.img %}
+						<li>
+							{{error}}
+						</li>
+					{% endfor %}
+				{% endif %}
+			</ul>
+		{% endif %}
+
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="name" class="col-sm-2 col-form-label align-self-start text-nowrap">Nom</label>
+			<div class="col-sm-12">
+				<input type="text" name="name" id="name" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="specialty_img" class="form-label align-self-start text-nowrap">Ajouter l'image de la spécialtité</label>
+			<div class="col-sm-12">
+				<input type="file" name="specialty_img" id="specialty_img" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group text-center">
+			<input class="btn btn-primary col-6 col-md-3 mt-3 mb-3" type="submit" value="Ajouter">
+		</div>
+
+	</form>
+</section>

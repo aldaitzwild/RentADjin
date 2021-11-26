@@ -1,0 +1,30 @@
+<section class='container adminContainer usersContainer d-none d-md-block' id="userMenuTitleView">
+
+	<h1 class="menuTitle text-center menuViewTitle">Liste Utilisateurs</h1>
+	<table class="table table-striped usersTable">
+		<tbody>
+			<tr>
+				<th scope="col" class="text-center">#</th>
+				<th scope="col" class="text-center">Nom</th>
+				<th scope="col" class="text-center">Prenom</th>
+				<th scope="col" class="text-center">email</th>
+			</tr>
+
+			{% for user in users %}
+
+				<tr>
+					<th scope="row" class="text-center">
+						{{user.id}}
+					</th>
+					<td class="text-center">{{user.lastname}}</td>
+					<td class="text-center">{{user.firstname}}</td>
+					<td class="text-center">{{user.email}}</td>
+				</tr>
+
+
+			{% endfor %}
+		</tbody>
+
+
+	</table>
+</section>

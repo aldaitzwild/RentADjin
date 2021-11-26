@@ -1,0 +1,102 @@
+<section class='container adminContainer addProductsContainer d-none d-md-block' id="addProductMenuTitleView">
+
+	<h1 class="menuTitle menuViewTitle text-center">Ajouter un nouveau génie</h1>
+	{% if errorsGenie.input is defined %}
+		<ul class="errorsList">
+			{% if errorsGenie.input.empty is defined %}
+				<li>
+					{{errorsGenie.input.empty}}
+				</li>
+			{% endif %}
+			{% if errorsGenie.input.nb_wishes is defined %}
+				<li>
+					{{errorsGenie.input.nb_wishes}}
+				</li>
+			{% endif %}
+			{% if errorsGenie.input.costPerDay is defined %}
+				<li>
+					{{errorsGenie.input.costPerDay}}
+				</li>
+			{% endif %}
+			{% if errorsGenie.files.empty is defined %}
+				<li>
+					{{errorsGenie.files.empty}}
+				</li>
+			{% endif %}
+			{% if errorsGenie.files.lamp is defined %}
+				{% for error in errorsGenie.files.lamp %}
+					<li>
+						{{error}}
+					</li>
+				{% endfor %}
+			{% endif %}
+			{% if errorsGenie.files.genie is defined %}
+				{% for error in errorsGenie.genie %}
+					<li>
+						{{error}}
+					</li>
+				{% endfor %}
+			{% endif %}
+		</ul>
+	{% endif %}
+
+	<form action="/admin/genie/add" method="post" enctype="multipart/form-data">
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="name" class="col-sm-2 col-form-label align-self-start text-nowrap">Nom</label>
+			<div class="col-sm-12">
+				<input type="text" name="name" id="name" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="material" class="col-sm-2 col-form-label align-self-start text-nowrap">Matière de la lampe</label>
+			<div class="col-sm-12">
+				<input type="text" name="material" id="material" class="form-control"/>
+			</div>
+		</div>
+
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="nb_wishes" class="col-sm-2 col-form-label align-self-start text-nowrap text-nowrap">Nombre de voeux</label>
+			<div class="col-sm-12">
+				<input type="number" name="nb_wishes" id="nb_wishes" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="specialty_id" class="col-sm-2 col-form-label align-self-start text-nowrap ">Spécialité</label>
+			<div class="col-sm-12">
+				<select class="form-select" name="specialty_id" id="specialty_id">
+					{% for specialty in specialties %}
+						<option value={{specialty.id}}>{{ specialty.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="costPerDay" class="col-sm-2 col-form-label align-self-start text-nowrap text-nowrap">Prix (€/jour)</label>
+			<div class="col-sm-12">
+				<input type="number" name="costPerDay" id="costPerDay" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="lamp_img" class="form-label align-self-start text-nowrap">Ajouter l'image de la lampe</label>
+			<div class="col-sm-12">
+				<input type="file" name="lamp_img" id="lamp_img" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-4 row flex-column align-items-center">
+			<label for="genie_img" class="form-label align-self-start text-nowrap">Ajouter la photo du génie</label>
+			<div class="col-sm-12">
+				<input type="file" name="genie_img" id="genie_img" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group text-center">
+			<input class="btn btn-primary col-6 col-md-3 mb-3" type="submit" value="Ajouter">
+		</div>
+
+	</form>
+</section>

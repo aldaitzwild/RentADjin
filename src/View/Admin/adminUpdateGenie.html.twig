@@ -1,0 +1,125 @@
+{% extends 'parent.html.twig' %}
+
+{% block title %}Administration
+{% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/adminStyle.css">
+{% endblock %}
+
+{% block header %}
+	{% include "Admin/_adminHeader.html.twig" %}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="menuTitle menuViewTitle text-center">Modifier génie</h1>
+
+	<form action="/admin/genie/update/process?id={{genieInfo.genieId}}" method="post" enctype="multipart/form-data" class="container">
+		{% if errorsUpdate.input is defined %}
+			<ul class="errorsList">
+				{% if errorsUpdate.input.empty is defined %}
+					<li>
+						{{errorsUpdate.input.empty}}
+					</li>
+				{% endif %}
+				{% if errorsUpdate.input.nb_wishes is defined %}
+					<li>
+						{{errorsUpdate.input.nb_wishes}}
+					</li>
+				{% endif %}
+				{% if errorsUpdate.input.costPerDay is defined %}
+					<li>
+						{{errorsUpdate.input.costPerDay}}
+					</li>
+				{% endif %}
+				{% if errorsUpdate.files.empty is defined %}
+					<li>
+						{{errorsUpdate.files.empty}}
+					</li>
+				{% endif %}
+				{% if errorsUpdate.files.lamp is defined %}
+					{% for error in errorsUpdate.files.lamp %}
+						<li>
+							{{error}}
+						</li>
+					{% endfor %}
+				{% endif %}
+				{% if errorsUpdate.files.genie is defined %}
+					{% for error in errorsUpdate.genie %}
+						<li>
+							{{error}}
+						</li>
+					{% endfor %}
+				{% endif %}
+			</ul>
+		{% endif %}
+
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="name" class="col-sm-2 col-form-label align-self-start text-nowrap">Nom</label>
+			<div class="col-sm-12">
+				<input type="text" name="name" id="name" class="form-control" value="{{genieInfo.genieName}}"/>
+
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="material" class="col-sm-2 col-form-label align-self-start text-nowrap">Matière de la lampe</label>
+			<div class="col-sm-12">
+				<input type="text" name="material" id="material" class="form-control" value="{{genieInfo.material}}"/>
+
+			</div>
+		</div>
+
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="nb_wishes" class="col-sm-2 col-form-label align-self-start text-nowrap text-nowrap">Nombre de voeux</label>
+			<div class="col-sm-12">
+				<input type="number" name="nb_wishes" id="nb_wishes" class="form-control" value="{{genieInfo.nb_wishes}}" min="1"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="specialty_id" class="col-sm-2 col-form-label align-self-start text-nowrap ">Spécialité</label>
+			<div class="col-sm-12">
+				<select class="form-select" name="specialty_id" id="specialty_id">
+					{% for specialty in specialties %}
+						{% if specialty.id != genieInfo.specialty_id %}
+							<option value={{specialty.id}}>{{specialty.name}}</option>
+						{% else %}
+							<option value="{{specialty.id}}" selected="true">{{specialty.name}}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="costPerDay" class="col-sm-2 col-form-label align-self-start text-nowrap text-nowrap">Prix (€/jour)</label>
+			<div class="col-sm-12">
+				<input type="number" name="costPerDay" id="costPerDay" class="form-control" value="{{genieInfo.costPerDay}}" min="0"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-2 row flex-column align-items-center">
+			<label for="lamp_img" class="form-label align-self-start text-nowrap">Ajouter l'image de la lampe</label>
+			<div class="col-sm-12">
+				<input type="file" name="lamp_img" id="lamp_img" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-4 row flex-column align-items-center">
+			<label for="genie_img" class="form-label align-self-start text-nowrap">Ajouter la photo du génie</label>
+			<div class="col-sm-12">
+				<input type="file" name="genie_img" id="genie_img" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group text-center">
+			<input class="btn btn-primary col-6 col-md-3 mb-3" type="submit" value="Modifier">
+		</div>
+
+	</form>
+
+
+{% endblock %}

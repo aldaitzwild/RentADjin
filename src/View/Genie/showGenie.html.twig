@@ -1,0 +1,139 @@
+{% extends 'parent.html.twig' %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/welcomeStyle.css">
+	<link rel="stylesheet" href="/assets/css/showGenieStyle.css">
+	<link rel="stylesheet" href="/assets/css/headerStyle.css">
+
+
+{% endblock %}
+
+{% block title %}Génie -
+	{{genieInfo.genieName}}
+{% endblock %}
+
+{% block header %}
+	{% include "Genie/_headerGenie.html.twig" %}
+	{% include "Home/_header.html.twig" %}
+{% endblock %}
+
+{% block content %}
+
+	<div>
+		<a class="arrow col-1 d-sm-none" href='/genies?category={{genieInfo.specialty_id}}'>
+			<img class "arrowleft" src="/assets/images/arrowleft.png" alt="retour à la liste des génies"></a>
+	</div>
+
+	<div
+		class="container">
+
+		<!-- MAIN ROW : Contient photo génie + nom génie + 4 tuiles-->
+		<div
+			class="row justify-content-center">
+
+			<!--COLONNE 1 (6): Contient photo génie + nom génie -->
+			<div class="col-12 col-sm-6 presentation p-0 p-md-1">
+				<div class="genieContainer">
+					<img src={{genieInfo.genie_img}} class="genie" alt="Image du génie {{genieInfo.genieName}}">
+				</div>
+
+				<h4 class="mt-3">{{genieInfo.genieName}}
+					{% if avgRating is not empty %}
+						{% for i in 1.. avgRating %}
+							<img class="ms-3 pb-2 starGenie" src="/assets/images/star.svg" alt="etoile{{i}}">
+						{% endfor %}
+
+					{% endif %}
+				</h4>
+
+				<p class="ms-3">Spécialiste
+					{{genieInfo.specialtyName}}</p>
+			</div>
+
+			<!--COLONNE 2 (6): Contient 4 tuile spécialité + tuile image lampe + tuile voeux + tuile prix-->
+			<div
+				class="col-12 col-sm-6">
+
+				<!--INNER ROW 1-->
+				<div
+					class="row tilesblock justify-content-center">
+
+					<!--1-->
+					<div class="col-6 g-0 lamptile ">
+						<img src={{genieInfo.lamp_img}} class="lampimg" alt="Image de la lampe de {{genieInfo.genieName}}">
+					</div>
+
+					<!--2-->
+					<div class="col-6 g-0 specialtytile ">
+						<img src={{genieInfo.img}} class="specialtyimg" alt="Image de la spécialité {{genieInfo.specialtyName}}">
+					</div>
+
+					<!--3-->
+					<div class="col-6 wishtile">
+						<div class="tileContainer">
+							<h2>{{genieInfo.nb_wishes}}</h2>
+							<p>voeux</p>
+						</div>
+					</div>
+
+					<!--4-->
+					<div class="col-6 costtile">
+						<div class="tileContainer">
+							<h2>{{genieInfo.costPerDay}}€</h2>
+							<p>/jour</p>
+						</div>
+					</div>
+
+					<div class="col-12">
+
+						{% include "Genie/_bookingForm.html.twig" %}
+
+					</div>
+
+				</div>
+				<!--FIN INNER ROW1-->
+				<!--INNER ROW 2 / will display booking block-->
+				<div class="row booking col-12 col-sm-11">
+					<p></p>
+				</div>
+			</div>
+		</div>
+		<!--Contient description génie -->
+		<div class="row justify-content-start description">
+			<div class="col-12 col-sm-6 g-0">
+				<p>{{genieInfo.description}}</p>
+			</div>
+		</div>
+		<hr>
+		<div class="reviews">
+			<h4 class="mb-5">Commentaires :
+			</h4>
+			{% if opinions is not empty %}
+				{% for opinion in opinions %}
+					{% if opinion.review is not empty %}
+						{% include "Genie/_reviews.html.twig" %}
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<div class="noReview mb-5">
+					Encore aucun avis sur ce genie !</div>
+			{% endif %}
+			<hr>
+		</div>
+		{% if userInfo.id is not empty %}
+			<div class="addReview">
+
+				{% include "Genie/_addGenieReview.html.twig" %}
+
+			</div>
+		{% endif %}
+	</div>
+
+{% endblock %}
+{% block footer %}
+	{% include "Home/_footer.html.twig" %}
+{% endblock %}
+
+{% block javascript %}
+	<script src="/assets/scripts/navScript.js"></script>
+{% endblock %}

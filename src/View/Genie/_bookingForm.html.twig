@@ -1,0 +1,47 @@
+<section class="formContainer container d-flex flex-column  justify-content-center">
+	<div class="row">
+		<h2 class="text-center bookingTitle">Réserver ce Génie
+		</h2>
+	</div>
+
+	{% if errorsBooking is not empty %}
+		<ul class="errorsList">
+			{% if errorsBooking.input.empty is defined %}
+				<li>
+					{{errorsBooking.input.empty}}
+				</li>
+			{% endif %}
+			{% if errorsBooking.notAvailable is defined %}
+				<li>
+					{{errorsBooking.notAvailable}}
+				</li>
+			{% endif %}
+			{% if errorsBooking.invalid is defined %}
+				<li>
+					{{errorsBooking.invalid}}
+				</li>
+			{% endif %}
+		</ul>
+	{% endif %}
+
+	<form action="/genies/booking?id={{genieInfo.genieId}}" method="POST" class="row">
+
+		<input type="hidden" name="user_id" value="1">
+		<div class="mb-3 col-12 col-lg-6">
+			<label for="checkin" class="form-label text-nowrap">Date de début</label>
+			<input type="date" name="checkin" class="form-control" id="checkin" placeholder="31/12/1999" min="{{date}}">
+		</div>
+		<div class="mb-3 col-12 col-lg-6">
+			<label for="checkout" class="form-label">Date de fin</label>
+			<input type="date" class="form-control" name="checkout" id="checkout" placeholder="31/12/1999">
+		</div>
+		<div class="col-12 text-center">
+			{% if userInfo.id is not defined %}
+				<a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Reserver</a>
+			{% else %}
+				<button class="btn btn-primary" {% if userInfo.id is defined %} type="submit" {% endif %}>
+					Reserver</button>
+			{% endif %}
+		</div>
+	</form>
+</section>

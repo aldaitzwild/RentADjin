@@ -1,0 +1,154 @@
+:root {
+    --primary-color: #090f44;
+}
+
+.adminContainer {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 65vw;
+    top: 5px;
+    left: 27vw;
+    max-height: 79vh;
+    overflow-y: scroll;
+}
+
+.adminGlobalContainer {
+    position: relative;
+    margin-top: 1.5em;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.informationView {
+    height: 80vh;
+    border-radius: 25px;
+    margin-left: 20px;
+    background-color: #f3f3f3;
+}
+
+.usersMenu,
+.usersMenu > button {
+    border-radius: 25px 25px 0 0;
+}
+
+.addSpecialtyMenu,
+.addSpecialtyMenu > button {
+    border-radius: 0 0 25px 25px;
+}
+
+.menu {
+    background-color: var(--primary-color);
+    margin-bottom: 1px;
+    height: 50px;
+    line-height: 50px;
+}
+
+button {
+    width: 100%;
+    color: white !important;
+}
+
+.adminHeaderTitle {
+    color: var(--primary-color);
+    font-size: 40pt;
+}
+
+.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-control,
+.form-select {
+    height: 38px;
+}
+
+.menuTitle {
+    font-size: 16pt;
+}
+
+.menuViewTitle {
+    margin-top: 1em;
+}
+
+.errorsList {
+    color: #aa0000;
+    margin: 2em 0 0 0;
+}
+
+.arrow {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.filter-white {
+    filter: invert(97%) sepia(4%) saturate(274%) hue-rotate(280deg)
+        brightness(116%) contrast(100%);
+    width: 40px;
+    height: auto;
+    transform: rotate(90deg);
+    float: right;
+}
+
+.iconeContainer > img {
+    width: 80px;
+    height: 80px;
+}
+
+.iconeUserContainer > img {
+    width: 60px;
+    height: 60px;
+    margin-top: 15px;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+@media screen and (max-width: 1368px) {
+    .menuTitle {
+        font-size: 10pt;
+    }
+
+    .filter-white {
+        width: 20px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .active {
+        display: inline-block !important;
+    }
+
+    .filter-white {
+        width: 30px;
+        height: auto;
+    }
+
+    .adminContainer {
+        position: unset;
+        max-width: 95vw !important;
+        width: 95vw;
+    }
+
+    .adminHeaderTitle {
+        font-size: 24pt;
+    }
+
+    .menuViewTitle {
+        font-size: 28pt;
+    }
+
+    .menuTitle {
+        font-size: 16pt;
+    }
+}

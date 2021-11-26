@@ -1,0 +1,9 @@
+<h2 class="reviewUserName">{{opinion.firstname}}
+	{{opinion.lastname}}</h2>
+<p class="mx-5 mt-3">
+	{% for i in 1.. opinion.rating %}
+		<img class="ms-3 starIcone" src="/assets/images/star.svg" alt="etoile{{i}}">
+	{% endfor %}
+</p>
+
+<p class="ms-5 mt-3">{{opinion.review}}</p>

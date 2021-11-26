@@ -1,0 +1,30 @@
+<section class='container adminContainer productsContainer d-none d-md-block' id="productMenuTitleView">
+
+	<h1 class="menuTitle text-center menuViewTitle">Liste Produits</h1>
+	<table class="table table-striped">
+		<tbody>
+			<tr>
+				<th scope="col" class="text-center">#</th>
+				<th scope="col" class="text-center">id catégorie</th>
+				<th scope="col" class="text-center">Nom</th>
+				<th scope="col" class="text-center">Prix Journalier</th>
+			</tr>
+
+			{% for genie in genies %}
+
+				<tr>
+					<th scope="row" class="text-center">
+						<a href="/admin/genie?id={{genie.id}}">{{genie.id}}</a>
+					</th>
+					<td class="text-center">{{genie.specialty_id}}</td>
+					<td class="text-center">{{genie.name}}</td>
+					<td class="text-center">{{genie.costPerDay}}€</td>
+				</tr>
+
+
+			{% endfor %}
+		</tbody>
+
+
+	</table>
+</section>

@@ -1,0 +1,49 @@
+<section class='container adminContainer addUserContainer d-none d-md-block' id="addUserMenuTitleView">
+
+	<h1 class="menuTitle menuViewTitle text-center">Ajouter un utilisateur</h1>
+
+	<form action="/admin/user/add" method="post" enctype="multipart/form-data">
+		{% if errorsUser.input is defined %}
+			<ul class="errorsList">
+				{% if errorsUser.input.empty is defined %}
+					<li>
+						{{errorsUser.input.empty}}
+					</li>
+				{% endif %}
+			</ul>
+		{% endif %}
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="lastname" class="col-sm-2 col-form-label align-self-start text-nowrap">Nom</label>
+			<div class="col-sm-12">
+				<input type="text" name="lastname" id="lastname" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="firstname" class="col-sm-2 col-form-label align-self-start text-nowrap">Prénom</label>
+			<div class="col-sm-12">
+				<input type="text" name="firstname" id="firstname" class="form-control"/>
+			</div>
+		</div>
+
+
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="email" class="col-sm-2 col-form-label align-self-start text-nowrap text-nowrap">Email</label>
+			<div class="col-sm-12">
+				<input type="email" name="email" id="email" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group mb-3 row flex-column align-items-center">
+			<label for="address" class="col-sm-2 col-form-label align-self-start text-nowrap ">Adresse</label>
+			<div class="col-sm-12">
+				<input type="text" name="address" id="address" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="form-group text-center">
+			<input class="btn btn-primary col-6 col-md-3 mt-3 mb-3" type="submit" value="Ajouter">
+		</div>
+
+	</form>
+</section>
